@@ -69,6 +69,45 @@ export const PHASE_BLURBS: PhaseMap = {
   Restoration: 'The quiet return. Energy collects for the next rise.',
 }
 
+// The grid is meaningful. Each phase sits in a colored cell whose color encodes
+// two axes from the source graphic:
+//   • lightness = energy   (light/expansive  ->  dark/contracted)
+//   • hue       = valence  (yellow/attractive ->  purple/aversive)
+// Cells are listed in CSS-grid row-major order:
+//   row 0 (high energy):  Rising      Peaking        Withdrawal
+//   row 1 (low energy):   Restoration Bottoming Out  Diminishing
+// The wave circulates clockwise through them: across the top, down the right,
+// back across the bottom, up the left — and round again.
+export interface Cell {
+  phase: Phase
+  bg: string
+  /** Body / copy color for legibility against the cell. */
+  ink: string
+  /** Phase-name (eyebrow) color. */
+  eyebrow: string
+  /** Index in wave order, used to re-sequence the stack on mobile. */
+  order: number
+  /** Short note on the cell's place in the energy/valence field. */
+  field: string
+}
+
+export const CELLS: Cell[] = [
+  { phase: 'Rising', bg: '#ecdb98', ink: '#473c1f', eyebrow: '#8a6e1f', order: 0, field: 'high energy · attractive' },
+  { phase: 'Peaking', bg: '#f5edc1', ink: '#46391c', eyebrow: '#a9851f', order: 1, field: 'peak energy · attractive' },
+  { phase: 'Withdrawal', bg: '#ddc4dc', ink: '#43374b', eyebrow: '#875680', order: 2, field: 'high energy · aversive' },
+  { phase: 'Restoration', bg: '#bd9a3c', ink: '#352a0c', eyebrow: '#594711', order: 5, field: 'low energy · attractive' },
+  { phase: 'Bottoming Out', bg: '#5b3b52', ink: '#f3e3ee', eyebrow: '#e2bfd9', order: 4, field: 'lowest energy · aversive' },
+  { phase: 'Diminishing', bg: '#91577c', ink: '#f8ebf3', eyebrow: '#f1d6e9', order: 3, field: 'low energy · aversive' },
+]
+
+// The four corners of meaning, for the legend / axis labels.
+export const FIELD = {
+  energyHigh: 'High energy — expansive, active',
+  energyLow: 'Low energy — contracted, receptive',
+  valenceAttractive: 'Yellow — attractive',
+  valenceAversive: 'Purple — aversive',
+}
+
 // Ordered for narrative flow: intimate & familiar first, widening to the
 // cosmic and civilizational.
 export const MODES: Mode[] = [

@@ -1,12 +1,15 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { MODES, PHASE_BLURBS, QUADRANTS, type Phase } from './data/modes'
-import { Wavelength } from './components/Wavelength'
-import { PhaseLabels } from './components/PhaseLabels'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { FIELD, MODES, PHASE_BLURBS, QUADRANTS, type Phase } from './data/modes'
+import { WaveGrid } from './components/WaveGrid'
 
 const COURSE_URL = 'https://aptitude.guru/philosophy/archetypal-wavelength'
 const APP_URL = 'https://github.com/Geoffe-Ga/WavelengthWatch'
 
 const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v)
+
+// The canonical "panel": the wave naming and explaining its own phases. Shown
+// on the hero and whenever no mode is active.
+const canonicalBody = (phase: Phase) => PHASE_BLURBS[phase]
 
 export default function App() {
   const revealRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -18,23 +21,17 @@ export default function App() {
     const vh = window.innerHeight
     const center = vh / 2
 
-    // Hero (canonical) fades out over the first ~60% of a viewport of scroll.
-    const scrolled = window.scrollY
-    setCanonicalOpacity(clamp01(1 - scrolled / (0.6 * vh)))
+    setCanonicalOpacity(clamp01(1 - window.scrollY / (0.6 * vh)))
 
-    // Each mode's reveal-zone is "fully on" when its center sits at the
-    // viewport center; it fades to zero ~0.45vh either side (i.e. while the
-    // neighboring white bar is sweeping across the wave).
     let best = 0
     let bestOpacity = 0
-    const window45 = 0.45 * vh
+    const fade = 0.45 * vh
     for (let i = 0; i < MODES.length; i++) {
       const el = revealRefs.current[i]
       if (!el) continue
       const rect = el.getBoundingClientRect()
       const revealCenter = rect.top + rect.height / 2
-      const dist = Math.abs(revealCenter - center)
-      const op = clamp01(1 - dist / window45)
+      const op = clamp01(1 - Math.abs(revealCenter - center) / fade)
       if (op > bestOpacity) {
         bestOpacity = op
         best = i
@@ -60,27 +57,23 @@ export default function App() {
     }
   }, [update])
 
+  // Whichever is stronger — the hero's canonical state or the active mode —
+  // drives the single text layer, so the copy is never doubled.
+  const showCanonical = canonicalOpacity >= activeOpacity
   const activeMode = MODES[active]
-  const accent = QUADRANTS[activeMode.quadrant].color
-  const dotOpacity = Math.max(activeOpacity, canonicalOpacity * 0.85)
-
-  const canonicalBody = useMemo(
-    () => (phase: Phase) => PHASE_BLURBS[phase],
-    [],
-  )
-  const activeBody = useMemo(
-    () => (phase: Phase) => activeMode.phases[phase],
-    [activeMode],
-  )
+  const bodyOf = showCanonical ? canonicalBody : (p: Phase) => activeMode.phases[p]
+  const textOpacity = showCanonical ? canonicalOpacity : activeOpacity
 
   return (
     <div className="page">
-      {/* Fixed wavelength behind everything. */}
-      <div className="wave-stage" aria-hidden="true">
-        <div className="wave-frame">
-          <Wavelength accent={accent} dotOpacity={dotOpacity} />
-          <PhaseLabels bodyOf={canonicalBody} accent={accent} opacity={canonicalOpacity} muted />
-          <PhaseLabels bodyOf={activeBody} accent={accent} opacity={activeOpacity} />
+      {/* Fixed wavelength grid behind everything. */}
+      <div className="grid-stage" aria-hidden="true">
+        <div className="grid-wrap">
+          <span className="axis axis-top">{FIELD.energyHigh}</span>
+          <span className="axis axis-bottom">{FIELD.energyLow}</span>
+          <span className="axis axis-left">{FIELD.valenceAttractive}</span>
+          <span className="axis axis-right">{FIELD.valenceAversive}</span>
+          <WaveGrid bodyOf={bodyOf} textOpacity={textOpacity} />
         </div>
       </div>
 
@@ -123,7 +116,7 @@ export default function App() {
             </div>
           </div>
           <div className="scroll-cue" aria-hidden="true">
-            <span>Scroll — the wave stays; the meaning changes</span>
+            <span>Scroll — the field stays; the meaning changes</span>
             <span className="scroll-arrow">↓</span>
           </div>
         </section>
@@ -176,7 +169,7 @@ export default function App() {
             <p className="footnote">
               Modes drawn from <em>The Archetypal Wavelength</em> — addiction, dopamine, the
               seasons, the breath, the yugas, enshittification, the rise and fall of civilizations,
-              and the Krebs cycle. One wave, {MODES.length} faces.
+              and the Krebs cycle. One field, {MODES.length} faces.
             </p>
           </div>
         </footer>
