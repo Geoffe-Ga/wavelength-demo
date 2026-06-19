@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { FIELD, MODES, PHASE_BLURBS, type Phase } from "./data/modes";
 import { WaveForm } from "./components/WaveForm";
 import { computeWaveState } from "./lib/scroll";
+import { selectModes } from "./lib/modeSelection";
 // The brand mark is a tight crop of the original two-arrow graphic; the intro
 // figure is the original labeled diagram.
 import waveMark from "./assets/wavelength-mark.png";
@@ -16,6 +17,8 @@ const canonicalBody = (phase: Phase) => PHASE_BLURBS[phase];
 
 type Panel = { canonical: boolean; index: number };
 
+const MOBILE_QUERY = "(max-width: 760px)";
+
 export default function App() {
   const revealRefs = useRef<(HTMLDivElement | null)[]>([]);
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -23,9 +26,19 @@ export default function App() {
   // times during a scroll — never per frame.
   const [panel, setPanel] = useState<Panel>({ canonical: true, index: 0 });
 
+  // On a phone the wave keeps its shape, so only the short-copy modes are shown.
+  const [isMobile, setIsMobile] = useState(
+    () =>
+      typeof window !== "undefined" && window.matchMedia(MOBILE_QUERY).matches,
+  );
+  const modes = selectModes(isMobile);
+  const modesRef = useRef(modes);
+  modesRef.current = modes;
+
   const update = useCallback(() => {
     const vh = window.innerHeight;
-    const centers = revealRefs.current.map((el) => {
+    const centers = modesRef.current.map((_, i) => {
+      const el = revealRefs.current[i];
       if (!el) return Number.POSITIVE_INFINITY;
       const rect = el.getBoundingClientRect();
       return rect.top + rect.height / 2;
@@ -48,6 +61,13 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const mq = window.matchMedia(MOBILE_QUERY);
+    const onChange = () => setIsMobile(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
     let raf = 0;
     const onScroll = () => {
       cancelAnimationFrame(raf);
@@ -61,11 +81,13 @@ export default function App() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, [update]);
+    // Re-measure when the mode set changes (desktop <-> mobile).
+  }, [update, isMobile]);
 
+  const activeIndex = Math.min(panel.index, modes.length - 1);
   const bodyOf = panel.canonical
     ? canonicalBody
-    : (p: Phase) => MODES[panel.index].phases[p];
+    : (p: Phase) => modes[activeIndex].phases[p];
 
   return (
     <div className="page">
@@ -173,14 +195,14 @@ export default function App() {
           </div>
         </section>
 
-        {MODES.map((m, i) => {
+        {modes.map((m, i) => {
           return (
             <section className="step" key={m.mode} aria-label={m.title}>
               <div className="bar">
                 <div className="bar-inner">
                   <span className="bar-index">
                     {String(i + 1).padStart(2, "0")} /{" "}
-                    {String(MODES.length).padStart(2, "0")}
+                    {String(modes.length).padStart(2, "0")}
                   </span>
                   <h2>{m.title}</h2>
                   <p className="bar-gloss">{m.gloss}</p>
