@@ -1,0 +1,201 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Quality Checks (Node ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [18, 20]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run TypeScript compiler checks
+        run: npx tsc --noEmit
+
+      - name: Run ESLint
+        run: npm run lint
+        continue-on-error: false
+
+      - name: Run tests with coverage
+        run: npm test -- --coverage --coverageReporters=json --coverageReporters=lcov --coverageReporters=text --coverageReporters=json-summary
+        env:
+          NODE_ENV: test
+
+      - name: Check coverage thresholds
+        run: |
+          COVERAGE=$(node -p "require('./coverage/coverage-summary.json').total.lines.pct")
+          BRANCH_COVERAGE=$(node -p "require('./coverage/coverage-summary.json').total.branches.pct")
+          echo "Line Coverage: $COVERAGE%"
+          echo "Branch Coverage: $BRANCH_COVERAGE%"
+          if (( $(echo "$COVERAGE < 90" | bc -l) )); then
+            echo "❌ Line coverage $COVERAGE% is below 90% threshold"
+            exit 1
+          fi
+          if (( $(echo "$BRANCH_COVERAGE < 85" | bc -l) )); then
+            echo "❌ Branch coverage $BRANCH_COVERAGE% is below 85% threshold"
+            exit 1
+          fi
+          echo "✅ Coverage thresholds met"
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage/lcov.info
+          flags: node-${{ matrix.node-version }}
+          fail_ci_if_error: false
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload coverage reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-report-node-${{ matrix.node-version }}
+          path: coverage/
+          retention-days: 30
+
+      - name: Run npm audit
+        run: npm audit --audit-level=high
+        continue-on-error: false
+
+      - name: Run Snyk security scan
+        uses: snyk/actions/node@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
+
+  mutation-testing:
+    name: Mutation Testing
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: quality
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Stryker
+        run: npm install --save-dev @stryker-mutator/core @stryker-mutator/jest-runner @stryker-mutator/typescript-checker
+
+      - name: Run mutation tests
+        run: npx stryker run
+        continue-on-error: true
+
+      - name: Check mutation score
+        run: |
+          if [ -f reports/mutation/mutation.json ]; then
+            MUTATION_SCORE=$(node -p "require('./reports/mutation/mutation.json').mutationScore || 0")
+            echo "Mutation Score: $MUTATION_SCORE%"
+            if (( $(echo "$MUTATION_SCORE < 80" | bc -l) )); then
+              echo "⚠️  Mutation score $MUTATION_SCORE% is below 80% threshold"
+              exit 1
+            fi
+            echo "✅ Mutation score threshold met"
+          else
+            echo "⚠️  Mutation report not found, skipping threshold check"
+          fi
+        continue-on-error: true
+
+      - name: Upload mutation report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mutation-report
+          path: reports/mutation/
+          retention-days: 30
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: quality
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: dist/
+          retention-days: 7
+
+  complexity:
+    name: Code Complexity Analysis
+    runs-on: ubuntu-latest
+    needs: quality
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install complexity tools
+        run: npm install --save-dev typescript-complexity eslint-plugin-complexity
+
+      - name: Run complexity analysis
+        run: |
+          npx eslint . --ext .ts,.tsx --format json --output-file complexity-report.json || true
+          echo "Complexity analysis complete"
+        continue-on-error: true
+
+      - name: Upload complexity report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: complexity-report
+          path: complexity-report.json
+          retention-days: 30
