@@ -1,6 +1,10 @@
 // A crisp, vector recreation of the canonical Archetypal Wavelength diagram.
 // Drawing it as SVG keeps it razor-sharp at any size or pixel density — far
 // better than upscaling the source screenshot, whose text would only blur.
+//
+// Layout note: every label owns a reserved region so nothing overlaps —
+// descriptors hug the left of the centre column, the diagonal phase names sit
+// in the gaps, and the two arrows are kept clear of both.
 
 const COL = {
   cream: '#f4eac1',
@@ -13,6 +17,8 @@ const COL = {
 const ARROW = '#585560'
 const INK = '#2f2a33'
 const SUB = '#6f6675'
+const SERIF = "'Fraunces', Georgia, serif"
+const SANS = "'Inter', system-ui, sans-serif"
 
 // viewBox geometry
 const W = 1200
@@ -24,13 +30,9 @@ const C1 = 400
 const C2 = 800
 
 // A forward arrowhead (triangle) pointing along +x, then rotated into place.
-function Arrowhead({ x, y, rot, scale = 1 }: { x: number; y: number; rot: number; scale?: number }) {
+function Arrowhead({ x, y, rot }: { x: number; y: number; rot: number }) {
   return (
-    <path
-      d="M-34 -40 L46 0 L-34 40 Z"
-      fill={ARROW}
-      transform={`translate(${x} ${y}) rotate(${rot}) scale(${scale})`}
-    />
+    <path d="M-30 -34 L40 0 L-30 34 Z" fill={ARROW} transform={`translate(${x} ${y}) rotate(${rot})`} />
   )
 }
 
@@ -54,8 +56,8 @@ export function WavelengthDiagram() {
       <rect x="0" y="0" width={W} height={TOP} fill={COL.white} />
       <rect x="0" y={BOT} width={W} height={H - BOT} fill={COL.gray} />
 
-      {/* Dotted separators, like the original */}
-      <g stroke="rgba(60,50,65,0.45)" strokeWidth="1.5" strokeDasharray="2 7">
+      {/* Dotted separators */}
+      <g stroke="rgba(60,50,65,0.4)" strokeWidth="1.5" strokeDasharray="2 7">
         <line x1="0" y1={TOP} x2={W} y2={TOP} />
         <line x1="0" y1={BOT} x2={W} y2={BOT} />
         <line x1="0" y1={MIDY} x2={W} y2={MIDY} />
@@ -63,88 +65,86 @@ export function WavelengthDiagram() {
         <line x1={C2} y1={TOP} x2={C2} y2={BOT} />
       </g>
 
-      {/* The two sweeping arrows */}
-      <g fill="none" stroke={ARROW} strokeWidth="40" strokeLinecap="round">
-        {/* Rise + crest + fall (the down arrow) */}
-        <path d="M150 392 C 150 150, 360 96, 470 120 C 612 150, 690 360, 668 560" />
-        {/* Bottom + restoration (the up arrow) */}
-        <path d="M690 690 C 770 752, 980 720, 1052 560 C 1070 520, 1078 492, 1082 470" />
+      {/* The two sweeping arrows (kept clear of the labels) */}
+      <g fill="none" stroke={ARROW} strokeWidth="34" strokeLinecap="round">
+        <path d="M150 432 C 146 180, 356 100, 476 126 C 606 154, 690 380, 666 650" />
+        <path d="M752 692 C 824 742, 980 712, 1046 566" />
       </g>
-      <Arrowhead x={668} y={566} rot={108} />
-      <Arrowhead x={1064} y={520} rot={-62} />
+      <Arrowhead x={666} y={662} rot={93} />
+      <Arrowhead x={1046} y={566} rot={-62} />
 
-      {/* Phase headings (serif) */}
-      <g fill={INK} fontFamily="'Fraunces', Georgia, serif" fontWeight={600}>
-        <text x={W / 2} y={54} fontSize="46" textAnchor="middle" letterSpacing="2">
+      {/* Phase headings */}
+      <g fill={INK} fontFamily={SERIF} fontWeight={600} letterSpacing="2">
+        <text x={W / 2} y={54} fontSize="46" textAnchor="middle">
           PEAKING
         </text>
-        <text x={W / 2} y={798} fontSize="46" textAnchor="middle" letterSpacing="2">
+        <text x={W / 2} y={794} fontSize="46" textAnchor="middle">
           BOTTOMING OUT
         </text>
-        <text x={150} y={250} fontSize="40" textAnchor="middle" transform="rotate(-58 150 250)" letterSpacing="2">
+        <text x={150} y={278} fontSize="38" textAnchor="middle" transform="rotate(-58 150 278)">
           RISING
         </text>
-        <text x={735} y={235} fontSize="40" textAnchor="middle" transform="rotate(58 735 235)" letterSpacing="2">
+        <text x={690} y={232} fontSize="33" textAnchor="middle" transform="rotate(58 690 232)">
           WITHDRAWAL
         </text>
-        <text x={690} y={632} fontSize="38" textAnchor="middle" transform="rotate(58 690 632)" letterSpacing="2">
+        <text x={590} y={590} fontSize="30" textAnchor="middle" transform="rotate(58 590 590)">
           DIMINISHING
         </text>
-        <text x={1086} y={585} fontSize="40" textAnchor="middle" transform="rotate(-58 1086 585)" letterSpacing="2">
+        <text x={1078} y={592} fontSize="33" textAnchor="middle" transform="rotate(-58 1078 592)">
           RESTORATION
         </text>
       </g>
 
-      {/* Field descriptors */}
-      <g fontFamily="'Fraunces', Georgia, serif">
-        <text x={430} y={252} fill={INK} fontSize="40" fontWeight={600}>
+      {/* Energy descriptors (left of the centre column) */}
+      <g fontFamily={SERIF} fill={INK} fontWeight={600} fontSize="34">
+        <text x={418} y={240}>
           High
-          <tspan x={430} dy="44">
+          <tspan x={418} dy="40">
             Energy
           </tspan>
         </text>
-        <text x={430} y={500} fill={INK} fontSize="40" fontWeight={600}>
+        <text x={418} y={472}>
           Low
-          <tspan x={430} dy="44">
+          <tspan x={418} dy="40">
             Energy
           </tspan>
         </text>
       </g>
-      <g fontFamily="'Inter', system-ui, sans-serif" fill={SUB} fontSize="25">
-        <text x={430} y={352}>
+      <g fontFamily={SANS} fill={SUB} fontSize="22">
+        <text x={418} y={332}>
           Expanded
-          <tspan x={430} dy="30">
+          <tspan x={418} dy="28">
             Lightness
           </tspan>
-          <tspan x={430} dy="30">
+          <tspan x={418} dy="28">
             Active
           </tspan>
         </text>
-        <text x={430} y={600}>
+        <text x={418} y={564}>
           Contracted
-          <tspan x={430} dy="30">
+          <tspan x={418} dy="28">
             Density
           </tspan>
-          <tspan x={430} dy="30">
+          <tspan x={418} dy="28">
             Receptive
           </tspan>
         </text>
       </g>
 
-      {/* Valence descriptors (vertical) */}
-      <g transform={`rotate(-90 712 392)`}>
-        <text x={712} y={392} fill={INK} fontSize="36" fontWeight={600} fontFamily="'Fraunces', Georgia, serif" textAnchor="middle">
+      {/* Valence descriptors (vertical, spanning the row divider) */}
+      <g transform="rotate(-90 742 462)">
+        <text x={742} y={460} fill={INK} fontSize="32" fontWeight={600} fontFamily={SERIF} textAnchor="middle">
           Aversion
         </text>
-        <text x={712} y={424} fill={SUB} fontSize="24" fontFamily="'Inter', system-ui, sans-serif" textAnchor="middle">
+        <text x={742} y={490} fill={SUB} fontSize="21" fontFamily={SANS} textAnchor="middle">
           Alienation · Doubt · Fear
         </text>
       </g>
-      <g transform={`rotate(-90 846 392)`}>
-        <text x={846} y={392} fill={INK} fontSize="36" fontWeight={600} fontFamily="'Fraunces', Georgia, serif" textAnchor="middle">
+      <g transform="rotate(-90 856 462)">
+        <text x={856} y={460} fill={INK} fontSize="32" fontWeight={600} fontFamily={SERIF} textAnchor="middle">
           Attraction
         </text>
-        <text x={846} y={424} fill={SUB} fontSize="24" fontFamily="'Inter', system-ui, sans-serif" textAnchor="middle">
+        <text x={856} y={490} fill={SUB} fontSize="21" fontFamily={SANS} textAnchor="middle">
           Belonging · Esteem · Bliss
         </text>
       </g>
