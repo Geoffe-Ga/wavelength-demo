@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { FIELD, MODES, PHASE_BLURBS, QUADRANTS, type Phase } from './data/modes'
 import { WaveForm } from './components/WaveForm'
+import waveImage from './assets/wavelength-motion.jpeg'
 
 const COURSE_URL = 'https://aptitude.guru/philosophy/archetypal-wavelength'
 const APP_URL = 'https://github.com/Geoffe-Ga/WavelengthWatch'
@@ -118,6 +119,24 @@ export default function App() {
           <div className="scroll-cue" aria-hidden="true">
             <span>Scroll — the field stays; the meaning changes</span>
             <span className="scroll-arrow">↓</span>
+          </div>
+        </section>
+
+        <section className="origin">
+          <div className="origin-inner">
+            <p className="kicker">The shape of it</p>
+            <h2>One wave — up, down, and back again.</h2>
+            <figure className="origin-figure">
+              <img
+                src={waveImage}
+                alt="The Archetypal Wavelength: an arrow rises on the left, crests, and curves down through the center; a second arrow sweeps from the bottom back up on the right toward the next peak."
+              />
+            </figure>
+            <figcaption className="origin-caption">
+              Rising on the left, cresting at the peak, the long fall down through the center, the
+              bottoming out — and the turn back up toward the next peak. Every mode below is this
+              same motion, wearing a different face.
+            </figcaption>
           </div>
         </section>
 

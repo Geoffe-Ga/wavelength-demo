@@ -332,6 +332,50 @@ a {
   50% { transform: translateY(6px); opacity: 1; }
 }
 
+/* Original-image figure ------------------------------------------- */
+.origin {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 90px 24px;
+  background: linear-gradient(180deg, #f3e8d2 0%, #ece0cd 100%);
+  box-shadow: 0 -1px 0 var(--line), 0 1px 0 var(--line);
+}
+.origin-inner {
+  max-width: 720px;
+}
+.origin h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 4.4vw, 3rem);
+  line-height: 1.07;
+  letter-spacing: -0.02em;
+  margin: 0 0 26px;
+  color: var(--ink);
+}
+.origin-figure {
+  margin: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 34px 80px -34px rgba(58, 38, 58, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+.origin-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.origin-caption {
+  margin: 24px auto 0;
+  max-width: 40em;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--slate);
+}
+
 /* Steps ------------------------------------------------------------ */
 .step {
   display: flex;
