@@ -2,16 +2,16 @@
   --cream: #faf4e3;
   --cream-soft: #fbf7ec;
   --paper: #f6efda;
-  --mauve: #e7d4e0;
   --ink: #3c3742;
   --ink-soft: #6c6470;
   --slate: #4a4550;
   --line: rgba(70, 60, 80, 0.1);
+  --gutter: #e7dac1;
 
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --maxw: 1100px;
+  --maxw: 1060px;
 }
 
 * {
@@ -37,9 +37,9 @@ a {
 }
 
 /* ------------------------------------------------------------------ */
-/* Fixed wavelength stage                                              */
+/* Fixed wavelength grid (the centerpiece)                            */
 /* ------------------------------------------------------------------ */
-.wave-stage {
+.grid-stage {
   position: fixed;
   inset: 0;
   z-index: 0;
@@ -49,83 +49,109 @@ a {
   pointer-events: none;
 }
 
-.wave-frame {
+.grid-wrap {
   position: relative;
-  width: min(var(--maxw), 94vw);
-  aspect-ratio: 1000 / 520;
-  overflow: visible;
+  width: min(var(--maxw), 92vw);
+}
+
+.waveform {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1200 / 760;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 36px 90px -36px rgba(50, 34, 56, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22);
 }
 
 .wave-svg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
 }
 
-.phase-layer {
+.wave-cards {
   position: absolute;
   inset: 0;
-  transition: opacity 650ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  /* No CSS transition: opacity is written from scroll position every frame
+     (imperatively, via ref), so the copy tracks the scroll 1:1 with no lag. */
   will-change: opacity;
 }
 
-.phase-card {
+.wave-card {
   position: absolute;
-  width: clamp(148px, 17vw, 224px);
+  width: 15.8%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 5px;
-  padding: 9px 13px;
-  border-radius: 13px;
-  background: rgba(250, 245, 233, 0.72);
+  padding: 9px 12px;
+  border-radius: 12px;
+  text-align: center;
+  background: rgba(251, 247, 236, 0.85);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(80, 70, 90, 0.08);
-  box-shadow: 0 8px 26px rgba(60, 48, 70, 0.1);
+  border: 1px solid rgba(70, 55, 75, 0.07);
+  box-shadow: 0 8px 22px rgba(45, 32, 52, 0.16);
+}
+.wave-card.place-below {
+  transform: translate(-50%, 18px);
+}
+.wave-card.place-above {
+  transform: translate(-50%, calc(-100% - 18px));
 }
 
-.phase-card.align-center {
-  text-align: center;
-  align-items: center;
-}
-.phase-card.align-left {
-  text-align: left;
-  align-items: flex-start;
-}
-.phase-card.align-right {
-  text-align: right;
-  align-items: flex-end;
-}
-
-.phase-card.is-muted {
-  background: rgba(250, 245, 233, 0.45);
-  box-shadow: 0 6px 18px rgba(60, 48, 70, 0.06);
-}
-
-.phase-eyebrow {
-  font-size: 0.7rem;
+.wave-eyebrow {
+  font-size: clamp(0.62rem, 0.92vw, 0.78rem);
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: var(--accent);
 }
 
-.phase-card.is-muted .phase-eyebrow {
-  color: var(--ink-soft);
-  font-weight: 600;
-}
-
-.phase-body {
-  font-size: clamp(0.84rem, 1.05vw, 0.98rem);
-  line-height: 1.28;
+.wave-body {
+  font-size: clamp(0.82rem, 1.12vw, 1.05rem);
+  line-height: 1.3;
   font-weight: 500;
   color: var(--slate);
+  text-wrap: balance;
 }
 
-.phase-card.is-muted .phase-body {
-  font-size: 0.82rem;
+/* Field axis labels. */
+.axis {
+  position: absolute;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--ink-soft);
-  font-weight: 400;
+  white-space: nowrap;
+}
+.axis-top {
+  top: -24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.axis-bottom {
+  bottom: -24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.axis-asc {
+  top: -24px;
+  left: 2px;
+  color: #9a7c1e;
+}
+.axis-desc {
+  top: -24px;
+  right: 2px;
+  color: #8c5483;
 }
 
 /* ------------------------------------------------------------------ */
@@ -159,13 +185,14 @@ a {
 }
 
 .brand-mark {
-  width: 26px;
-  height: 26px;
-  border-radius: 8px;
-  background:
-    radial-gradient(circle at 30% 30%, #c0567f, transparent 60%),
-    radial-gradient(circle at 70% 70%, #3f8e88, transparent 60%), #f1e6cd;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  height: 23px;
+  width: auto;
+  display: block;
+  border-radius: 5px;
+  object-fit: cover;
+  box-shadow:
+    0 1px 4px rgba(60, 45, 60, 0.28),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.06);
 }
 
 .topnav {
@@ -198,7 +225,10 @@ a {
   font-weight: 600;
   font-size: 0.96rem;
   border: 1px solid var(--ink);
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
   box-shadow: 0 10px 24px rgba(50, 40, 60, 0.16);
 }
 .btn:hover {
@@ -229,7 +259,6 @@ a {
 }
 
 .kicker {
-  font-family: var(--font-body);
   text-transform: uppercase;
   letter-spacing: 0.22em;
   font-size: 0.76rem;
@@ -252,16 +281,16 @@ a {
 
 .hero-inner {
   position: relative;
-  max-width: 640px;
-  padding: 30px 30px 34px;
+  max-width: 600px;
+  padding: 32px 34px 36px;
   border-radius: 26px;
   background: radial-gradient(
-    120% 120% at 50% 40%,
-    rgba(250, 245, 233, 0.86) 0%,
-    rgba(250, 245, 233, 0.72) 55%,
-    rgba(250, 245, 233, 0) 100%
+    120% 120% at 50% 42%,
+    rgba(250, 246, 235, 0.94) 0%,
+    rgba(250, 246, 235, 0.82) 55%,
+    rgba(250, 246, 235, 0) 100%
   );
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
 }
 
 .hero h1 {
@@ -307,8 +336,74 @@ a {
   font-size: 1.1rem;
 }
 @keyframes bob {
-  0%, 100% { transform: translateY(0); opacity: 0.6; }
-  50% { transform: translateY(6px); opacity: 1; }
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+/* Original-image figure ------------------------------------------- */
+.origin {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 90px 24px;
+  background: linear-gradient(180deg, #f3e8d2 0%, #ece0cd 100%);
+  box-shadow:
+    0 -1px 0 var(--line),
+    0 1px 0 var(--line);
+}
+.origin-inner {
+  max-width: 900px;
+}
+.origin h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 4.4vw, 3rem);
+  line-height: 1.07;
+  letter-spacing: -0.02em;
+  margin: 0 0 26px;
+  color: var(--ink);
+}
+.origin-lead {
+  font-size: clamp(1rem, 1.55vw, 1.22rem);
+  line-height: 1.6;
+  color: var(--slate);
+  margin: 0 auto 34px;
+  max-width: 40em;
+}
+.origin-lead em {
+  font-style: italic;
+  color: var(--ink);
+}
+.origin-figure {
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow:
+    0 34px 80px -34px rgba(58, 38, 58, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+.origin-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.origin-caption {
+  margin: 24px auto 0;
+  max-width: 40em;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--slate);
 }
 
 /* Steps ------------------------------------------------------------ */
@@ -325,7 +420,9 @@ a {
   text-align: center;
   padding: 60px 24px;
   background: var(--cream-soft);
-  box-shadow: 0 -1px 0 var(--line), 0 1px 0 var(--line),
+  box-shadow:
+    0 -1px 0 var(--line),
+    0 1px 0 var(--line),
     0 30px 60px -40px rgba(60, 48, 70, 0.5);
 }
 
@@ -341,23 +438,6 @@ a {
   color: var(--ink-soft);
   opacity: 0.7;
   margin-bottom: 18px;
-}
-
-.bar-quadrant {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-.bar-quadrant .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  display: inline-block;
 }
 
 .bar h2 {
@@ -422,32 +502,39 @@ a {
 }
 
 /* Mobile ----------------------------------------------------------- */
-@media (max-width: 720px) {
-  /* A taller frame spreads the staggered cards apart vertically so the
-     three top-band and three bottom-band labels stop colliding. */
-  .wave-frame {
-    width: 98vw;
-    aspect-ratio: 1000 / 1180;
+@media (max-width: 760px) {
+  .grid-wrap {
+    width: 96vw;
   }
-  .phase-card {
-    width: clamp(104px, 30vw, 150px);
-    padding: 6px 9px;
-    gap: 3px;
-    border-radius: 10px;
-    background: rgba(250, 245, 233, 0.86);
-    box-shadow: 0 5px 16px rgba(60, 48, 70, 0.14);
+  /* Keep the wave shape on a phone — just smaller. Only short-copy modes are
+     shown (see selectModes) so the labels fit on the curve. */
+  .wave-card {
+    width: clamp(44px, 15.2vw, 62px);
+    padding: 4px 5px;
+    gap: 1px;
+    border-radius: 8px;
   }
-  .phase-eyebrow {
-    font-size: 0.6rem;
-    letter-spacing: 0.1em;
+  .wave-card.place-below {
+    transform: translate(-50%, 7px);
   }
-  .phase-body {
-    font-size: 0.74rem;
-    line-height: 1.22;
-    color: var(--ink);
+  .wave-card.place-above {
+    transform: translate(-50%, calc(-100% - 7px));
   }
-  .phase-card.is-muted {
+  .wave-eyebrow {
+    font-size: 0.45rem;
+    letter-spacing: 0.04em;
+  }
+  .wave-body {
+    font-size: 0.55rem;
+    line-height: 1.14;
+  }
+  .axis-asc,
+  .axis-desc {
     display: none;
+  }
+  .axis-top,
+  .axis-bottom {
+    font-size: 0.55rem;
   }
   .topnav > a:first-child {
     display: none;
