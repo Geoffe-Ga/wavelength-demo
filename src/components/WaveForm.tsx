@@ -1,3 +1,4 @@
+import { type RefObject } from 'react'
 import { WAVE_NODES, WAVE_PURPLE, WAVE_YELLOW, type Phase } from '../data/modes'
 
 // Wave geometry, in SVG user units. One full period spans the box; the crest
@@ -33,14 +34,14 @@ const ARROWS = [
 
 interface WaveFormProps {
   bodyOf: (phase: Phase) => string
-  /** 0..1 — fades the copy while the wave itself stays put. */
-  textOpacity: number
+  /** The copy layer; its opacity is driven imperatively from scroll position. */
+  cardsRef: RefObject<HTMLDivElement>
 }
 
 // The Archetypal Wavelength: a sine wave traveling through time, the phase copy
 // riding it. Each phase owns a horizontal time-slot, so cards never overlap no
 // matter how long the copy runs.
-export function WaveForm({ bodyOf, textOpacity }: WaveFormProps) {
+export function WaveForm({ bodyOf, cardsRef }: WaveFormProps) {
   return (
     <div className="waveform">
       <svg className="wave-svg" viewBox={`0 0 ${VB_W} ${VB_H}`} preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -90,7 +91,7 @@ export function WaveForm({ bodyOf, textOpacity }: WaveFormProps) {
         ))}
       </svg>
 
-      <div className="wave-cards" style={{ opacity: textOpacity }}>
+      <div className="wave-cards" ref={cardsRef}>
         {WAVE_NODES.map((n) => {
           const body = bodyOf(n.phase)
           return (

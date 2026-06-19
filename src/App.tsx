@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { FIELD, MODES, PHASE_BLURBS, QUADRANTS, type Phase } from './data/modes'
+import { FIELD, MODES, PHASE_BLURBS, type Phase } from './data/modes'
 import { WaveForm } from './components/WaveForm'
 import waveImage from './assets/wavelength-motion.jpeg'
 
@@ -12,17 +12,19 @@ const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v)
 // on the hero and whenever no mode is active.
 const canonicalBody = (phase: Phase) => PHASE_BLURBS[phase]
 
+type Panel = { canonical: boolean; index: number }
+
 export default function App() {
   const revealRefs = useRef<(HTMLDivElement | null)[]>([])
-  const [active, setActive] = useState(0)
-  const [activeOpacity, setActiveOpacity] = useState(0)
-  const [canonicalOpacity, setCanonicalOpacity] = useState(1)
+  const cardsRef = useRef<HTMLDivElement>(null)
+  // Only the *which-mode* decision lives in state, so it re-renders a handful of
+  // times during a scroll — never per frame.
+  const [panel, setPanel] = useState<Panel>({ canonical: true, index: 0 })
 
   const update = useCallback(() => {
     const vh = window.innerHeight
     const center = vh / 2
-
-    setCanonicalOpacity(clamp01(1 - window.scrollY / (0.6 * vh)))
+    const canonicalOpacity = clamp01(1 - window.scrollY / (0.6 * vh))
 
     let best = 0
     let bestOpacity = 0
@@ -38,8 +40,19 @@ export default function App() {
         best = i
       }
     }
-    setActive(best)
-    setActiveOpacity(bestOpacity)
+
+    const showCanonical = canonicalOpacity >= bestOpacity
+    const opacity = showCanonical ? canonicalOpacity : bestOpacity
+
+    // Drive opacity straight onto the DOM node every frame — no React render,
+    // so the copy tracks the scroll instantly.
+    if (cardsRef.current) cardsRef.current.style.opacity = String(opacity)
+
+    // Swap the copy only when the dominant panel actually changes.
+    setPanel((prev) => {
+      if (showCanonical) return prev.canonical ? prev : { canonical: true, index: prev.index }
+      return !prev.canonical && prev.index === best ? prev : { canonical: false, index: best }
+    })
   }, [])
 
   useEffect(() => {
@@ -58,12 +71,9 @@ export default function App() {
     }
   }, [update])
 
-  // Whichever is stronger — the hero's canonical state or the active mode —
-  // drives the single text layer, so the copy is never doubled.
-  const showCanonical = canonicalOpacity >= activeOpacity
-  const activeMode = MODES[active]
-  const bodyOf = showCanonical ? canonicalBody : (p: Phase) => activeMode.phases[p]
-  const textOpacity = showCanonical ? canonicalOpacity : activeOpacity
+  const bodyOf = panel.canonical
+    ? canonicalBody
+    : (p: Phase) => MODES[panel.index].phases[p]
 
   return (
     <div className="page">
@@ -74,7 +84,7 @@ export default function App() {
           <span className="axis axis-bottom">{FIELD.energyLow}</span>
           <span className="axis axis-asc">{FIELD.ascending} ↗</span>
           <span className="axis axis-desc">↘ {FIELD.descending}</span>
-          <WaveForm bodyOf={bodyOf} textOpacity={textOpacity} />
+          <WaveForm bodyOf={bodyOf} cardsRef={cardsRef} />
         </div>
       </div>
 
@@ -141,17 +151,12 @@ export default function App() {
         </section>
 
         {MODES.map((m, i) => {
-          const q = QUADRANTS[m.quadrant]
           return (
             <section className="step" key={m.mode} aria-label={m.title}>
               <div className="bar">
                 <div className="bar-inner">
                   <span className="bar-index">
                     {String(i + 1).padStart(2, '0')} / {String(MODES.length).padStart(2, '0')}
-                  </span>
-                  <span className="bar-quadrant" style={{ color: q.color }}>
-                    <span className="dot" style={{ background: q.color }} />
-                    {q.label}
                   </span>
                   <h2>{m.title}</h2>
                   <p className="bar-gloss">{m.gloss}</p>
