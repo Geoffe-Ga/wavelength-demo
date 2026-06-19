@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { FIELD, MODES, PHASE_BLURBS, type Phase } from './data/modes'
 import { WaveForm } from './components/WaveForm'
-import waveImage from './assets/wavelength-motion.jpeg'
+import { WavelengthDiagram } from './components/WavelengthDiagram'
+// The brand mark is a tight crop of the original two-arrow graphic.
+import waveMark from './assets/wavelength-mark.png'
 
 const COURSE_URL = 'https://aptitude.guru/philosophy/archetypal-wavelength'
 const APP_URL = 'https://github.com/Geoffe-Ga/WavelengthWatch'
@@ -90,7 +92,7 @@ export default function App() {
 
       <header className="topbar">
         <a className="brand" href={COURSE_URL} target="_blank" rel="noreferrer">
-          <span className="brand-mark" aria-hidden="true" />
+          <img className="brand-mark" src={waveMark} alt="" aria-hidden="true" />
           Archetypal Wavelength
         </a>
         <nav className="topnav">
@@ -134,18 +136,23 @@ export default function App() {
 
         <section className="origin">
           <div className="origin-inner">
-            <p className="kicker">The shape of it</p>
-            <h2>One wave — up, down, and back again.</h2>
+            <p className="kicker">Why "Archetypal"</p>
+            <h2>The pattern beneath every rhythm.</h2>
+            <p className="origin-lead">
+              It's the <em>archetype</em> — the original pattern — for every oscillating, cyclical,
+              pendulous phenomenon there is. They all move through the same six phases, the same
+              swing of energy, each one pulled into the next by the sheer inevitability of
+              causality: of accumulation and depletion, of attraction and aversion. Learn to read
+              the wave once, and you can read it everywhere.
+            </p>
             <figure className="origin-figure">
-              <img
-                src={waveImage}
-                alt="The Archetypal Wavelength: an arrow rises on the left, crests, and curves down through the center; a second arrow sweeps from the bottom back up on the right toward the next peak."
-              />
+              <WavelengthDiagram />
             </figure>
             <figcaption className="origin-caption">
-              Rising on the left, cresting at the peak, the long fall down through the center, the
-              bottoming out — and the turn back up toward the next peak. Every mode below is this
-              same motion, wearing a different face.
+              High energy up top, low energy below; attraction in the warm cells, aversion in the
+              cool ones. The wave rises, crests at the peak, falls through the middle, bottoms out —
+              and turns back up toward the next peak. Every mode below is this same motion, wearing
+              a different face.
             </figcaption>
           </div>
         </section>

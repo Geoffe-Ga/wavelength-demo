@@ -183,13 +183,12 @@ a {
 }
 
 .brand-mark {
-  width: 26px;
-  height: 26px;
-  border-radius: 8px;
-  background:
-    radial-gradient(circle at 30% 30%, #c0567f, transparent 60%),
-    radial-gradient(circle at 70% 70%, #c9a94e, transparent 60%), #6f4862;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  height: 23px;
+  width: auto;
+  display: block;
+  border-radius: 5px;
+  object-fit: cover;
+  box-shadow: 0 1px 4px rgba(60, 45, 60, 0.28), inset 0 0 0 1px rgba(0, 0, 0, 0.06);
 }
 
 .topnav {
@@ -347,7 +346,7 @@ a {
   box-shadow: 0 -1px 0 var(--line), 0 1px 0 var(--line);
 }
 .origin-inner {
-  max-width: 720px;
+  max-width: 900px;
 }
 .origin h2 {
   font-family: var(--font-display);
@@ -358,14 +357,25 @@ a {
   margin: 0 0 26px;
   color: var(--ink);
 }
+.origin-lead {
+  font-size: clamp(1rem, 1.55vw, 1.22rem);
+  line-height: 1.6;
+  color: var(--slate);
+  margin: 0 auto 34px;
+  max-width: 40em;
+}
+.origin-lead em {
+  font-style: italic;
+  color: var(--ink);
+}
 .origin-figure {
   margin: 0;
-  border-radius: 18px;
+  border-radius: 16px;
   overflow: hidden;
   background: #fff;
   box-shadow: 0 34px 80px -34px rgba(58, 38, 58, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.35);
 }
-.origin-figure img {
+.diagram {
   display: block;
   width: 100%;
   height: auto;
