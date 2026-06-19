@@ -59,19 +59,19 @@ export function WaveForm({ bodyOf, cardsRef }: WaveFormProps) {
 
         {/* Faded tails: the wave came from the previous trough and carries on to
             the next peak — it does not loop back. */}
-        <path d={buildPath(-0.16, 0.05)} fill="none" stroke={WAVE_YELLOW} strokeWidth="13" strokeLinecap="round" opacity="0.25" />
-        <path d={buildPath(0.95, 1.16)} fill="none" stroke={WAVE_YELLOW} strokeWidth="13" strokeLinecap="round" opacity="0.25" />
+        <path d={buildPath(-0.16, 0.05)} fill="none" stroke={WAVE_YELLOW} strokeWidth="26" strokeLinecap="round" opacity="0.25" />
+        <path d={buildPath(0.95, 1.16)} fill="none" stroke={WAVE_YELLOW} strokeWidth="26" strokeLinecap="round" opacity="0.25" />
 
         {/* Main wave, colored by valence. */}
-        <path d={buildPath(0, 0.25)} fill="none" stroke={WAVE_YELLOW} strokeWidth="15" strokeLinecap="round" />
-        <path d={buildPath(0.25, 0.75)} fill="none" stroke={WAVE_PURPLE} strokeWidth="15" strokeLinecap="round" />
-        <path d={buildPath(0.75, 1)} fill="none" stroke={WAVE_YELLOW} strokeWidth="15" strokeLinecap="round" />
+        <path d={buildPath(0, 0.25)} fill="none" stroke={WAVE_YELLOW} strokeWidth="30" strokeLinecap="round" />
+        <path d={buildPath(0.25, 0.75)} fill="none" stroke={WAVE_PURPLE} strokeWidth="30" strokeLinecap="round" />
+        <path d={buildPath(0.75, 1)} fill="none" stroke={WAVE_YELLOW} strokeWidth="30" strokeLinecap="round" />
 
         {/* Forward arrowheads. */}
         {ARROWS.map((a, i) => (
           <path
             key={i}
-            d="M-10 -11 L15 0 L-10 11 Z"
+            d="M-18 -22 L30 0 L-18 22 Z"
             fill={a.color}
             transform={`translate(${a.f * VB_W} ${yAt(a.f)}) rotate(${angleAt(a.f)})`}
           />
@@ -83,7 +83,7 @@ export function WaveForm({ bodyOf, cardsRef }: WaveFormProps) {
             key={n.phase}
             cx={(n.x / 100) * VB_W}
             cy={(n.y / 100) * VB_H}
-            r="15"
+            r="18"
             fill={n.dot}
             stroke="rgba(38,32,44,0.5)"
             strokeWidth="2.5"

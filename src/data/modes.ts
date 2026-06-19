@@ -93,9 +93,9 @@ export interface WaveNode {
 }
 
 export const WAVE_NODES: WaveNode[] = [
-  { phase: 'Rising',        x: 8.33,  y: 35, place: 'below', accent: '#9a7c1e', dot: '#e3c247', band: '#ecdb98', ink: '#473c1f' },
+  { phase: 'Rising',        x: 8.33,  y: 35, place: 'below', accent: '#9a7c1e', dot: '#f0e3a6', band: '#ecdb98', ink: '#473c1f' },
   { phase: 'Peaking',       x: 25,    y: 20, place: 'below', accent: '#6f6450', dot: '#ffffff', band: '#fbfaf3', ink: '#3a3326' },
-  { phase: 'Withdrawal',    x: 41.67, y: 35, place: 'below', accent: '#8c5483', dot: '#b86fa8', band: '#ddc4dc', ink: '#43374b' },
+  { phase: 'Withdrawal',    x: 41.67, y: 35, place: 'below', accent: '#8c5483', dot: '#e3cbe1', band: '#ddc4dc', ink: '#43374b' },
   { phase: 'Diminishing',   x: 58.33, y: 65, place: 'above', accent: '#7e496d', dot: '#9a587f', band: '#a06b92', ink: '#f8ebf3' },
   { phase: 'Bottoming Out', x: 75,    y: 80, place: 'above', accent: '#5a5560', dot: '#1d1922', band: '#26222c', ink: '#efe6ee' },
   { phase: 'Restoration',   x: 91.67, y: 65, place: 'above', accent: '#8c7022', dot: '#d4b452', band: '#c9a94e', ink: '#352a0c' },
