@@ -29,7 +29,7 @@ while [[ $# -gt 0 ]]; do
             cat << EOF
 Usage: $(basename "$0") [OPTIONS]
 
-Run tests using Jest.
+Run tests using Vitest.
 
 OPTIONS:
     --coverage  Generate coverage report
@@ -57,7 +57,7 @@ if $VERBOSE; then
     set -x
 fi
 
-echo "=== Running Tests (Jest) ==="
+echo "=== Running Tests (Vitest) ==="
 
 JEST_ARGS=()
 
@@ -69,7 +69,7 @@ if $WATCH; then
     JEST_ARGS+=(--watch)
 fi
 
-npx jest ${JEST_ARGS[@]+"${JEST_ARGS[@]}"} || { echo "✗ Tests failed" >&2; exit 1; }
+npx vitest run ${JEST_ARGS[@]+"${JEST_ARGS[@]}"} || { echo "✗ Tests failed" >&2; exit 1; }
 
 echo "✓ Tests passed"
 exit 0

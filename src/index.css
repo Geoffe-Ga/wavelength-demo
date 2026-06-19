@@ -8,8 +8,8 @@
   --line: rgba(70, 60, 80, 0.1);
   --gutter: #e7dac1;
 
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --maxw: 1060px;
 }
@@ -60,7 +60,9 @@ a {
   aspect-ratio: 1200 / 760;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 36px 90px -36px rgba(50, 34, 56, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 36px 90px -36px rgba(50, 34, 56, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22);
 }
 
 .wave-svg {
@@ -188,7 +190,9 @@ a {
   display: block;
   border-radius: 5px;
   object-fit: cover;
-  box-shadow: 0 1px 4px rgba(60, 45, 60, 0.28), inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 1px 4px rgba(60, 45, 60, 0.28),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.06);
 }
 
 .topnav {
@@ -221,7 +225,10 @@ a {
   font-weight: 600;
   font-size: 0.96rem;
   border: 1px solid var(--ink);
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
   box-shadow: 0 10px 24px rgba(50, 40, 60, 0.16);
 }
 .btn:hover {
@@ -329,8 +336,15 @@ a {
   font-size: 1.1rem;
 }
 @keyframes bob {
-  0%, 100% { transform: translateY(0); opacity: 0.6; }
-  50% { transform: translateY(6px); opacity: 1; }
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
 }
 
 /* Original-image figure ------------------------------------------- */
@@ -343,7 +357,9 @@ a {
   text-align: center;
   padding: 90px 24px;
   background: linear-gradient(180deg, #f3e8d2 0%, #ece0cd 100%);
-  box-shadow: 0 -1px 0 var(--line), 0 1px 0 var(--line);
+  box-shadow:
+    0 -1px 0 var(--line),
+    0 1px 0 var(--line);
 }
 .origin-inner {
   max-width: 900px;
@@ -373,9 +389,11 @@ a {
   border-radius: 16px;
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 34px 80px -34px rgba(58, 38, 58, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 34px 80px -34px rgba(58, 38, 58, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35);
 }
-.diagram {
+.origin-figure img {
   display: block;
   width: 100%;
   height: auto;
@@ -402,7 +420,9 @@ a {
   text-align: center;
   padding: 60px 24px;
   background: var(--cream-soft);
-  box-shadow: 0 -1px 0 var(--line), 0 1px 0 var(--line),
+  box-shadow:
+    0 -1px 0 var(--line),
+    0 1px 0 var(--line),
     0 30px 60px -40px rgba(60, 48, 70, 0.5);
 }
 

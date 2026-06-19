@@ -1,81 +1,71 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { FIELD, MODES, PHASE_BLURBS, type Phase } from './data/modes'
-import { WaveForm } from './components/WaveForm'
-import { WavelengthDiagram } from './components/WavelengthDiagram'
-// The brand mark is a tight crop of the original two-arrow graphic.
-import waveMark from './assets/wavelength-mark.png'
+import { useCallback, useEffect, useRef, useState } from "react";
+import { FIELD, MODES, PHASE_BLURBS, type Phase } from "./data/modes";
+import { WaveForm } from "./components/WaveForm";
+import { computeWaveState } from "./lib/scroll";
+// The brand mark is a tight crop of the original two-arrow graphic; the intro
+// figure is the original labeled diagram.
+import waveMark from "./assets/wavelength-mark.png";
+import waveDiagram from "./assets/wavelength-diagram.png";
 
-const COURSE_URL = 'https://aptitude.guru/philosophy/archetypal-wavelength'
-const APP_URL = 'https://github.com/Geoffe-Ga/WavelengthWatch'
-
-const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v)
+const COURSE_URL = "https://aptitude.guru/philosophy/archetypal-wavelength";
+const APP_URL = "https://github.com/Geoffe-Ga/WavelengthWatch";
 
 // The canonical "panel": the wave naming and explaining its own phases. Shown
 // on the hero and whenever no mode is active.
-const canonicalBody = (phase: Phase) => PHASE_BLURBS[phase]
+const canonicalBody = (phase: Phase) => PHASE_BLURBS[phase];
 
-type Panel = { canonical: boolean; index: number }
+type Panel = { canonical: boolean; index: number };
 
 export default function App() {
-  const revealRefs = useRef<(HTMLDivElement | null)[]>([])
-  const cardsRef = useRef<HTMLDivElement>(null)
+  const revealRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const cardsRef = useRef<HTMLDivElement>(null);
   // Only the *which-mode* decision lives in state, so it re-renders a handful of
   // times during a scroll — never per frame.
-  const [panel, setPanel] = useState<Panel>({ canonical: true, index: 0 })
+  const [panel, setPanel] = useState<Panel>({ canonical: true, index: 0 });
 
   const update = useCallback(() => {
-    const vh = window.innerHeight
-    const center = vh / 2
-    const canonicalOpacity = clamp01(1 - window.scrollY / (0.6 * vh))
-
-    let best = 0
-    let bestOpacity = 0
-    const fade = 0.45 * vh
-    for (let i = 0; i < MODES.length; i++) {
-      const el = revealRefs.current[i]
-      if (!el) continue
-      const rect = el.getBoundingClientRect()
-      const revealCenter = rect.top + rect.height / 2
-      const op = clamp01(1 - Math.abs(revealCenter - center) / fade)
-      if (op > bestOpacity) {
-        bestOpacity = op
-        best = i
-      }
-    }
-
-    const showCanonical = canonicalOpacity >= bestOpacity
-    const opacity = showCanonical ? canonicalOpacity : bestOpacity
+    const vh = window.innerHeight;
+    const centers = revealRefs.current.map((el) => {
+      if (!el) return Number.POSITIVE_INFINITY;
+      const rect = el.getBoundingClientRect();
+      return rect.top + rect.height / 2;
+    });
+    const state = computeWaveState(window.scrollY, vh, centers);
 
     // Drive opacity straight onto the DOM node every frame — no React render,
     // so the copy tracks the scroll instantly.
-    if (cardsRef.current) cardsRef.current.style.opacity = String(opacity)
+    if (cardsRef.current)
+      cardsRef.current.style.opacity = String(state.opacity);
 
     // Swap the copy only when the dominant panel actually changes.
     setPanel((prev) => {
-      if (showCanonical) return prev.canonical ? prev : { canonical: true, index: prev.index }
-      return !prev.canonical && prev.index === best ? prev : { canonical: false, index: best }
-    })
-  }, [])
+      if (state.canonical)
+        return prev.canonical ? prev : { canonical: true, index: prev.index };
+      return !prev.canonical && prev.index === state.index
+        ? prev
+        : { canonical: false, index: state.index };
+    });
+  }, []);
 
   useEffect(() => {
-    let raf = 0
+    let raf = 0;
     const onScroll = () => {
-      cancelAnimationFrame(raf)
-      raf = requestAnimationFrame(update)
-    }
-    update()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
     return () => {
-      cancelAnimationFrame(raf)
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-    }
-  }, [update])
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [update]);
 
   const bodyOf = panel.canonical
     ? canonicalBody
-    : (p: Phase) => MODES[panel.index].phases[p]
+    : (p: Phase) => MODES[panel.index].phases[p];
 
   return (
     <div className="page">
@@ -92,14 +82,24 @@ export default function App() {
 
       <header className="topbar">
         <a className="brand" href={COURSE_URL} target="_blank" rel="noreferrer">
-          <img className="brand-mark" src={waveMark} alt="" aria-hidden="true" />
+          <img
+            className="brand-mark"
+            src={waveMark}
+            alt=""
+            aria-hidden="true"
+          />
           Archetypal Wavelength
         </a>
         <nav className="topnav">
           <a href={COURSE_URL} target="_blank" rel="noreferrer">
             The Philosophy
           </a>
-          <a className="btn btn-small" href={APP_URL} target="_blank" rel="noreferrer">
+          <a
+            className="btn btn-small"
+            href={APP_URL}
+            target="_blank"
+            rel="noreferrer"
+          >
             Get the App
           </a>
         </nav>
@@ -115,15 +115,26 @@ export default function App() {
               Wavelength
             </h1>
             <p className="lede">
-              Expansion and contraction. Rising and bottoming out. The same six-phase wave runs
-              underneath your moods, your habits, the seasons, and the rise and fall of whole
-              civilizations. Learn to see where you are on it — and how to care for yourself there.
+              Expansion and contraction. Rising and bottoming out. The same
+              six-phase wave runs underneath your moods, your habits, the
+              seasons, and the rise and fall of whole civilizations. Learn to
+              see where you are on it — and how to care for yourself there.
             </p>
             <div className="hero-cta">
-              <a className="btn" href={COURSE_URL} target="_blank" rel="noreferrer">
+              <a
+                className="btn"
+                href={COURSE_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Explore the Course
               </a>
-              <a className="btn btn-ghost" href={APP_URL} target="_blank" rel="noreferrer">
+              <a
+                className="btn btn-ghost"
+                href={APP_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Track Your Wave
               </a>
             </div>
@@ -139,20 +150,25 @@ export default function App() {
             <p className="kicker">Why "Archetypal"</p>
             <h2>The pattern beneath every rhythm.</h2>
             <p className="origin-lead">
-              It's the <em>archetype</em> — the original pattern — for every oscillating, cyclical,
-              pendulous phenomenon there is. They all move through the same six phases, the same
-              swing of energy, each one pulled into the next by the sheer inevitability of
-              causality: of accumulation and depletion, of attraction and aversion. Learn to read
-              the wave once, and you can read it everywhere.
+              It's the <em>archetype</em> — the original pattern — for every
+              oscillating, cyclical, pendulous phenomenon there is. They all
+              move through the same six phases, the same swing of energy, each
+              one pulled into the next by the sheer inevitability of causality:
+              of accumulation and depletion, of attraction and aversion. Learn
+              to read the wave once, and you can read it everywhere.
             </p>
             <figure className="origin-figure">
-              <WavelengthDiagram />
+              <img
+                src={waveDiagram}
+                alt="The Archetypal Wavelength: Rising and Peaking at high energy, Withdrawal and Diminishing falling through the center, Bottoming Out at the trough, and Restoration rising back toward the next peak — over a field of energy (high above, low below) and valence (attraction in the warm cells, aversion in the cool)."
+              />
             </figure>
             <figcaption className="origin-caption">
-              High energy up top, low energy below; attraction in the warm cells, aversion in the
-              cool ones. The wave rises, crests at the peak, falls through the middle, bottoms out —
-              and turns back up toward the next peak. Every mode below is this same motion, wearing
-              a different face.
+              High energy up top, low energy below; attraction in the warm
+              cells, aversion in the cool ones. The wave rises, crests at the
+              peak, falls through the middle, bottoms out — and turns back up
+              toward the next peak. Every mode below is this same motion,
+              wearing a different face.
             </figcaption>
           </div>
         </section>
@@ -163,21 +179,24 @@ export default function App() {
               <div className="bar">
                 <div className="bar-inner">
                   <span className="bar-index">
-                    {String(i + 1).padStart(2, '0')} / {String(MODES.length).padStart(2, '0')}
+                    {String(i + 1).padStart(2, "0")} /{" "}
+                    {String(MODES.length).padStart(2, "0")}
                   </span>
                   <h2>{m.title}</h2>
                   <p className="bar-gloss">{m.gloss}</p>
-                  {m.source ? <p className="bar-source">after {m.source}</p> : null}
+                  {m.source ? (
+                    <p className="bar-source">after {m.source}</p>
+                  ) : null}
                 </div>
               </div>
               <div
                 className="reveal"
                 ref={(el) => {
-                  revealRefs.current[i] = el
+                  revealRefs.current[i] = el;
                 }}
               />
             </section>
-          )
+          );
         })}
 
         <footer className="cta-final">
@@ -185,26 +204,38 @@ export default function App() {
             <p className="kicker">Ride it on purpose</p>
             <h2>Stop fighting your wave. Start reading it.</h2>
             <p className="lede">
-              When you know which phase you're in, self-care stops being guesswork. The
-              WavelengthWatch app and the Archetypal Wavelength course turn this map into a daily
-              practice — naming the moment you're in and meeting it with the right move.
+              When you know which phase you're in, self-care stops being
+              guesswork. The WavelengthWatch app and the Archetypal Wavelength
+              course turn this map into a daily practice — naming the moment
+              you're in and meeting it with the right move.
             </p>
             <div className="hero-cta">
-              <a className="btn" href={COURSE_URL} target="_blank" rel="noreferrer">
+              <a
+                className="btn"
+                href={COURSE_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Explore the Course
               </a>
-              <a className="btn btn-ghost" href={APP_URL} target="_blank" rel="noreferrer">
+              <a
+                className="btn btn-ghost"
+                href={APP_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Get WavelengthWatch
               </a>
             </div>
             <p className="footnote">
-              Modes drawn from <em>The Archetypal Wavelength</em> — addiction, dopamine, the
-              seasons, the breath, the yugas, enshittification, the rise and fall of civilizations,
-              and the Krebs cycle. One field, {MODES.length} faces.
+              Modes drawn from <em>The Archetypal Wavelength</em> — addiction,
+              dopamine, the seasons, the breath, the yugas, enshittification,
+              the rise and fall of civilizations, and the Krebs cycle. One
+              field, {MODES.length} faces.
             </p>
           </div>
         </footer>
       </main>
     </div>
-  )
+  );
 }

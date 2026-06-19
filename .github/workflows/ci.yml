@@ -35,14 +35,14 @@ jobs:
         run: npm ci
 
       - name: Run TypeScript compiler checks
-        run: npx tsc --noEmit
+        run: npm run type-check
 
       - name: Run ESLint
         run: npm run lint
         continue-on-error: false
 
       - name: Run tests with coverage
-        run: npm test -- --coverage --coverageReporters=json --coverageReporters=lcov --coverageReporters=text --coverageReporters=json-summary
+        run: npm run test:coverage
         env:
           NODE_ENV: test
 
@@ -110,7 +110,7 @@ jobs:
         run: npm ci
 
       - name: Install Stryker
-        run: npm install --save-dev @stryker-mutator/core @stryker-mutator/jest-runner @stryker-mutator/typescript-checker
+        run: npm install --save-dev @stryker-mutator/core @stryker-mutator/vitest-runner @stryker-mutator/typescript-checker
 
       - name: Run mutation tests
         run: npx stryker run

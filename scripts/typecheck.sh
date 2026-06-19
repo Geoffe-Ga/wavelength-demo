@@ -47,7 +47,7 @@ fi
 
 echo "=== Type Checking (TypeScript) ==="
 
-npx tsc --noEmit || { echo "✗ Type checking failed" >&2; exit 1; }
+npx tsc -b --noEmit || { echo "✗ Type checking failed" >&2; exit 1; }
 
 echo "✓ Type checking passed"
 exit 0
