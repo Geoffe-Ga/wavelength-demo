@@ -9,30 +9,41 @@ app and course.
 One wave — six phases of expansion and contraction — runs underneath an
 astonishing range of human and natural rhythms. This page makes that visceral:
 
-- A single **wavelength field stays fixed in the center** of the screen: a 3×2
-  grid of six colored cells, one per phase.
+- A single **wavelength stays fixed in the center** of the screen: a sine wave
+  traveling through time, with the six phases riding it.
 - As you **scroll**, clean white header bars sweep past, each naming a different
   _mode_ of the wave (the Addiction Wavelength, the Enshittification Wavelength,
   the Wavelength of the Seasons, …).
-- Once a header passes and the field is exposed again, that mode's **phase copy
-  fades into the cells** — _Rising_ where rising goes, _Bottoming Out_ at the
-  trough, and so on — replacing the generic phase names with the concrete
-  language of that mode.
+- Once a header passes and the wave is exposed again, that mode's **phase copy
+  fades onto the wave** — _Rising_ on the upslope, _Bottoming Out_ at the trough,
+  and so on — replacing the generic phase names with the concrete language of
+  that mode.
 
-The six phases circulate clockwise through the grid:
+The six phases run in time order along the wave, then carry on to the next peak:
 
-**Rising → Peaking → Withdrawal → Diminishing → Bottoming Out → Restoration**
+**Rising → Peaking → Withdrawal → Diminishing → Bottoming Out → Restoration → …**
 
-### The grid is meaningful
+### The wave is meaningful
 
-Cell color is not decoration — it encodes two axes from the source graphic:
+It's a wavelength (a trajectory through time), not a cycle (the same shape with
+time removed and the arrows looping back). The color and geometry encode the
+source graphic's two axes:
 
-- **Lightness = energy.** Light cells (top row) are high-energy / expansive;
-  dark cells (bottom row) are low-energy / contracted.
-- **Hue = valence.** Yellow is attractive; purple is aversive.
+- **Vertical position = energy.** A white crest at the top (high / expansive),
+  a black trough at the bottom (low / contracted).
+- **Direction = valence.** The wave runs warm **yellow while ascending**
+  (attractive) and cool **purple while descending** (aversive), flipping at the
+  peak and the trough.
 
-So "Bliss" lands in a bright yellow cell, "Depression" in the darkest purple
-one, and every mode inherits that same emotional cartography.
+So "Bliss" sits at the white peak, "Depression" at the black trough, and every
+mode inherits that same emotional cartography.
+
+### Why the copy never overlaps
+
+Each phase owns a horizontal **time-slot** (one sixth of the width). Cards are
+confined to their slot, so they can ride the wave at any height without ever
+colliding with a neighbor — regardless of how long the copy runs. On phones the
+wave unrolls into a vertical stack of one full-width band per phase.
 
 ## Data
 
@@ -49,12 +60,13 @@ Modes are colored by their AQAL quadrant from the sheet (`I`, `IT`, `WE`, `ITS`)
 ## Tech
 
 - [Vite](https://vitejs.dev/) + React 18 + TypeScript
-- The field is a CSS grid of six cells ([`src/components/WaveGrid.tsx`](src/components/WaveGrid.tsx));
-  copy lives _inside_ the cells, so it can never overlap a neighbor — the cells
-  reflow, they don't stack. Flow arrows sit in the gutters.
+- The wave is an SVG sine ([`src/components/WaveForm.tsx`](src/components/WaveForm.tsx)) —
+  valence-colored stroke, energy gradient, forward arrows, faded tails. Phase
+  copy lives in HTML cards pinned to per-phase time-slots, so it can never
+  overlap a neighbor regardless of length.
 - Scroll progress drives a single cross-fading text layer; no animation library.
-- On phones the grid restacks into one full-width band per phase (in wave
-  order), keeping even the longest copy fully readable.
+- On phones the wave unrolls into one full-width band per phase (in wave order),
+  keeping even the longest copy fully readable.
 
 ## Develop
 
@@ -73,7 +85,7 @@ serve on `$PORT`).
 
 ## Design notes
 
-- The centerpiece **recreates the source graphic as vector**: the colored
-  energy/valence grid, the circulating flow arrows, and the axis labels. The
-  original reference image is kept in `src/assets/` and the palette is sampled
-  from it.
+- The centerpiece **recreates the source graphic as vector**: the energy field
+  (white crest → black trough), the valence-colored wave, the forward arrows,
+  and the axis labels. The original reference images are kept in `src/assets/`
+  and the palette is sampled from them.

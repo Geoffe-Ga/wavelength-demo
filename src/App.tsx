@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { FIELD, MODES, PHASE_BLURBS, QUADRANTS, type Phase } from './data/modes'
-import { WaveGrid } from './components/WaveGrid'
+import { WaveForm } from './components/WaveForm'
 
 const COURSE_URL = 'https://aptitude.guru/philosophy/archetypal-wavelength'
 const APP_URL = 'https://github.com/Geoffe-Ga/WavelengthWatch'
@@ -66,14 +66,14 @@ export default function App() {
 
   return (
     <div className="page">
-      {/* Fixed wavelength grid behind everything. */}
+      {/* Fixed wavelength behind everything. */}
       <div className="grid-stage" aria-hidden="true">
         <div className="grid-wrap">
           <span className="axis axis-top">{FIELD.energyHigh}</span>
           <span className="axis axis-bottom">{FIELD.energyLow}</span>
-          <span className="axis axis-left">{FIELD.valenceAttractive}</span>
-          <span className="axis axis-right">{FIELD.valenceAversive}</span>
-          <WaveGrid bodyOf={bodyOf} textOpacity={textOpacity} />
+          <span className="axis axis-asc">{FIELD.ascending} ↗</span>
+          <span className="axis axis-desc">↘ {FIELD.descending}</span>
+          <WaveForm bodyOf={bodyOf} textOpacity={textOpacity} />
         </div>
       </div>
 

@@ -69,43 +69,47 @@ export const PHASE_BLURBS: PhaseMap = {
   Restoration: 'The quiet return. Energy collects for the next rise.',
 }
 
-// The grid is meaningful. Each phase sits in a colored cell whose color encodes
-// two axes from the source graphic:
-//   • lightness = energy   (light/expansive  ->  dark/contracted)
-//   • hue       = valence  (yellow/attractive ->  purple/aversive)
-// Cells are listed in CSS-grid row-major order:
-//   row 0 (high energy):  Rising      Peaking        Withdrawal
-//   row 1 (low energy):   Restoration Bottoming Out  Diminishing
-// The wave circulates clockwise through them: across the top, down the right,
-// back across the bottom, up the left — and round again.
-export interface Cell {
+// The wavelength as a *trajectory through time* — not a closed loop. Each phase
+// is a node on a sine wave that travels left -> right and carries on toward the
+// next peak (a cycle is this same shape with the time axis removed).
+//   • vertical position = energy   — a white crest up top, a black trough below
+//   • the wave runs warm/yellow while ascending (attractive) and cool/purple
+//     while descending (aversive); it flips valence at the peak and the trough
+// Nodes are listed in time order. x/y are percentages within the wave box;
+// `place` puts each card clear of the wave line, and `band`/`ink` style the
+// stacked bands on mobile.
+export interface WaveNode {
   phase: Phase
-  bg: string
-  /** Body / copy color for legibility against the cell. */
+  x: number
+  y: number
+  place: 'above' | 'below'
+  /** Eyebrow / marker accent (valence). */
+  accent: string
+  /** Marker fill — white at the peak, black at the trough. */
+  dot: string
+  /** Mobile band background + ink. */
+  band: string
   ink: string
-  /** Phase-name (eyebrow) color. */
-  eyebrow: string
-  /** Index in wave order, used to re-sequence the stack on mobile. */
-  order: number
-  /** Short note on the cell's place in the energy/valence field. */
-  field: string
 }
 
-export const CELLS: Cell[] = [
-  { phase: 'Rising', bg: '#ecdb98', ink: '#473c1f', eyebrow: '#8a6e1f', order: 0, field: 'high energy · attractive' },
-  { phase: 'Peaking', bg: '#f5edc1', ink: '#46391c', eyebrow: '#a9851f', order: 1, field: 'peak energy · attractive' },
-  { phase: 'Withdrawal', bg: '#ddc4dc', ink: '#43374b', eyebrow: '#875680', order: 2, field: 'high energy · aversive' },
-  { phase: 'Restoration', bg: '#bd9a3c', ink: '#352a0c', eyebrow: '#594711', order: 5, field: 'low energy · attractive' },
-  { phase: 'Bottoming Out', bg: '#5b3b52', ink: '#f3e3ee', eyebrow: '#e2bfd9', order: 4, field: 'lowest energy · aversive' },
-  { phase: 'Diminishing', bg: '#91577c', ink: '#f8ebf3', eyebrow: '#f1d6e9', order: 3, field: 'low energy · aversive' },
+export const WAVE_NODES: WaveNode[] = [
+  { phase: 'Rising',        x: 8.33,  y: 35, place: 'below', accent: '#9a7c1e', dot: '#e3c247', band: '#ecdb98', ink: '#473c1f' },
+  { phase: 'Peaking',       x: 25,    y: 20, place: 'below', accent: '#6f6450', dot: '#ffffff', band: '#fbfaf3', ink: '#3a3326' },
+  { phase: 'Withdrawal',    x: 41.67, y: 35, place: 'below', accent: '#8c5483', dot: '#b86fa8', band: '#ddc4dc', ink: '#43374b' },
+  { phase: 'Diminishing',   x: 58.33, y: 65, place: 'above', accent: '#7e496d', dot: '#9a587f', band: '#a06b92', ink: '#f8ebf3' },
+  { phase: 'Bottoming Out', x: 75,    y: 80, place: 'above', accent: '#5a5560', dot: '#1d1922', band: '#26222c', ink: '#efe6ee' },
+  { phase: 'Restoration',   x: 91.67, y: 65, place: 'above', accent: '#8c7022', dot: '#d4b452', band: '#c9a94e', ink: '#352a0c' },
 ]
 
-// The four corners of meaning, for the legend / axis labels.
+// Wave stroke colors by valence.
+export const WAVE_YELLOW = '#d6b23c'
+export const WAVE_PURPLE = '#9a5a8e'
+
 export const FIELD = {
-  energyHigh: 'High energy — expansive, active',
-  energyLow: 'Low energy — contracted, receptive',
-  valenceAttractive: 'Yellow — attractive',
-  valenceAversive: 'Purple — aversive',
+  energyHigh: 'High energy — expansive',
+  energyLow: 'Low energy — contracted',
+  ascending: 'Ascending — attractive',
+  descending: 'Descending — aversive',
 }
 
 // Ordered for narrative flow: intimate & familiar first, widening to the
