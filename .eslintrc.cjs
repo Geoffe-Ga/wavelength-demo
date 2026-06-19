@@ -21,6 +21,8 @@ module.exports = {
     // Prop typing comes from TypeScript; copy legitimately contains apostrophes.
     "react/prop-types": "off",
     "react/no-unescaped-entities": "off",
+    // Cap cyclomatic complexity (quality standard: <= 10 per function).
+    complexity: ["error", 10],
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },

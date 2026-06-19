@@ -183,19 +183,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install complexity tools
-        run: npm install --save-dev typescript-complexity eslint-plugin-complexity
-
-      - name: Run complexity analysis
-        run: |
-          npx eslint . --ext .ts,.tsx --format json --output-file complexity-report.json || true
-          echo "Complexity analysis complete"
-        continue-on-error: true
-
-      - name: Upload complexity report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: complexity-report
-          path: complexity-report.json
-          retention-days: 30
+      - name: Check cyclomatic complexity (max 10 per function)
+        run: npx eslint . --ext .ts,.tsx --rule '{"complexity":["error",10]}'
