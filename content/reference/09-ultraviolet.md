@@ -3,10 +3,10 @@ id: 9
 color: Ultraviolet
 mode: ABSORB
 orientation: Do/Feel
-orientationGloss: both at once — doing and feeling as one
+orientationGloss: both at once — a Mode both active and receptive
 ---
 
-Yoke yourself to the greater currents of Source — unity.
+By managing the hinderances to concentration, we unlock the Rapture of getting Absorbed in paying attention to Source (Do) and to Absorb its infinite loving bliss and blissful love (Feel).
 
 | Phase | Medicinal | Toxic |
 | --- | --- | --- |
