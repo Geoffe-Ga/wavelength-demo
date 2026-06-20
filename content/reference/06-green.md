@@ -6,7 +6,7 @@ orientation: Feel
 orientationGloss: the divine feminine — receptivity, feeling, allowing
 ---
 
-Center the repressed edges and integrate the disowned — embodied understanding.
+The primary feeling we target when Collaborating is Belonging. It just turns out to be something you allow to arise rather than strive to earn.
 
 | Phase | Medicinal | Toxic |
 | --- | --- | --- |
