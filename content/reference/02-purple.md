@@ -3,10 +3,10 @@ id: 2
 color: Purple
 mode: INHABIT
 orientation: Feel
-orientationGloss: the divine feminine — receptivity, feeling, allowing
+orientationGloss: receptivity, feeling, allowing
 ---
 
-Receive abundance when energy runs low — through receptivity and “yes-and-ness.”
+Inhabiting your incarnation, becoming receptive, and feeling the feeling waves that arise.
 
 | Phase | Medicinal | Toxic |
 | --- | --- | --- |
