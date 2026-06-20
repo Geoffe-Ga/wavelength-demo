@@ -3,6 +3,7 @@ import { FIELD, MODES, PHASE_BLURBS, type Phase } from "../data/modes";
 import { WaveForm } from "../components/WaveForm";
 import { computeWaveState } from "../lib/scroll";
 import { selectModes } from "../lib/modeSelection";
+import { MobileAppCta } from "../components/MobileAppCta";
 // The brand mark is a tight crop of the original two-arrow graphic; the intro
 // figure is the original labeled diagram.
 import waveMark from "../assets/wavelength-mark.png";
@@ -259,6 +260,8 @@ export function HomePage() {
           </div>
         </footer>
       </main>
+
+      <MobileAppCta />
     </div>
   );
 }
