@@ -1,10 +1,9 @@
 // The Archetypal Wavelength — data model.
 //
-// Every mode below is sourced from the "Expanded List" sheet of
-// "The Archetypal Wavelength" spreadsheet, filtered to the rows marked "Y"
-// in the "Include in wavelength-demo?" column. The `mode` and `phases` values
-// are quoted from that sheet; `title` and `gloss` are editorial framing for
-// the promo page.
+// Most modes are sourced from the "Expanded List" sheet of "The Archetypal
+// Wavelength" spreadsheet (the rows marked "Y"), with a few added by editorial
+// request. The `mode` and `phases` values are quoted; `title` and `gloss` are
+// editorial framing for the promo page.
 
 export const PHASES = [
   "Rising",
@@ -66,6 +65,8 @@ export interface Mode {
   /** Attribution, when the sheet named an originator. */
   source?: string;
   quadrant: QuadrantId;
+  /** Show on the narrow mobile wave (a curated subset). */
+  mobile?: boolean;
   phases: PhaseMap;
 }
 
@@ -186,14 +187,75 @@ export const FIELD = {
   descending: "Descending — aversive",
 };
 
-// Ordered for narrative flow: intimate & familiar first, widening to the
-// cosmic and civilizational.
+// Curated order. Modes flagged `mobile` also appear on the narrow mobile wave.
 export const MODES: Mode[] = [
+  {
+    mode: "Narrative",
+    title: "The Narrative Wavelength",
+    gloss: "Abundance breeds indulgence breeds scarcity breeds resilience.",
+    quadrant: "ITS",
+    mobile: true,
+    phases: {
+      Rising: "Abundance begins to create Indulgence",
+      Peaking: "Abundance peaks",
+      Withdrawal: "Indulgence creates Scarcity",
+      Diminishing: "Scarcity begins to create Resilience",
+      "Bottoming Out": "Scarcity peaks",
+      Restoration: "Resilience creates Abundance",
+    },
+  },
+  {
+    mode: "Season",
+    title: "The Wavelength of the Seasons",
+    gloss: "The oldest wave we know: summer to winter and back to spring.",
+    quadrant: "IT",
+    mobile: true,
+    phases: {
+      Rising: "Summer",
+      Peaking: "Solstice",
+      Withdrawal: "Fall",
+      Diminishing: "Winter",
+      "Bottoming Out": "Solstice",
+      Restoration: "Spring",
+    },
+  },
+  {
+    mode: "Mindful Breathing",
+    title: "The Breath Wavelength",
+    gloss: "The whole cycle is right here, once every few seconds.",
+    quadrant: "IT",
+    mobile: true,
+    phases: {
+      Rising: "Inhale end",
+      Peaking: "Hold in",
+      Withdrawal: "Exhale begin",
+      Diminishing: "Exhale end",
+      "Bottoming Out": "Hold out",
+      Restoration: "Inhale begin",
+    },
+  },
+  {
+    mode: "Security",
+    title: "The Security Wavelength",
+    gloss:
+      "A parent's pendulum between being a Secure Base to explore from and a Safe Haven to return to.",
+    quadrant: "WE",
+    mobile: true,
+    phases: {
+      Rising: "Support Exploration",
+      Peaking: "Demonstrate Delight",
+      Withdrawal: "Help when Needed",
+      Diminishing: "Welcome a Return",
+      "Bottoming Out": "Provide Comfort",
+      Restoration: "Organize Feelings",
+    },
+  },
   {
     mode: "Addiction",
     title: "The Addiction Wavelength",
     gloss: "The using, the bliss, the crash, the craving — and around again.",
     quadrant: "IT",
+    mobile: true,
     phases: {
       Rising: "Using",
       Peaking: "Bliss",
@@ -201,6 +263,86 @@ export const MODES: Mode[] = [
       Diminishing: "Hangover",
       "Bottoming Out": "Depression",
       Restoration: "Craving",
+    },
+  },
+  {
+    mode: "Scientific Method",
+    title: "The Scientific Method Wavelength",
+    gloss:
+      "Hypothesis to experiment to data to analysis — and round to the next question.",
+    quadrant: "WE",
+    mobile: true,
+    phases: {
+      Rising: "Hypothesize",
+      Peaking: "Experiment",
+      Withdrawal: "Collect Data",
+      Diminishing: "Analyze",
+      "Bottoming Out": "Synthesize",
+      Restoration: "Question",
+    },
+  },
+  {
+    mode: "Bipolar Energy (Medicinal)",
+    title: "The Medicinal Bipolar Wavelength",
+    gloss:
+      "Bipolar energy at its most life-giving — a rhythm anyone can ride, no diagnosis required.",
+    quadrant: "I",
+    mobile: true,
+    phases: {
+      Rising: "Inspiration",
+      Peaking: "Joy",
+      Withdrawal: "Introspectivity",
+      Diminishing: "Tranquility",
+      "Bottoming Out": "Convalescence",
+      Restoration: "Recuperation",
+    },
+  },
+  {
+    mode: "Bipolar Energy (Toxic)",
+    title: "The Toxic Bipolar Wavelength",
+    gloss:
+      "The same swing overdosed — grandiosity down to self-loathing. You needn't be diagnosed to feel it.",
+    quadrant: "I",
+    mobile: true,
+    phases: {
+      Rising: "Grandiosity",
+      Peaking: "Ecstasy",
+      Withdrawal: "Anxiety",
+      Diminishing: "Self-Doubt",
+      "Bottoming Out": "Self-Loathing",
+      Restoration: "Selfishness",
+    },
+  },
+  {
+    mode: "Buddhist Realms",
+    title: "The Wavelength of the Six Realms",
+    gloss: "From the human to the gods to the hells — a turn of the wheel.",
+    quadrant: "ITS",
+    mobile: true,
+    phases: {
+      Rising: "Human",
+      Peaking: "Deva (Gods)",
+      Withdrawal: "Asura (Demigods)",
+      Diminishing: "Preta (Hungry Ghosts)",
+      "Bottoming Out": "Naraka (Hell Realm)",
+      Restoration: "Animal",
+    },
+  },
+  {
+    mode: "Malthusian Growth",
+    title: "The Malthusian Wavelength",
+    gloss: "Growth outruns its resources, collapses, and slowly recovers.",
+    quadrant: "ITS",
+    mobile: true,
+    phases: {
+      Rising: "Rapid Growth",
+      Peaking: "Peak Resource Utilization",
+      // Soft hyphen: stays "Overpopulation" when it fits, breaks "Over-
+      // population" only when the narrow mobile card forces a wrap.
+      Withdrawal: "Over\u00ADpopulation",
+      Diminishing: "Resource Depletion",
+      "Bottoming Out": "Collapse",
+      Restoration: "Recovery",
     },
   },
   {
@@ -252,20 +394,6 @@ export const MODES: Mode[] = [
     },
   },
   {
-    mode: "Mindful Breathing",
-    title: "The Breath Wavelength",
-    gloss: "The whole cycle is right here, once every few seconds.",
-    quadrant: "IT",
-    phases: {
-      Rising: "Inhale end",
-      Peaking: "Hold in",
-      Withdrawal: "Exhale begin",
-      Diminishing: "Exhale end",
-      "Bottoming Out": "Hold out",
-      Restoration: "Inhale begin",
-    },
-  },
-  {
     mode: "Hormonal Cycle (Menstrual Cycle)",
     title: "The Hormonal Wavelength",
     gloss: "A month-long wave of rising, peaking, and renewal.",
@@ -277,20 +405,6 @@ export const MODES: Mode[] = [
       Diminishing: "PMS symptoms (energy and mood dip)",
       "Bottoming Out": "Menstruation (low hormones, fatigue)",
       Restoration: "Follicular phase begins again",
-    },
-  },
-  {
-    mode: "Season",
-    title: "The Wavelength of the Seasons",
-    gloss: "The oldest wave we know: summer to winter and back to spring.",
-    quadrant: "IT",
-    phases: {
-      Rising: "Summer",
-      Peaking: "Solstice",
-      Withdrawal: "Fall",
-      Diminishing: "Winter",
-      "Bottoming Out": "Solstice",
-      Restoration: "Spring",
     },
   },
   {
@@ -309,35 +423,6 @@ export const MODES: Mode[] = [
     },
   },
   {
-    mode: "Likeliest of the Buddhist Five Hindrances",
-    title: "The Wavelength of the Five Hindrances",
-    gloss:
-      "The classic obstacles to practice, each waiting at its place on the wave.",
-    quadrant: "IT",
-    phases: {
-      Rising: "Worldly desire",
-      Peaking: "",
-      Withdrawal: "Agitation due to worry or remorse",
-      Diminishing: "Doubt",
-      "Bottoming Out": "Aversion",
-      Restoration: "Laziness or lethargy",
-    },
-  },
-  {
-    mode: "Buddhist Realms",
-    title: "The Wavelength of the Six Realms",
-    gloss: "From the human to the gods to the hells — a turn of the wheel.",
-    quadrant: "ITS",
-    phases: {
-      Rising: "Human",
-      Peaking: "Deva (Gods)",
-      Withdrawal: "Asura (Demigods)",
-      Diminishing: "Preta (Hungry Ghosts)",
-      "Bottoming Out": "Naraka (Hell Realm)",
-      Restoration: "Animal",
-    },
-  },
-  {
     mode: "Hindu Yugas",
     title: "The Wavelength of the Yugas",
     gloss: "A golden age decaying to iron, then dissolving back to creation.",
@@ -349,20 +434,6 @@ export const MODES: Mode[] = [
       Diminishing: "Dvapara Yuga (Bronze Age)",
       "Bottoming Out": "Kali Yuga (Iron Age)",
       Restoration: "Mahapralaya (Dissolution)",
-    },
-  },
-  {
-    mode: "Narrative",
-    title: "The Narrative Wavelength",
-    gloss: "Abundance breeds indulgence breeds scarcity breeds resilience.",
-    quadrant: "ITS",
-    phases: {
-      Rising: "Abundance begins to create Indulgence",
-      Peaking: "Abundance peaks",
-      Withdrawal: "Indulgence creates Scarcity",
-      Diminishing: "Scarcity begins to create Resilience",
-      "Bottoming Out": "Scarcity peaks",
-      Restoration: "Resilience creates Abundance",
     },
   },
   {
@@ -415,51 +486,6 @@ export const MODES: Mode[] = [
     },
   },
   {
-    mode: "Malthusian Growth",
-    title: "The Malthusian Wavelength",
-    gloss: "Growth outruns its resources, collapses, and slowly recovers.",
-    quadrant: "ITS",
-    phases: {
-      Rising: "Rapid Growth",
-      Peaking: "Peak Resource Utilization",
-      Withdrawal: "Overpopulation",
-      Diminishing: "Resource Depletion",
-      "Bottoming Out": "Collapse",
-      Restoration: "Recovery",
-    },
-  },
-  {
-    mode: "Asabiyyah Theory",
-    title: "The Asabiyyah Wavelength",
-    gloss:
-      "Social cohesion builds an empire, comfort dissolves it, a new group rises.",
-    source: "Ibn Khaldun",
-    quadrant: "ITS",
-    phases: {
-      Rising: "Strong Social Cohesion (Asabiyyah)",
-      Peaking: "Dominance",
-      Withdrawal: "Luxury and Comfort",
-      Diminishing: "Loss of Cohesion",
-      "Bottoming Out": "Collapse",
-      Restoration: "New Group with Asabiyyah",
-    },
-  },
-  {
-    mode: "Cliodynamics",
-    title: "The Cliodynamics Wavelength",
-    gloss: "Cooperation, peak power, inequality, crisis — the math of history.",
-    source: "Peter Turchin",
-    quadrant: "ITS",
-    phases: {
-      Rising: "Social Cooperation",
-      Peaking: "Peak Power and Expansion",
-      Withdrawal: "Inequality and Resource Strain",
-      Diminishing: "Internal Conflict",
-      "Bottoming Out": "Crisis / Collapse",
-      Restoration: "New Social / Political Configuration",
-    },
-  },
-  {
     mode: "Krebs Cycle",
     title: "The Krebs Wavelength",
     gloss:
@@ -472,6 +498,23 @@ export const MODES: Mode[] = [
       Diminishing: "Succinyl-CoA → Succinate + ATP",
       "Bottoming Out": "Succinate → Fumarate → Malate → Oxaloacetate",
       Restoration: "Acetyl-CoA + Oxaloacetate → Citrate",
+    },
+  },
+  {
+    mode: "Tuckman Model",
+    title: "The Tuckman Wavelength",
+    gloss:
+      "Forming, performing, storming, norming — the rise and fall of every group.",
+    source: "Bruce Tuckman",
+    quadrant: "WE",
+    mobile: true,
+    phases: {
+      Rising: "Forming",
+      Peaking: "Performing",
+      Withdrawal: "Storming",
+      Diminishing: "Norming",
+      "Bottoming Out": "Adjourning",
+      Restoration: "Re-Forming",
     },
   },
 ];

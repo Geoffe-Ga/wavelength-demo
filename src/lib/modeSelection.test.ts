@@ -1,38 +1,26 @@
 import { describe, expect, it } from "vitest";
 import { MODES } from "../data/modes";
-import {
-  MOBILE_MAX_PHASE_LEN,
-  MOBILE_MODES,
-  fitsMobile,
-  selectModes,
-} from "./modeSelection";
-
-describe("fitsMobile", () => {
-  it("accepts a mode whose phases are all short", () => {
-    const mode = MODES.find((m) => m.mode === "Season")!;
-    expect(fitsMobile(mode)).toBe(true);
-  });
-
-  it("rejects a mode with long, wordy phase copy", () => {
-    const mode = MODES.find((m) => m.mode === "External Validation Loop")!;
-    expect(fitsMobile(mode)).toBe(false);
-  });
-
-  it("respects a custom maximum length", () => {
-    const mode = MODES.find((m) => m.mode === "Season")!;
-    expect(fitsMobile(mode, 3)).toBe(false);
-  });
-});
+import { MOBILE_MODES, selectModes } from "./modeSelection";
 
 describe("MOBILE_MODES", () => {
-  it("is a non-empty subset whose phases all fit the limit", () => {
+  it("is the subset of modes flagged for mobile", () => {
     expect(MOBILE_MODES.length).toBeGreaterThan(0);
     expect(MOBILE_MODES.length).toBeLessThan(MODES.length);
-    for (const mode of MOBILE_MODES) {
-      for (const phrase of Object.values(mode.phases)) {
-        expect(phrase.length).toBeLessThanOrEqual(MOBILE_MAX_PHASE_LEN);
-      }
-    }
+    expect(MOBILE_MODES.every((m) => m.mobile)).toBe(true);
+    expect(MOBILE_MODES).toEqual(MODES.filter((m) => m.mobile));
+  });
+
+  it("includes the curated modes and excludes the wordy ones", () => {
+    const names = MOBILE_MODES.map((m) => m.mode);
+    expect(names).toContain("Narrative");
+    expect(names).toContain("Malthusian Growth");
+    expect(names).not.toContain("Krebs Cycle");
+  });
+
+  it("keeps the same order as the full catalog", () => {
+    const mobileOrder = MOBILE_MODES.map((m) => m.mode);
+    const expectedOrder = MODES.filter((m) => m.mobile).map((m) => m.mode);
+    expect(mobileOrder).toEqual(expectedOrder);
   });
 });
 
