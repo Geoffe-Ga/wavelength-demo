@@ -3,10 +3,10 @@ id: 7
 color: Yellow
 mode: INTEGRATE
 orientation: Do
-orientationGloss: the divine masculine — agency, action, building
+orientationGloss: comprehend, organize, self-express
 ---
 
-Amalgamate every prior stage into one unique system — systems wisdom.
+Integrate the expression of your Wavelength inside of the broader system of systems (a Wavelength of Wavelengths) to which it belongs.
 
 | Phase | Medicinal | Toxic |
 | --- | --- | --- |
