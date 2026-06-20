@@ -3,10 +3,10 @@ id: 4
 color: Blue
 mode: EXPRESS
 orientation: Feel
-orientationGloss: the divine feminine — receptivity, feeling, allowing
+orientationGloss: what you feel when you express authentically
 ---
 
-Move from isolation to embodied belonging — the work of community love.
+Express yourself, making change in the exterior world while looking inward, and you'll see there are healthy and unhealthy dosages of expression.
 
 | Phase | Medicinal | Toxic |
 | --- | --- | --- |
