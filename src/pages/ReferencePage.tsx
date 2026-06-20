@@ -1,8 +1,10 @@
 import { REFERENCE_LAYERS, TOXIC_HEX } from "../data/reference";
 import { FIELD, type Phase } from "../data/modes";
+import { REFERENCE_HERO } from "../content/pages";
 import { WaveForm } from "../components/WaveForm";
 import { useWaveReveal } from "../components/useWaveReveal";
 import { MobileAppCta } from "../components/MobileAppCta";
+import { Lines, RichText } from "../components/RichText";
 import { readableInk, shade } from "../lib/color";
 import waveMark from "../assets/wavelength-mark.png";
 
@@ -79,23 +81,12 @@ export function ReferencePage() {
       <main className="content">
         <section className="hero">
           <div className="hero-inner">
-            <p className="kicker">Reference</p>
+            <p className="kicker">{REFERENCE_HERO.eyebrow}</p>
             <h1>
-              The Modes,
-              <br />
-              Orientations &amp; Dosages
+              <Lines text={REFERENCE_HERO.heading} />
             </h1>
             <p className="lede">
-              Every developmental layer is a <strong>Mode</strong> in a
-              particular <strong>orientation</strong> — a way of moving through
-              the same six phases. As you scroll, each Mode fills the wave with
-              its two <strong>dosages</strong>: the{" "}
-              <span style={{ color: "var(--ink)", fontWeight: 600 }}>
-                medicinal
-              </span>{" "}
-              expression (in the Mode's color) and the{" "}
-              <span style={{ color: TOXIC_HEX, fontWeight: 600 }}>toxic</span>{" "}
-              overdose (in red).
+              <RichText text={REFERENCE_HERO.intro} />
             </p>
             <div className="hero-cta">
               <a className="btn btn-ghost" href="#">
@@ -104,7 +95,7 @@ export function ReferencePage() {
             </div>
           </div>
           <div className="scroll-cue" aria-hidden="true">
-            <span>Scroll — each Mode fills the same wave</span>
+            <span>{REFERENCE_HERO.scrollCue}</span>
             <span className="scroll-arrow">↓</span>
           </div>
         </section>

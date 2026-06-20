@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { FIELD, MODES, PHASE_BLURBS, type Phase } from "../data/modes";
+import { HOME_HERO } from "../content/pages";
 import { WaveForm } from "../components/WaveForm";
 import { useWaveReveal } from "../components/useWaveReveal";
 import { selectModes } from "../lib/modeSelection";
 import { MobileAppCta } from "../components/MobileAppCta";
+import { Lines, RichText } from "../components/RichText";
 // The brand mark is a tight crop of the original two-arrow graphic; the intro
 // figure is the original labeled diagram.
 import waveMark from "../assets/wavelength-mark.png";
@@ -82,17 +84,12 @@ export function HomePage() {
       <main className="content">
         <section className="hero">
           <div className="hero-inner">
-            <p className="kicker">One rhythm, everywhere</p>
+            <p className="kicker">{HOME_HERO.eyebrow}</p>
             <h1>
-              The Archetypal
-              <br />
-              Wavelength
+              <Lines text={HOME_HERO.heading} />
             </h1>
             <p className="lede">
-              Expansion and contraction. Rising and bottoming out. The same
-              six-phase wave runs underneath your moods, your habits, the
-              seasons, and the rise and fall of whole civilizations. Learn to
-              see where you are on it — and how to care for yourself there.
+              <RichText text={HOME_HERO.intro} />
             </p>
             <div className="hero-cta">
               <a
@@ -114,7 +111,7 @@ export function HomePage() {
             </div>
           </div>
           <div className="scroll-cue" aria-hidden="true">
-            <span>Scroll — the field stays; the meaning changes</span>
+            <span>{HOME_HERO.scrollCue}</span>
             <span className="scroll-arrow">↓</span>
           </div>
         </section>

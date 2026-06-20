@@ -9,8 +9,18 @@ import {
   WAVE_NODES,
   WAVE_PURPLE,
   WAVE_YELLOW,
+  toMode,
   type Phase,
 } from "./modes";
+
+const TABLE = [
+  "| Phase | On this wavelength |",
+  "| --- | --- |",
+  ...PHASES.map((phase) => `| ${phase} | ${phase} value |`),
+].join("\n");
+
+const doc = (front: string[]): string =>
+  ["---", ...front, "---", "", "The gloss.", "", TABLE].join("\n");
 
 const HEX = /^#[0-9a-fA-F]{3,8}$/;
 
@@ -49,6 +59,46 @@ describe("modes", () => {
         expect(phase in mode.phases).toBe(true);
       }
     }
+  });
+});
+
+describe("toMode", () => {
+  it("parses a complete document into a Mode", () => {
+    const mode = toMode(
+      doc(["mode: Demo", "title: The Demo Wavelength", "quadrant: I"]),
+    );
+    expect(mode.mode).toBe("Demo");
+    expect(mode.title).toBe("The Demo Wavelength");
+    expect(mode.gloss).toBe("The gloss.");
+    expect(mode.phases.Rising).toBe("Rising value");
+    expect(mode.source).toBeUndefined();
+    expect(mode.mobile).toBeUndefined();
+  });
+
+  it("carries optional source and mobile flags when present", () => {
+    const mode = toMode(
+      doc([
+        "mode: Demo",
+        "title: T",
+        "quadrant: WE",
+        "source: A Person",
+        "mobile: true",
+      ]),
+    );
+    expect(mode.source).toBe("A Person");
+    expect(mode.mobile).toBe(true);
+  });
+
+  it("throws on a missing required field", () => {
+    expect(() => toMode(doc(["mode: Demo", "quadrant: I"]))).toThrow(
+      /required field "title"/,
+    );
+  });
+
+  it("throws on an unknown quadrant", () => {
+    expect(() =>
+      toMode(doc(["mode: Demo", "title: T", "quadrant: ZZ"])),
+    ).toThrow(/unknown quadrant "ZZ"/);
   });
 });
 
