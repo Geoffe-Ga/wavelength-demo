@@ -6,7 +6,7 @@ orientation: Do
 orientationGloss: agency, action, building
 ---
 
-Build a life intentionally when energy runs high — through agency and “yes-and-ness.”
+Inhabit a life intentionally, exercising agency when energy runs high.
 
 | Phase | Medicinal | Toxic |
 | --- | --- | --- |
