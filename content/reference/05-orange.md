@@ -3,10 +3,10 @@ id: 5
 color: Orange
 mode: COLLABORATE
 orientation: Do
-orientationGloss: the divine masculine — agency, action, building
+orientationGloss: achieving, analyzing, intellectualizing
 ---
 
-Harness rationality and the drive to achieve — clear, intellectual understanding.
+When Collaborating on anything from a work project to parenting to a club sport, an optimal methodology exists. Harness rationality's Scientific Method and your own drive to achieve.
 
 | Phase | Medicinal | Toxic |
 | --- | --- | --- |
