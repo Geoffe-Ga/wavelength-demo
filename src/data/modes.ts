@@ -423,21 +423,6 @@ export const MODES: Mode[] = [
     },
   },
   {
-    mode: "Likeliest of the Buddhist Five Hindrances",
-    title: "The Wavelength of the Five Hindrances",
-    gloss:
-      "The classic obstacles to practice, each waiting at its place on the wave.",
-    quadrant: "IT",
-    phases: {
-      Rising: "Worldly desire",
-      Peaking: "",
-      Withdrawal: "Agitation due to worry or remorse",
-      Diminishing: "Doubt",
-      "Bottoming Out": "Aversion",
-      Restoration: "Laziness or lethargy",
-    },
-  },
-  {
     mode: "Hindu Yugas",
     title: "The Wavelength of the Yugas",
     gloss: "A golden age decaying to iron, then dissolving back to creation.",
@@ -498,37 +483,6 @@ export const MODES: Mode[] = [
         "finally, they abuse those business customers to claw back all the value for themselves",
       "Bottoming Out": 'Then, they die."',
       Restoration: "A new platform arises and everyone migrates to it",
-    },
-  },
-  {
-    mode: "Asabiyyah Theory",
-    title: "The Asabiyyah Wavelength",
-    gloss:
-      "Social cohesion builds an empire, comfort dissolves it, a new group rises.",
-    source: "Ibn Khaldun",
-    quadrant: "ITS",
-    phases: {
-      Rising: "Strong Social Cohesion (Asabiyyah)",
-      Peaking: "Dominance",
-      Withdrawal: "Luxury and Comfort",
-      Diminishing: "Loss of Cohesion",
-      "Bottoming Out": "Collapse",
-      Restoration: "New Group with Asabiyyah",
-    },
-  },
-  {
-    mode: "Cliodynamics",
-    title: "The Cliodynamics Wavelength",
-    gloss: "Cooperation, peak power, inequality, crisis — the math of history.",
-    source: "Peter Turchin",
-    quadrant: "ITS",
-    phases: {
-      Rising: "Social Cooperation",
-      Peaking: "Peak Power and Expansion",
-      Withdrawal: "Inequality and Resource Strain",
-      Diminishing: "Internal Conflict",
-      "Bottoming Out": "Crisis / Collapse",
-      Restoration: "New Social / Political Configuration",
     },
   },
   {
