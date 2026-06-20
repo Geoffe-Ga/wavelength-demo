@@ -1,9 +1,15 @@
 // The Archetypal Wavelength — data model.
 //
-// Most modes are sourced from the "Expanded List" sheet of "The Archetypal
-// Wavelength" spreadsheet (the rows marked "Y"), with a few added by editorial
-// request. The `mode` and `phases` values are quoted; `title` and `gloss` are
-// editorial framing for the promo page.
+// The structural pieces (phases, quadrants, wave geometry, colors) live here.
+// The editable *copy* for each wavelength lives as Markdown in
+// `content/wavelengths/` and is loaded at the bottom of this file.
+
+import {
+  indexByFirstCell,
+  leadText,
+  parseFrontmatter,
+  parseTable,
+} from "../content/markdown";
 
 export const PHASES = [
   "Rising",
@@ -187,336 +193,53 @@ export const FIELD = {
   descending: "Descending — aversive",
 };
 
-// Curated order. Modes flagged `mobile` also appear on the narrow mobile wave.
-export const MODES: Mode[] = [
-  {
-    mode: "Narrative",
-    title: "The Narrative Wavelength",
-    gloss: "Abundance breeds indulgence breeds scarcity breeds resilience.",
-    quadrant: "ITS",
-    mobile: true,
-    phases: {
-      Rising: "Abundance begins to create Indulgence",
-      Peaking: "Abundance peaks",
-      Withdrawal: "Indulgence creates Scarcity",
-      Diminishing: "Scarcity begins to create Resilience",
-      "Bottoming Out": "Scarcity peaks",
-      Restoration: "Resilience creates Abundance",
-    },
-  },
-  {
-    mode: "Season",
-    title: "The Wavelength of the Seasons",
-    gloss: "The oldest wave we know: summer to winter and back to spring.",
-    quadrant: "IT",
-    mobile: true,
-    phases: {
-      Rising: "Summer",
-      Peaking: "Solstice",
-      Withdrawal: "Fall",
-      Diminishing: "Winter",
-      "Bottoming Out": "Solstice",
-      Restoration: "Spring",
-    },
-  },
-  {
-    mode: "Mindful Breathing",
-    title: "The Breath Wavelength",
-    gloss: "The whole cycle is right here, once every few seconds.",
-    quadrant: "IT",
-    mobile: true,
-    phases: {
-      Rising: "Inhale end",
-      Peaking: "Hold in",
-      Withdrawal: "Exhale begin",
-      Diminishing: "Exhale end",
-      "Bottoming Out": "Hold out",
-      Restoration: "Inhale begin",
-    },
-  },
-  {
-    mode: "Security",
-    title: "The Security Wavelength",
-    gloss:
-      "A parent's pendulum between being a Secure Base to explore from and a Safe Haven to return to.",
-    quadrant: "WE",
-    mobile: true,
-    phases: {
-      Rising: "Support Exploration",
-      Peaking: "Demonstrate Delight",
-      Withdrawal: "Help when Needed",
-      Diminishing: "Welcome a Return",
-      "Bottoming Out": "Provide Comfort",
-      Restoration: "Organize Feelings",
-    },
-  },
-  {
-    mode: "Addiction",
-    title: "The Addiction Wavelength",
-    gloss: "The using, the bliss, the crash, the craving — and around again.",
-    quadrant: "IT",
-    mobile: true,
-    phases: {
-      Rising: "Using",
-      Peaking: "Bliss",
-      Withdrawal: "Come down",
-      Diminishing: "Hangover",
-      "Bottoming Out": "Depression",
-      Restoration: "Craving",
-    },
-  },
-  {
-    mode: "Scientific Method",
-    title: "The Scientific Method Wavelength",
-    gloss:
-      "Hypothesis to experiment to data to analysis — and round to the next question.",
-    quadrant: "WE",
-    mobile: true,
-    phases: {
-      Rising: "Hypothesize",
-      Peaking: "Experiment",
-      Withdrawal: "Collect Data",
-      Diminishing: "Analyze",
-      "Bottoming Out": "Synthesize",
-      Restoration: "Question",
-    },
-  },
-  {
-    mode: "Bipolar Energy (Medicinal)",
-    title: "The Medicinal Bipolar Wavelength",
-    gloss:
-      "Bipolar energy at its most life-giving — a rhythm anyone can ride, no diagnosis required.",
-    quadrant: "I",
-    mobile: true,
-    phases: {
-      Rising: "Inspiration",
-      Peaking: "Joy",
-      // Soft hyphens: these long single words only break (and break at a
-      // sensible syllable) when the narrow wave card forces a wrap.
-      Withdrawal: "Intro\u00ADspectivity",
-      Diminishing: "Tranquility",
-      "Bottoming Out": "Convales\u00ADcence",
-      Restoration: "Recuper\u00ADation",
-    },
-  },
-  {
-    mode: "Bipolar Energy (Toxic)",
-    title: "The Toxic Bipolar Wavelength",
-    gloss:
-      "The same swing overdosed — grandiosity down to self-loathing. You needn't be diagnosed to feel it.",
-    quadrant: "I",
-    mobile: true,
-    phases: {
-      Rising: "Grandiosity",
-      Peaking: "Ecstasy",
-      Withdrawal: "Anxiety",
-      Diminishing: "Self-Doubt",
-      "Bottoming Out": "Self-Loathing",
-      Restoration: "Selfishness",
-    },
-  },
-  {
-    mode: "Buddhist Realms",
-    title: "The Wavelength of the Six Realms",
-    gloss: "From the human to the gods to the hells — a turn of the wheel.",
-    quadrant: "ITS",
-    mobile: true,
-    phases: {
-      Rising: "Human",
-      Peaking: "Deva (Gods)",
-      Withdrawal: "Asura (Demigods)",
-      Diminishing: "Preta (Hungry Ghosts)",
-      "Bottoming Out": "Naraka (Hell Realm)",
-      Restoration: "Animal",
-    },
-  },
-  {
-    mode: "Malthusian Growth",
-    title: "The Malthusian Wavelength",
-    gloss: "Growth outruns its resources, collapses, and slowly recovers.",
-    quadrant: "ITS",
-    mobile: true,
-    phases: {
-      Rising: "Rapid Growth",
-      Peaking: "Peak Resource Utilization",
-      // Soft hyphen: stays "Overpopulation" when it fits, breaks "Over-
-      // population" only when the narrow mobile card forces a wrap.
-      Withdrawal: "Over\u00ADpopulation",
-      Diminishing: "Resource Depletion",
-      "Bottoming Out": "Collapse",
-      Restoration: "Recovery",
-    },
-  },
-  {
-    mode: "Dopamine Reward System",
-    title: "The Dopamine Wavelength",
-    gloss: "The same loop your brain runs every time it chases a reward.",
-    quadrant: "IT",
-    phases: {
-      Rising: "Initial trigger for dopamine release",
-      Peaking: "Peak pleasure or reward",
-      Withdrawal: "Dopamine levels begin to decline",
-      Diminishing: "Cravings for more stimulation",
-      "Bottoming Out": "Dopamine crash or low",
-      Restoration: "New trigger, dopamine release cycle restarts",
-    },
-  },
-  {
-    mode: "External Validation Loop",
-    title: "The Validation Wavelength",
-    gloss: "Making something, basking in it, then refreshing for the next hit.",
-    quadrant: "I",
-    phases: {
-      Rising:
-        "Increasing creativity, productivity, inspiration, downloads and resonance",
-      Peaking: "Basking in the glory of the thing created",
-      Withdrawal:
-        "Beginning to feel unsure whether your creation is as good as you thought it was immediately after creating it",
-      Diminishing:
-        "Feeling totally down on yourself, refreshing Likes and Views looking for a hit of validation",
-      "Bottoming Out":
-        "Attempting to get validation from a specific person you have a genuine relationship with",
-      Restoration:
-        "Feeling the vibe again, like bass from a subwoofer you're sitting on — whether from that person or within you",
-    },
-  },
-  {
-    mode: "Flow State",
-    title: "The Flow Wavelength",
-    gloss: "Focus rising, full immersion, the interruption, the return.",
-    source: "Mihaly Csikszentmihalyi",
-    quadrant: "I",
-    phases: {
-      Rising: "Rising focus and engagement",
-      Peaking: "Full immersion in the flow state",
-      Withdrawal: "Distraction or external interruption",
-      Diminishing: "Loss of focus or energy",
-      "Bottoming Out": "Complete break from flow",
-      Restoration: "Return to focus or new creative flow",
-    },
-  },
-  {
-    mode: "Hormonal Cycle (Menstrual Cycle)",
-    title: "The Hormonal Wavelength",
-    gloss: "A month-long wave of rising, peaking, and renewal.",
-    quadrant: "IT",
-    phases: {
-      Rising: "Follicular phase (increasing estrogen)",
-      Peaking: "Ovulation (peak fertility and hormone levels)",
-      Withdrawal: "Luteal phase (declining hormones)",
-      Diminishing: "PMS symptoms (energy and mood dip)",
-      "Bottoming Out": "Menstruation (low hormones, fatigue)",
-      Restoration: "Follicular phase begins again",
-    },
-  },
-  {
-    mode: "Distraction Cycle",
-    title: "The Distraction Wavelength",
-    gloss:
-      "How attention wanders away from the breath — and finds its way back.",
-    quadrant: "IT",
-    phases: {
-      Rising: "Redirecting attention to the breath at the nose",
-      Peaking: "Meditative absorption",
-      Withdrawal: "Distraction",
-      Diminishing: "Forgetting",
-      "Bottoming Out": "Mind wandering",
-      Restoration: '"Waking up"',
-    },
-  },
-  {
-    mode: "Hindu Yugas",
-    title: "The Wavelength of the Yugas",
-    gloss: "A golden age decaying to iron, then dissolving back to creation.",
-    quadrant: "ITS",
-    phases: {
-      Rising: "Srishti (Creation)",
-      Peaking: "Satya Yuga (Golden Age)",
-      Withdrawal: "Treta Yuga (Silver Age)",
-      Diminishing: "Dvapara Yuga (Bronze Age)",
-      "Bottoming Out": "Kali Yuga (Iron Age)",
-      Restoration: "Mahapralaya (Dissolution)",
-    },
-  },
-  {
-    mode: "Discord Server Dynamics",
-    title: "The Community Wavelength",
-    gloss: "Every group you have ever loved has ridden this exact arc.",
-    quadrant: "WE",
-    phases: {
-      Rising: "Excitement and enthusiasm about a new group or community",
-      Peaking:
-        "A sense of belonging or alignment, where things seem to be working",
-      Withdrawal:
-        "Tensions or conflicts arise, triggering discomfort or alienation",
-      Diminishing: "Attempts to avoid conflict or disengage",
-      "Bottoming Out": "Crisis or breakdown in the group dynamic",
-      Restoration:
-        "Reconciliation, understanding, and healing through open communication or shared vulnerability",
-    },
-  },
-  {
-    mode: "Subcultural Movements",
-    title: "The Subculture Wavelength",
-    gloss:
-      "A scene forms, peaks, gets mainstreamed, fades — and seeds the next.",
-    quadrant: "WE",
-    phases: {
-      Rising: "Formation of subculture with shared meaning",
-      Peaking: "Heightened cultural relevance and unity",
-      Withdrawal: "Mainstreaming or dilution of identity",
-      Diminishing: "Fragmentation or commercialization",
-      "Bottoming Out": "Subculture fades into obscurity",
-      Restoration: "Birth of new subcultural movement",
-    },
-  },
-  {
-    mode: "Enshittification",
-    title: "The Enshittification Wavelength",
-    gloss: "Why every platform you love eventually turns on you.",
-    source: "Cory Doctorow",
-    quadrant: "IT",
-    phases: {
-      Rising: '"First, platforms are good to their users',
-      Peaking: "a golden age for users that is empowering and enjoyable",
-      Withdrawal:
-        "then they abuse their users to make things better for their business customers",
-      Diminishing:
-        "finally, they abuse those business customers to claw back all the value for themselves",
-      "Bottoming Out": 'Then, they die."',
-      Restoration: "A new platform arises and everyone migrates to it",
-    },
-  },
-  {
-    mode: "Krebs Cycle",
-    title: "The Krebs Wavelength",
-    gloss:
-      "Even your cells turn the wheel — energy made one revolution at a time.",
-    quadrant: "ITS",
-    phases: {
-      Rising: "Citrate → Isocitrate (isomerization)",
-      Peaking: "Isocitrate → α-Ketoglutarate + CO₂",
-      Withdrawal: "α-Ketoglutarate → Succinyl-CoA + CO₂",
-      Diminishing: "Succinyl-CoA → Succinate + ATP",
-      "Bottoming Out": "Succinate → Fumarate → Malate → Oxaloacetate",
-      Restoration: "Acetyl-CoA + Oxaloacetate → Citrate",
-    },
-  },
-  {
-    mode: "Tuckman Model",
-    title: "The Tuckman Wavelength",
-    gloss:
-      "Forming, performing, storming, norming — the rise and fall of every group.",
-    source: "Bruce Tuckman",
-    quadrant: "WE",
-    mobile: true,
-    phases: {
-      Rising: "Forming",
-      Peaking: "Performing",
-      Withdrawal: "Storming",
-      Diminishing: "Norming",
-      "Bottoming Out": "Adjourning",
-      Restoration: "Re-Forming",
-    },
-  },
-];
+// The curated wavelengths live as editable Markdown in `content/wavelengths/`,
+// one file per mode. Filenames are numbered (`01-…`, `02-…`) so the page order
+// is simply their sorted order. Edit those files to change the copy; this loader
+// turns each document into a `Mode`. See `content/README.md`.
+const wavelengthFiles = import.meta.glob("../../content/wavelengths/*.md", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+}) as Record<string, string>;
+
+/** Read a required frontmatter field, or fail loudly naming the missing key. */
+function field(data: Record<string, string>, key: string): string {
+  const value = data[key];
+  if (!value) throw new Error(`wavelength is missing required field "${key}"`);
+  return value;
+}
+
+/**
+ * Parse one wavelength Markdown document into a {@link Mode}.
+ *
+ * @param raw - The Markdown file contents (frontmatter, lead paragraph, table).
+ * @returns The mode it describes.
+ * @throws {Error} If a required field, the quadrant, or a phase row is missing.
+ */
+export function toMode(raw: string): Mode {
+  const { data, body } = parseFrontmatter(raw);
+  const quadrant = field(data, "quadrant") as QuadrantId;
+  if (!(quadrant in QUADRANTS)) {
+    throw new Error(`wavelength has unknown quadrant "${quadrant}"`);
+  }
+  const rows = indexByFirstCell(parseTable(body), PHASES);
+  const phases = Object.fromEntries(
+    PHASES.map((phase) => [phase, rows[phase][0]]),
+  ) as PhaseMap;
+
+  const mode: Mode = {
+    mode: field(data, "mode"),
+    title: field(data, "title"),
+    gloss: leadText(body),
+    quadrant,
+    phases,
+  };
+  if (data.source) mode.source = data.source;
+  if (data.mobile === "true") mode.mobile = true;
+  return mode;
+}
+
+export const MODES: Mode[] = Object.keys(wavelengthFiles)
+  .sort()
+  .map((path) => toMode(wavelengthFiles[path]));
