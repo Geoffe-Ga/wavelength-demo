@@ -4,6 +4,7 @@
   --paper: #f6efda;
   --ink: #3c3742;
   --ink-soft: #6c6470;
+  --tox: #cf3a33;
   --slate: #4a4550;
   --line: rgba(70, 60, 80, 0.1);
   --gutter: #e7dac1;
@@ -390,6 +391,17 @@ a {
   color: var(--slate);
   margin: 0 auto 30px;
   max-width: 34em;
+}
+
+/* Colored words in the lede, set from Markdown via [text]{.med} / [text]{.tox}. */
+.lede .med {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.lede .tox {
+  color: var(--tox);
+  font-weight: 600;
 }
 
 .hero-cta {

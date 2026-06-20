@@ -3,6 +3,7 @@ import {
   indexByFirstCell,
   leadText,
   parseFrontmatter,
+  parseSections,
   parseTable,
 } from "./markdown";
 
@@ -104,5 +105,40 @@ describe("indexByFirstCell", () => {
     expect(() => indexByFirstCell([["Rising", "Up"]], ["Peaking"])).toThrow(
       /missing row "Peaking"/,
     );
+  });
+});
+
+describe("parseSections", () => {
+  const PAGE = [
+    "# Page title",
+    "ignored preamble",
+    "## Eyebrow",
+    "Hello",
+    "## Heading",
+    "Line one",
+    "Line two",
+    "## Empty",
+  ].join("\n");
+
+  it("keys each section by its lowercased heading", () => {
+    const sections = parseSections(PAGE);
+    expect(sections.eyebrow).toBe("Hello");
+    expect(Object.keys(sections)).toContain("heading");
+  });
+
+  it("preserves internal line breaks within a section", () => {
+    expect(parseSections(PAGE).heading).toBe("Line one\nLine two");
+  });
+
+  it("ignores text before the first heading", () => {
+    expect(parseSections(PAGE)["page title"]).toBeUndefined();
+  });
+
+  it("yields an empty string for a heading with no body", () => {
+    expect(parseSections(PAGE).empty).toBe("");
+  });
+
+  it("handles \\r\\n line endings", () => {
+    expect(parseSections("## A\r\nbody").a).toBe("body");
   });
 });

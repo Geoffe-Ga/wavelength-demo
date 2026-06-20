@@ -120,3 +120,33 @@ export function indexByFirstCell(
   }
   return found;
 }
+
+/**
+ * Split a document into sections keyed by their `##` heading. The text under
+ * each heading (up to the next heading) is returned verbatim and trimmed, so a
+ * section may keep internal line breaks. Anything before the first `##` heading
+ * (such as a `#` page title) is ignored.
+ *
+ * @param raw - The Markdown document.
+ * @returns A map from each lowercased heading to its section text.
+ */
+export function parseSections(raw: string): Record<string, string> {
+  const sections: Record<string, string> = {};
+  let key: string | null = null;
+  let buffer: string[] = [];
+  const flush = (): void => {
+    if (key !== null) sections[key] = buffer.join("\n").trim();
+  };
+  for (const line of raw.replace(/\r\n/g, "\n").split("\n")) {
+    const heading = /^##\s+(.+?)\s*$/.exec(line);
+    if (heading) {
+      flush();
+      key = heading[1].toLowerCase();
+      buffer = [];
+    } else if (key !== null) {
+      buffer.push(line);
+    }
+  }
+  flush();
+  return sections;
+}

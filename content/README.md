@@ -7,7 +7,8 @@ moment it merges the site rebuilds and shows your new copy. No code required.
 ```
 content/
 ├── wavelengths/   # the scrolling cards on the home page (one file per wavelength)
-└── reference/     # the nine layers on the Reference page (one file per layer)
+├── reference/     # the nine layers on the Reference page (one file per layer)
+└── pages/         # the hero (intro) copy at the top of each page
 ```
 
 You can edit these straight on GitHub: open the file, click the pencil ✏️, make
@@ -86,6 +87,49 @@ Build a life intentionally when energy runs high — through agency and "yes-and
 
 The hex colors for each layer stay in the code (so a copy edit can't break the
 page's look). Ask a developer if you want a color changed.
+
+## The page heroes
+
+The intro block at the top of each page lives in `content/pages/` — `home.md` and
+`reference.md`. Each is a set of `##` sections:
+
+```markdown
+## Eyebrow
+One rhythm, everywhere
+
+## Heading
+The Archetypal
+Wavelength
+
+## Intro
+Expansion and contraction. Rising and bottoming out. …
+
+## Scroll cue
+Scroll — the field stays; the meaning changes
+```
+
+| Section | What it is |
+| --- | --- |
+| `Eyebrow` | The small line above the headline. |
+| `Heading` | The big headline. **Each line break here becomes a line break on the page** — so the two lines above stack. |
+| `Intro` | The paragraph under the headline. |
+| `Scroll cue` | The faint "scroll" hint at the bottom. |
+
+The call-to-action **buttons** ("Explore the Course", "Get the App", etc.) are
+intentionally **not** here — they stay in the code. Everything else in the hero
+is yours to edit.
+
+### Emphasis in the intro
+
+The `Intro` paragraph understands a little formatting:
+
+- `**bold**` → **bold**
+- `*italic*` → *italic*
+- `[medicinal]{.med}` → the word in the dark "medicinal" color
+- `[toxic]{.tox}` → the word in red
+
+For example, the Reference intro uses `[medicinal]{.med}` and `[toxic]{.tox}` so
+those two words match the colors used on the wave.
 
 ## Rules of thumb
 
