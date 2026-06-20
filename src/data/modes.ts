@@ -546,4 +546,21 @@ export const MODES: Mode[] = [
       Restoration: "Acetyl-CoA + Oxaloacetate → Citrate",
     },
   },
+  {
+    mode: "Tuckman Model",
+    title: "The Tuckman Wavelength",
+    gloss:
+      "Forming, performing, storming, norming — the rise and fall of every group.",
+    source: "Bruce Tuckman",
+    quadrant: "WE",
+    mobile: true,
+    phases: {
+      Rising: "Forming",
+      Peaking: "Performing",
+      Withdrawal: "Storming",
+      Diminishing: "Norming",
+      "Bottoming Out": "Adjourning",
+      Restoration: "Re-Forming",
+    },
+  },
 ];
