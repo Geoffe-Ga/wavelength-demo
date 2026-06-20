@@ -7,7 +7,7 @@ const APP_URL = "https://github.com/Geoffe-Ga/WavelengthWatch";
 export function ReferencePage() {
   return (
     <div className="ref-page">
-      <header className="topbar ref-topbar">
+      <header className="topbar">
         <a className="brand" href="#">
           <img
             className="brand-mark"

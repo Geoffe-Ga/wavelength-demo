@@ -4,61 +4,53 @@ import { TOXIC_HEX, type ReferenceLayer } from "../data/reference";
 
 const PATH = buildPath(0, 1);
 
-// The same sine wave as the home page, reused to show a single layer's
-// Medicinal (in the layer color) and Toxic (in red) expression at each phase.
+// The same sine wave as the home page, reused here as a slim header band: the
+// curve and its six phase dots sit above a six-column grid whose columns line up
+// directly under each dot (repeat(6, 1fr) centers fall on the node x-positions).
+// Each column shows that phase's Medicinal (layer color) and Toxic (red) dose.
 export function ReferenceWave({ layer }: { layer: ReferenceLayer }) {
   return (
     <div className="refwave">
-      <svg
-        className="refwave-svg"
-        viewBox={`0 0 ${VB_W} ${VB_H}`}
-        preserveAspectRatio="xMidYMid meet"
-        aria-hidden="true"
-      >
-        <line
-          x1="0"
-          y1={VB_H / 2}
-          x2={VB_W}
-          y2={VB_H / 2}
-          stroke="#000"
-          strokeOpacity="0.06"
-          strokeWidth="2"
-          strokeDasharray="2 12"
-        />
-        <path
-          d={PATH}
-          fill="none"
-          stroke={layer.colorHex}
-          strokeWidth="11"
-          strokeLinecap="round"
-        />
-        {WAVE_NODES.map((n) => (
-          <circle
-            key={n.phase}
-            cx={(n.x / 100) * VB_W}
-            cy={(n.y / 100) * VB_H}
-            r="12"
-            fill={layer.colorHex}
-            stroke="#fff"
+      <div className="refwave-band">
+        <svg
+          className="refwave-line"
+          viewBox={`0 0 ${VB_W} ${VB_H}`}
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d={PATH}
+            fill="none"
+            stroke={layer.colorHex}
             strokeWidth="3"
+            strokeLinecap="round"
+            vectorEffect="non-scaling-stroke"
+          />
+        </svg>
+        {WAVE_NODES.map((n) => (
+          <span
+            key={n.phase}
+            className="refwave-dot"
+            style={{
+              left: `${n.x}%`,
+              top: `${n.y}%`,
+              background: layer.colorHex,
+            }}
+            aria-hidden="true"
           />
         ))}
-      </svg>
+      </div>
 
-      <div className="refwave-cards">
+      <div className="refdoses">
         {WAVE_NODES.map((n) => {
           const dose = layer.phases[n.phase as Phase];
           return (
-            <div
-              key={n.phase}
-              className={`refwave-card place-${n.place}`}
-              style={{ left: `${n.x}%`, top: `${n.y}%` }}
-            >
-              <span className="refwave-phase">{n.phase}</span>
-              <span className="refwave-med" style={{ color: layer.textHex }}>
+            <div key={n.phase} className="refdose">
+              <span className="refdose-phase">{n.phase}</span>
+              <span className="refdose-med" style={{ color: layer.textHex }}>
                 {dose.medicinal}
               </span>
-              <span className="refwave-tox" style={{ color: TOXIC_HEX }}>
+              <span className="refdose-tox" style={{ color: TOXIC_HEX }}>
                 {dose.toxic}
               </span>
             </div>

@@ -182,6 +182,22 @@ a {
   font-size: 1.02rem;
   text-decoration: none;
   color: var(--ink);
+  padding: 9px 16px 9px 11px;
+  border-radius: 999px;
+  background: rgba(251, 247, 236, 0.74);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border: 1px solid rgba(70, 55, 75, 0.1);
+  box-shadow: 0 6px 18px rgba(50, 40, 60, 0.12);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+.brand:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 26px rgba(50, 40, 60, 0.18);
 }
 
 .brand-mark {
@@ -203,11 +219,25 @@ a {
 }
 .topnav a:not(.btn) {
   text-decoration: none;
-  color: var(--ink-soft);
-  font-weight: 500;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 11px 19px;
+  border-radius: 999px;
+  background: rgba(251, 247, 236, 0.74);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border: 1px solid rgba(70, 55, 75, 0.1);
+  box-shadow: 0 6px 18px rgba(50, 40, 60, 0.12);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
 }
 .topnav a:not(.btn):hover {
-  color: var(--ink);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 26px rgba(50, 40, 60, 0.18);
 }
 
 /* ------------------------------------------------------------------ */
@@ -559,20 +589,12 @@ a {
   min-height: 100vh;
 }
 
-.ref-topbar {
-  position: sticky;
-  background: rgba(250, 245, 233, 0.86);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 1px 0 var(--line);
-}
-
 .ref-content {
   position: relative;
   z-index: 1;
   max-width: 1040px;
   margin: 0 auto;
-  padding: 96px 24px 80px;
+  padding: 132px 24px 88px;
 }
 
 .ref-intro {
@@ -591,7 +613,7 @@ a {
 }
 
 .ref-layer {
-  margin: 0 auto 76px;
+  margin: 0 auto 72px;
 }
 
 .ref-card {
@@ -601,7 +623,7 @@ a {
   border-top: 5px solid;
   border-radius: 14px;
   padding: 20px 24px 18px;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
   box-shadow: 0 12px 30px -22px rgba(60, 45, 65, 0.5);
 }
 .ref-swatch {
@@ -655,105 +677,106 @@ a {
   letter-spacing: 0.04em;
 }
 
+/* The wave band: a slim sine in the layer color with a dot at each phase. The
+   dose grid below uses six equal columns, so each column centers exactly under
+   its dot (8.33%, 25%, 41.67%, 58.33%, 75%, 91.67%). */
 .refwave {
+  margin-top: 4px;
+}
+.refwave-band {
   position: relative;
   width: 100%;
-  aspect-ratio: 1200 / 760;
+  aspect-ratio: 1200 / 300;
 }
-.refwave-svg {
+.refwave-line {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   display: block;
 }
-.refwave-cards {
+.refwave-dot {
   position: absolute;
-  inset: 0;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(40, 30, 50, 0.22);
 }
-.refwave-card {
-  position: absolute;
-  width: 17%;
+
+.refdoses {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+.refdose {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   text-align: center;
-  padding: 7px 9px;
-  border-radius: 10px;
-  background: rgba(252, 249, 240, 0.82);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(70, 55, 75, 0.07);
-  box-shadow: 0 6px 16px rgba(50, 38, 55, 0.12);
+  padding: 12px 9px 13px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(70, 55, 75, 0.08);
+  box-shadow: 0 6px 16px rgba(50, 38, 55, 0.08);
 }
-.refwave-card.place-below {
-  transform: translate(-50%, 16px);
-}
-.refwave-card.place-above {
-  transform: translate(-50%, calc(-100% - 16px));
-}
-.refwave-phase {
-  font-size: 0.58rem;
+.refdose-phase {
+  font-size: 0.56rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
-.refwave-med {
-  font-size: clamp(0.8rem, 1.05vw, 0.96rem);
+.refdose-med {
+  font-size: clamp(0.82rem, 1.05vw, 0.96rem);
   font-weight: 600;
   line-height: 1.18;
 }
-.refwave-tox {
-  font-size: clamp(0.74rem, 0.98vw, 0.88rem);
+.refdose-tox {
+  font-size: clamp(0.76rem, 0.98vw, 0.88rem);
   font-weight: 500;
   line-height: 1.16;
 }
 
 .ref-footer {
   text-align: center;
-  padding-top: 8px;
+  padding-top: 10px;
 }
 
 @media (max-width: 760px) {
   .ref-content {
-    padding: 80px 14px 60px;
+    padding: 104px 14px 64px;
   }
-  .refwave {
-    aspect-ratio: auto;
+  .refwave-band {
+    aspect-ratio: 1200 / 220;
   }
-  .refwave-svg {
-    display: none;
+  .refdoses {
+    grid-template-columns: 1fr;
+    gap: 7px;
   }
-  .refwave-cards {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  .refwave-card {
-    position: static;
-    width: 100%;
-    transform: none;
+  .refdose {
     flex-direction: row;
     align-items: baseline;
-    gap: 8px;
     text-align: left;
-    background: rgba(255, 255, 255, 0.5);
+    gap: 10px;
+    padding: 9px 12px;
+    background: rgba(255, 255, 255, 0.55);
   }
-  .refwave-phase {
-    flex: 0 0 64px;
-    font-size: 0.55rem;
+  .refdose-phase {
+    flex: 0 0 72px;
+    font-size: 0.54rem;
     line-height: 1.2;
   }
-  .refwave-med {
+  .refdose-med {
     flex: 1;
-    font-size: 0.84rem;
+    font-size: 0.86rem;
   }
-  .refwave-tox {
+  .refdose-tox {
     flex: 1;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     text-align: right;
   }
 }
