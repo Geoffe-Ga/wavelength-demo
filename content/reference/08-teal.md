@@ -6,7 +6,7 @@ orientation: Feel
 orientationGloss: the divine feminine — receptivity, feeling, allowing
 ---
 
-Tap flow states and higher intuition to unlock free will — transcendent wisdom.
+Integrate the interior, True, Higher Self as well. Tap flow states and higher intuition to experience gnosis of Truth.
 
 | Phase | Medicinal | Toxic |
 | --- | --- | --- |
