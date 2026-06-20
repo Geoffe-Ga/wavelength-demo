@@ -3,7 +3,7 @@ id: 1
 color: Beige
 mode: INHABIT
 orientation: Do
-orientationGloss: the divine masculine — agency, action, building
+orientationGloss: agency, action, building
 ---
 
 Build a life intentionally when energy runs high — through agency and “yes-and-ness.”
