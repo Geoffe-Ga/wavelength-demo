@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { FIELD, MODES, PHASE_BLURBS, type Phase } from "../data/modes";
 import { WaveForm } from "../components/WaveForm";
-import { computeWaveState } from "../lib/scroll";
+import { useWaveReveal } from "../components/useWaveReveal";
 import { selectModes } from "../lib/modeSelection";
 import { MobileAppCta } from "../components/MobileAppCta";
 // The brand mark is a tight crop of the original two-arrow graphic; the intro
@@ -16,50 +16,16 @@ const APP_URL = "https://github.com/Geoffe-Ga/WavelengthWatch";
 // on the hero and whenever no mode is active.
 const canonicalBody = (phase: Phase) => PHASE_BLURBS[phase];
 
-type Panel = { canonical: boolean; index: number };
-
 const MOBILE_QUERY = "(max-width: 760px)";
 
 export function HomePage() {
-  const revealRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const cardsRef = useRef<HTMLDivElement>(null);
-  // Only the *which-mode* decision lives in state, so it re-renders a handful of
-  // times during a scroll — never per frame.
-  const [panel, setPanel] = useState<Panel>({ canonical: true, index: 0 });
-
   // On a phone the wave keeps its shape, so only the short-copy modes are shown.
   const [isMobile, setIsMobile] = useState(
     () =>
       typeof window !== "undefined" && window.matchMedia(MOBILE_QUERY).matches,
   );
   const modes = selectModes(isMobile);
-  const modesRef = useRef(modes);
-  modesRef.current = modes;
-
-  const update = useCallback(() => {
-    const vh = window.innerHeight;
-    const centers = modesRef.current.map((_, i) => {
-      const el = revealRefs.current[i];
-      if (!el) return Number.POSITIVE_INFINITY;
-      const rect = el.getBoundingClientRect();
-      return rect.top + rect.height / 2;
-    });
-    const state = computeWaveState(window.scrollY, vh, centers);
-
-    // Drive opacity straight onto the DOM node every frame — no React render,
-    // so the copy tracks the scroll instantly.
-    if (cardsRef.current)
-      cardsRef.current.style.opacity = String(state.opacity);
-
-    // Swap the copy only when the dominant panel actually changes.
-    setPanel((prev) => {
-      if (state.canonical)
-        return prev.canonical ? prev : { canonical: true, index: prev.index };
-      return !prev.canonical && prev.index === state.index
-        ? prev
-        : { canonical: false, index: state.index };
-    });
-  }, []);
+  const { revealRefs, cardsRef, panel } = useWaveReveal(modes.length);
 
   useEffect(() => {
     const mq = window.matchMedia(MOBILE_QUERY);
@@ -68,27 +34,11 @@ export function HomePage() {
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
-  useEffect(() => {
-    let raf = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-    // Re-measure when the mode set changes (desktop <-> mobile).
-  }, [update, isMobile]);
-
   const activeIndex = Math.min(panel.index, modes.length - 1);
-  const bodyOf = panel.canonical
+  const text = panel.canonical
     ? canonicalBody
     : (p: Phase) => modes[activeIndex].phases[p];
+  const bodyOf = (p: Phase) => <span className="wave-body">{text(p)}</span>;
 
   return (
     <div className="page">
