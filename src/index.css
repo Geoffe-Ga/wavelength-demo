@@ -65,6 +65,33 @@ a {
     inset 0 0 0 1px rgba(255, 255, 255, 0.22);
 }
 
+/* Energy field behind the wave: white (high) at the top, black (low) below.
+   Lives in its own layer so it can be tinted per Mode without touching the wave
+   stroke (which is painted on top). */
+.wave-field {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #fcfbf4 0%,
+    #f4ecd6 32%,
+    #cebdc6 62%,
+    #2c2632 100%
+  );
+}
+
+/* Per-Mode tint, multiplied onto the field only. Transparent on the home page
+   (no tint passed), so the field there is unchanged. The color transitions
+   smoothly as the dominant Mode changes. */
+.wave-tint {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: multiply;
+  opacity: 0.72;
+  pointer-events: none;
+  transition: background-color 520ms ease;
+}
+
 .wave-svg {
   position: absolute;
   inset: 0;
@@ -119,6 +146,24 @@ a {
   font-weight: 500;
   color: var(--slate);
   text-wrap: balance;
+}
+
+/* Reference dose lines inside a wave card: medicinal (Mode color) over toxic
+   (red). Colors are set inline per Mode; long phrases wrap and break. */
+.wave-med {
+  font-size: clamp(0.8rem, 1.08vw, 1rem);
+  line-height: 1.22;
+  font-weight: 600;
+  color: var(--slate);
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.wave-tox {
+  font-size: clamp(0.72rem, 0.96vw, 0.9rem);
+  line-height: 1.18;
+  font-weight: 500;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 
 /* Field axis labels. */
@@ -564,6 +609,20 @@ a {
     font-size: 0.55rem;
     line-height: 1.14;
   }
+  /* Reference doses run longer than the home labels, so give those cards a touch
+     more room and let the words break rather than overflow. */
+  .waveform--ref .wave-card {
+    width: clamp(50px, 16vw, 72px);
+    gap: 2px;
+  }
+  .waveform--ref .wave-med {
+    font-size: 0.5rem;
+    line-height: 1.1;
+  }
+  .waveform--ref .wave-tox {
+    font-size: 0.46rem;
+    line-height: 1.08;
+  }
   .axis-asc,
   .axis-desc {
     display: none;
@@ -613,199 +672,49 @@ a {
 /* ------------------------------------------------------------------ */
 /* Reference page                                                     */
 /* ------------------------------------------------------------------ */
-.ref-page {
-  position: relative;
-  min-height: 100vh;
+/* The Reference page reuses the home layout (.page, .grid-stage, .hero, .step,
+   .bar, .reveal, .cta-final). The only additions are the per-Mode tinted bar
+   and its labels; the wave doses are styled by .wave-med / .wave-tox above. */
+.bar-ref {
+  background: var(--cream-soft);
+}
+/* On the colored bar, headings and copy inherit the readable ink chosen per
+   Mode (set inline), instead of the global ink color. */
+.bar-ref h2,
+.bar-ref .bar-gloss,
+.bar-ref .bar-index,
+.bar-ref p {
+  color: inherit;
+}
+.bar-ref .bar-index {
+  opacity: 0.72;
 }
 
-.ref-content {
-  position: relative;
-  z-index: 1;
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 132px 24px 88px;
-}
-
-.ref-intro {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 56px;
-}
-.ref-intro h1 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(2.1rem, 5vw, 3.4rem);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin: 0 0 18px;
-  color: var(--ink);
-}
-
-.ref-layer {
-  margin: 0 auto 72px;
-}
-
-.ref-card {
-  position: relative;
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid var(--line);
-  border-top: 5px solid;
-  border-radius: 14px;
-  padding: 20px 24px 18px;
-  margin-bottom: 22px;
-  box-shadow: 0 12px 30px -22px rgba(60, 45, 65, 0.5);
-}
-.ref-swatch {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-radius: 5px;
-  vertical-align: -2px;
-  margin-right: 8px;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
-}
-.ref-color {
-  display: inline;
+.ref-spiral {
+  margin: 0 0 4px;
   font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  opacity: 0.85;
 }
-.ref-card h2 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.7rem, 3.4vw, 2.3rem);
-  line-height: 1.05;
-  margin: 10px 0 2px;
-}
+
 .ref-orientation {
-  font-size: 0.58em;
-  color: var(--ink-soft);
+  font-size: 0.52em;
   font-weight: 500;
+  opacity: 0.82;
 }
-.ref-orient-gloss {
-  margin: 0 0 12px;
+
+.ref-orient-gloss-bar {
+  margin: 12px 0 0;
   font-style: italic;
-  color: var(--ink-soft);
-  font-size: 0.95rem;
+  font-size: clamp(0.92rem, 1.4vw, 1.08rem);
+  opacity: 0.85;
 }
-.ref-desc {
-  margin: 0 0 14px;
-  color: var(--slate);
-  line-height: 1.5;
-  font-size: 1.02rem;
-  max-width: 62ch;
-}
-.ref-legend {
-  margin: 0;
-  display: flex;
-  gap: 18px;
-  font-size: 0.78rem;
-  font-weight: 600;
+
+.ref-hint {
+  margin: 22px 0 0;
+  font-size: 0.82rem;
   letter-spacing: 0.04em;
-}
-
-/* The wave band: a slim sine in the layer color with a dot at each phase. The
-   dose grid below uses six equal columns, so each column centers exactly under
-   its dot (8.33%, 25%, 41.67%, 58.33%, 75%, 91.67%). */
-.refwave {
-  margin-top: 4px;
-}
-.refwave-band {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1200 / 300;
-}
-.refwave-line {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.refwave-dot {
-  position: absolute;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  border: 3px solid #fff;
-  box-shadow: 0 2px 6px rgba(40, 30, 50, 0.22);
-}
-
-.refdoses {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-  margin-top: 10px;
-}
-.refdose {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  text-align: center;
-  padding: 12px 9px 13px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(70, 55, 75, 0.08);
-  box-shadow: 0 6px 16px rgba(50, 38, 55, 0.08);
-}
-.refdose-phase {
-  font-size: 0.56rem;
-  font-weight: 600;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
-.refdose-med {
-  font-size: clamp(0.82rem, 1.05vw, 0.96rem);
-  font-weight: 600;
-  line-height: 1.18;
-}
-.refdose-tox {
-  font-size: clamp(0.76rem, 0.98vw, 0.88rem);
-  font-weight: 500;
-  line-height: 1.16;
-}
-
-.ref-footer {
-  text-align: center;
-  padding-top: 10px;
-}
-
-@media (max-width: 760px) {
-  .ref-content {
-    padding: 104px 14px 104px;
-  }
-  .refwave-band {
-    aspect-ratio: 1200 / 220;
-  }
-  .refdoses {
-    grid-template-columns: 1fr;
-    gap: 7px;
-  }
-  .refdose {
-    flex-direction: row;
-    align-items: baseline;
-    text-align: left;
-    gap: 10px;
-    padding: 9px 12px;
-    background: rgba(255, 255, 255, 0.55);
-  }
-  .refdose-phase {
-    flex: 0 0 72px;
-    font-size: 0.54rem;
-    line-height: 1.2;
-  }
-  .refdose-med {
-    flex: 1;
-    font-size: 0.86rem;
-  }
-  .refdose-tox {
-    flex: 1;
-    font-size: 0.82rem;
-    text-align: right;
-  }
+  opacity: 0.78;
 }
