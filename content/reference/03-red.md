@@ -3,10 +3,10 @@ id: 3
 color: Red
 mode: EXPRESS
 orientation: Do
-orientationGloss: the divine masculine — agency, action, building
+orientationGloss: projecting agentic power
 ---
 
-Break free from shame and insecurity into authentic confidence — the work of self-love.
+Once you've Inhabited your incarnation, its time to Express your True Will through it. Break free from shame and insecurity into authentic confidence — the work of self-love.
 
 | Phase | Medicinal | Toxic |
 | --- | --- | --- |
