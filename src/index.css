@@ -280,6 +280,12 @@ a {
   box-shadow: 0 6px 16px rgba(50, 40, 60, 0.14);
 }
 
+/* Primary call-to-action pinned to the bottom on phones (shown via media query
+   below); the top-bar button carries it on desktop. */
+.app-cta-float {
+  display: none;
+}
+
 /* ------------------------------------------------------------------ */
 /* Content                                                           */
 /* ------------------------------------------------------------------ */
@@ -570,6 +576,29 @@ a {
   .topnav a:nth-of-type(2):not(.btn) {
     display: none;
   }
+  /* The "Get the App" button moves out of the crowded top bar to a floating
+     bottom CTA on phones. */
+  .topnav a.btn {
+    display: none;
+  }
+  .app-cta-float {
+    display: flex;
+    position: fixed;
+    left: 14px;
+    right: 14px;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    z-index: 40;
+    justify-content: center;
+  }
+  .app-cta-float .btn {
+    width: 100%;
+    padding: 15px 24px;
+    box-shadow: 0 12px 32px rgba(40, 30, 50, 0.34);
+  }
+  /* Leave room so the floating CTA never covers the final buttons. */
+  .cta-final {
+    padding-bottom: 96px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -748,7 +777,7 @@ a {
 
 @media (max-width: 760px) {
   .ref-content {
-    padding: 104px 14px 64px;
+    padding: 104px 14px 104px;
   }
   .refwave-band {
     aspect-ratio: 1200 / 220;

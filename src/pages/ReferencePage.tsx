@@ -1,5 +1,6 @@
 import { REFERENCE_LAYERS, TOXIC_HEX } from "../data/reference";
 import { ReferenceWave } from "../components/ReferenceWave";
+import { MobileAppCta } from "../components/MobileAppCta";
 import waveMark from "../assets/wavelength-mark.png";
 
 const APP_URL = "https://github.com/Geoffe-Ga/WavelengthWatch";
@@ -81,6 +82,8 @@ export function ReferencePage() {
           </a>
         </footer>
       </main>
+
+      <MobileAppCta />
     </div>
   );
 }
