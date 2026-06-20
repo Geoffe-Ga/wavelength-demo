@@ -3,7 +3,7 @@ id: 6
 color: Green
 mode: COLLABORATE
 orientation: Feel
-orientationGloss: the divine feminine — receptivity, feeling, allowing
+orientationGloss: receptivity, tranquility, welcoming invitation
 ---
 
 The primary feeling we target when Collaborating is Belonging. It just turns out to be something you allow to arise rather than strive to earn.
