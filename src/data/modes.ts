@@ -291,10 +291,12 @@ export const MODES: Mode[] = [
     phases: {
       Rising: "Inspiration",
       Peaking: "Joy",
-      Withdrawal: "Introspectivity",
+      // Soft hyphens: these long single words only break (and break at a
+      // sensible syllable) when the narrow wave card forces a wrap.
+      Withdrawal: "Intro\u00ADspectivity",
       Diminishing: "Tranquility",
-      "Bottoming Out": "Convalescence",
-      Restoration: "Recuperation",
+      "Bottoming Out": "Convales\u00ADcence",
+      Restoration: "Recuper\u00ADation",
     },
   },
   {

@@ -65,7 +65,11 @@ export const REFERENCE_LAYERS: ReferenceLayer[] = [
       Peaking: { medicinal: "Joy", toxic: "Ecstasy" },
       Withdrawal: { medicinal: "Introspectivity", toxic: "Anxiety" },
       Diminishing: { medicinal: "Tranquility", toxic: "Self-Doubt" },
-      "Bottoming Out": { medicinal: "Convalescence", toxic: "Self-Loathing" },
+      // Soft hyphen so the long word wraps cleanly inside the narrow wave card.
+      "Bottoming Out": {
+        medicinal: "Convales\u00ADcence",
+        toxic: "Self-Loathing",
+      },
       Restoration: { medicinal: "Recuperation", toxic: "Selfishness" },
     },
   },
