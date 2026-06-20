@@ -6,7 +6,7 @@ orientation: Feel
 orientationGloss: what you feel when you express authentically
 ---
 
-Express yourself, making change in the exterior world while looking inward, and you'll see there are healthy and unhealthy dosages of expression.
+Express yourself, making change in the exterior world while looking inward, and witness: there are healthy (temperate) and unhealthy (excessive) dosages of emotional energy.
 
 | Phase | Medicinal | Toxic |
 | --- | --- | --- |
