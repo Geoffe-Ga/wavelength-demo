@@ -1,11 +1,11 @@
 ---
 mode: Flow State
-title: The Flow Wavelength
+title: The Flow Cycle
 source: Mihaly Csikszentmihalyi
 quadrant: I
 ---
 
-Focus rising, full immersion, the interruption, the return.
+Not all Wavelengths are bad! Learning to tend to them properly, you can get incredibly fulfilling experiences like flow.
 
 | Phase | On this wavelength |
 | --- | --- |
