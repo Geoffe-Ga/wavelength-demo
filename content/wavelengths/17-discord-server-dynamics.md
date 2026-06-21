@@ -1,10 +1,10 @@
 ---
 mode: Discord Server Dynamics
-title: The Community Wavelength
+title: Discord Communities' Shared Wavelength
 quadrant: WE
 ---
 
-Every group you have ever loved has ridden this exact arc.
+Every group you have ever loved has ridden this exact arc. Have you noticed?
 
 | Phase | On this wavelength |
 | --- | --- |
