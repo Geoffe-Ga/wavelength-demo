@@ -5,7 +5,7 @@ source: Mihaly Csikszentmihalyi
 quadrant: I
 ---
 
-Not all Wavelengths are bad! Learning to tend to them properly, you can get incredibly fulfilling experiences like flow.
+Not all Wavelengths are bad! Learning to tend to them properly, you can maximize incredibly fulfilling experiences like flow.
 
 | Phase | On this wavelength |
 | --- | --- |
