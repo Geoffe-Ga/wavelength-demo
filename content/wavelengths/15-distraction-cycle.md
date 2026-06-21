@@ -1,10 +1,10 @@
 ---
 mode: Distraction Cycle
-title: The Distraction Wavelength
+title: The Distraction Cycle
 quadrant: IT
 ---
 
-How attention wanders away from the breath — and finds its way back.
+Borrowed from The Mind Illuminated, we can use the Wavelength to explore how attention wanders away from the breath — and finds its way back. This is central to the APTITUDE Course.
 
 | Phase | On this wavelength |
 | --- | --- |
