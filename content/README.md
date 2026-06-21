@@ -131,6 +131,37 @@ The `Intro` paragraph understands a little formatting:
 For example, the Reference intro uses `[medicinal]{.med}` and `[toxic]{.tox}` so
 those two words match the colors used on the wave.
 
+## The "Why Archetypal" explainer
+
+Further down the home page, the block that names the wave and describes its
+labeled diagram lives in `content/pages/origin.md`. Like the heroes, it is a set
+of `##` sections:
+
+```markdown
+## Eyebrow
+Why "Archetypal"
+
+## Heading
+The pattern beneath every rhythm.
+
+## Lead
+It's the *archetype* — the original pattern — for every oscillating, cyclical, …
+
+## Caption
+High energy up top, low energy below; attraction in the warm cells, …
+```
+
+| Section | What it is |
+| --- | --- |
+| `Eyebrow` | The small line above the headline. |
+| `Heading` | The big headline. **Each line break here becomes a line break on the page.** |
+| `Lead` | The paragraph under the headline. |
+| `Caption` | The line under the diagram. |
+
+The `Lead` and `Caption` understand the same emphasis as the `Intro` above
+(`**bold**`, `*italic*`, `[x]{.med}`, `[x]{.tox}`). The labeled **diagram image**
+itself stays in the code — ask a developer to change the picture or its alt text.
+
 ## Rules of thumb
 
 - **Keep the table's six phase rows** — `Rising`, `Peaking`, `Withdrawal`,

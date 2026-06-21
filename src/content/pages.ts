@@ -4,6 +4,7 @@
 
 import homeRaw from "../../content/pages/home.md?raw";
 import referenceRaw from "../../content/pages/reference.md?raw";
+import originRaw from "../../content/pages/origin.md?raw";
 import { parseSections } from "./markdown";
 
 export interface HeroCopy {
@@ -15,6 +16,17 @@ export interface HeroCopy {
   intro: string;
   /** The "scroll" hint at the bottom of the hero. */
   scrollCue: string;
+}
+
+export interface OriginCopy {
+  /** Small eyebrow line above the headline. */
+  eyebrow: string;
+  /** The headline; internal line breaks are preserved. */
+  heading: string;
+  /** The lead paragraph; supports **bold**, *italic*, and `[x]{.class}`. */
+  lead: string;
+  /** The caption under the diagram; same inline formatting as the lead. */
+  caption: string;
 }
 
 /** Read a required section, or fail loudly naming the missing heading. */
@@ -41,5 +53,24 @@ export function parseHero(raw: string): HeroCopy {
   };
 }
 
+/**
+ * Parse the home page's "Why Archetypal" explainer sections into
+ * {@link OriginCopy}. The labeled diagram image stays in the component.
+ *
+ * @param raw - The origin Markdown file contents.
+ * @returns The section's eyebrow, heading, lead, and caption.
+ * @throws {Error} If any required section is missing.
+ */
+export function parseOrigin(raw: string): OriginCopy {
+  const sections = parseSections(raw);
+  return {
+    eyebrow: section(sections, "eyebrow"),
+    heading: section(sections, "heading"),
+    lead: section(sections, "lead"),
+    caption: section(sections, "caption"),
+  };
+}
+
 export const HOME_HERO = parseHero(homeRaw);
 export const REFERENCE_HERO = parseHero(referenceRaw);
+export const ORIGIN = parseOrigin(originRaw);

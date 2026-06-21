@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FIELD, MODES, PHASE_BLURBS, type Phase } from "../data/modes";
-import { HOME_HERO } from "../content/pages";
+import { HOME_HERO, ORIGIN } from "../content/pages";
 import { WaveForm } from "../components/WaveForm";
 import { useWaveReveal } from "../components/useWaveReveal";
 import { selectModes } from "../lib/modeSelection";
@@ -118,15 +118,12 @@ export function HomePage() {
 
         <section className="origin">
           <div className="origin-inner">
-            <p className="kicker">Why "Archetypal"</p>
-            <h2>The pattern beneath every rhythm.</h2>
+            <p className="kicker">{ORIGIN.eyebrow}</p>
+            <h2>
+              <Lines text={ORIGIN.heading} />
+            </h2>
             <p className="origin-lead">
-              It's the <em>archetype</em> — the original pattern — for every
-              oscillating, cyclical, pendulous phenomenon there is. They all
-              move through the same six phases, the same swing of energy, each
-              one pulled into the next by the sheer inevitability of causality:
-              of accumulation and depletion, of attraction and aversion. Learn
-              to read the wave once, and you can read it everywhere.
+              <RichText text={ORIGIN.lead} />
             </p>
             <figure className="origin-figure">
               <img
@@ -135,11 +132,7 @@ export function HomePage() {
               />
             </figure>
             <figcaption className="origin-caption">
-              High energy up top, low energy below; attraction in the warm
-              cells, aversion in the cool ones. The wave rises, crests at the
-              peak, falls through the middle, bottoms out — and turns back up
-              toward the next peak. Every mode below is this same motion,
-              wearing a different face.
+              <RichText text={ORIGIN.caption} />
             </figcaption>
           </div>
         </section>
