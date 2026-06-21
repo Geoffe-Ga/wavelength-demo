@@ -1,11 +1,11 @@
 ---
 mode: Enshittification
-title: The Enshittification Wavelength
+title: Enshittification
 source: Cory Doctorow
 quadrant: IT
 ---
 
-Why every platform you love eventually turns on you.
+Credit to Cory Doctorow. Why every platform you love eventually turns on you.
 
 | Phase | On this wavelength |
 | --- | --- |
