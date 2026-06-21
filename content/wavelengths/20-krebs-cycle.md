@@ -1,10 +1,10 @@
 ---
 mode: Krebs Cycle
-title: The Krebs Wavelength
+title: The Krebs Cycle
 quadrant: ITS
 ---
 
-Even your cells turn the wheel — energy made one revolution at a time.
+Even your cells turn the wheel — energy generated, one revolution at a time.
 
 | Phase | On this wavelength |
 | --- | --- |
