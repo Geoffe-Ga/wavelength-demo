@@ -4,7 +4,7 @@ title: The Wavelength of the Yugas
 quadrant: ITS
 ---
 
-A golden age decaying to iron, then dissolving back to creation.
+To those who believe we are in a Kali Yuga, I offer this reminder that there is always renewal. 
 
 | Phase | On this wavelength |
 | --- | --- |
