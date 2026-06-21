@@ -1,11 +1,11 @@
 ---
 mode: Malthusian Growth
-title: The Malthusian Wavelength
+title: Malthusian Growth
 quadrant: ITS
 mobile: true
 ---
 
-Growth outruns its resources, collapses, and slowly recovers.
+Booms and busts in population are no different than those in our moods and habits.
 
 | Phase | On this wavelength |
 | --- | --- |
