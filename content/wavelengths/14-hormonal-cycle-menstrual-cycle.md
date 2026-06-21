@@ -1,10 +1,10 @@
 ---
 mode: Hormonal Cycle (Menstrual Cycle)
-title: The Hormonal Wavelength
+title: The Menstrual Cycle
 quadrant: IT
 ---
 
-A month-long wave of rising, peaking, and renewal.
+Although bodies are much more complicated than this might imply and the cycle here is actually composed of multiple cycles of independent hormones, the overall aggregate shape of the Menstrual Cycle matches the broad strokes of the Wavelength.
 
 | Phase | On this wavelength |
 | --- | --- |
