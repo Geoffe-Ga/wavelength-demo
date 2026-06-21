@@ -1,6 +1,6 @@
 ---
 mode: Security
-title: The Security Wavelength
+title: The Circle of Security
 quadrant: WE
 mobile: true
 ---
