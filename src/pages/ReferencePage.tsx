@@ -9,6 +9,7 @@ import { readableInk, shade } from "../lib/color";
 import waveMark from "../assets/wavelength-mark.png";
 
 const APP_URL = "https://github.com/Geoffe-Ga/WavelengthWatch";
+const COURSE_URL = "https://aptitude.guru/philosophy/archetypal-wavelength";
 
 // The Reference page reuses the home page's machinery: one fixed wavelength
 // behind everything, full-screen "bars" (one per Mode, tinted in its spiral
@@ -56,7 +57,7 @@ export function ReferencePage() {
       </div>
 
       <header className="topbar">
-        <a className="brand" href="#">
+        <a className="brand" href={COURSE_URL} target="_blank" rel="noreferrer">
           <img
             className="brand-mark"
             src={waveMark}
