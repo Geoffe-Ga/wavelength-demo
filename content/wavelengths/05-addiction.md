@@ -1,11 +1,11 @@
 ---
 mode: Addiction
-title: The Addiction Wavelength
+title: The Addiction Roller Coaster
 quadrant: IT
 mobile: true
 ---
 
-The using, the bliss, the crash, the craving — and around again.
+Whether your addiction is to alcohol, cocaine, heroin, social media, shopping or chocolate, the same cyclical pattern describes it.
 
 | Phase | On this wavelength |
 | --- | --- |
