@@ -1,6 +1,6 @@
 ---
 mode: External Validation Loop
-title: The Validation Cycle
+title: The Validation Loop
 quadrant: I
 ---
 
