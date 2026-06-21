@@ -1,11 +1,11 @@
 ---
 mode: Mindful Breathing
-title: The Breath Wavelength
+title: The Breath Cycle
 quadrant: IT
 mobile: true
 ---
 
-The whole cycle is right here, once every few seconds.
+Even zoomed in to the detail level of a meditator, the whole Wavelength is right here, once every few seconds.
 
 | Phase | On this wavelength |
 | --- | --- |
