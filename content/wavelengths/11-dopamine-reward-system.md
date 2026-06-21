@@ -1,6 +1,6 @@
 ---
 mode: Dopamine Reward System
-title: The Dopamine Wavelength
+title: The Dopamineurgic Cycle
 quadrant: IT
 ---
 
@@ -10,8 +10,8 @@ The same loop your brain runs every time it chases a reward.
 | --- | --- |
 | Rising | Initial trigger for dopamine release |
 | Peaking | Peak pleasure or reward |
-| Withdrawal | Dopamine levels begin to decline |
-| Diminishing | Cravings for more stimulation |
-| Bottoming Out | Dopamine crash or low |
-| Restoration | New trigger, dopamine release cycle restarts |
+| Withdrawal | Dopamine levels begin to deplete and decline |
+| Diminishing | Cravings to get the stinulation back |
+| Bottoming Out | Dopamine crash: perseveration, runimation |
+| Restoration | New craving arises |
 
