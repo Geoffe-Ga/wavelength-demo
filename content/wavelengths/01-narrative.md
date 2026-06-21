@@ -1,11 +1,11 @@
 ---
 mode: Narrative
-title: The Narrative Wavelength
+title: Narrative of the Wavelength
 quadrant: ITS
 mobile: true
 ---
+The way that Abundance naturally leads to Scarcity, and Scarcity tends to manifest Abundance, tells you all you need to know about the flow of energy in every subsequent Wavelength. 
 
-Abundance breeds indulgence breeds scarcity breeds resilience.
 
 | Phase | On this wavelength |
 | --- | --- |
