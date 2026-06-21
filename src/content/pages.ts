@@ -5,6 +5,7 @@
 import homeRaw from "../../content/pages/home.md?raw";
 import referenceRaw from "../../content/pages/reference.md?raw";
 import originRaw from "../../content/pages/origin.md?raw";
+import closingRaw from "../../content/pages/closing.md?raw";
 import { parseSections } from "./markdown";
 
 export interface HeroCopy {
@@ -27,6 +28,17 @@ export interface OriginCopy {
   lead: string;
   /** The caption under the diagram; same inline formatting as the lead. */
   caption: string;
+}
+
+export interface ClosingCopy {
+  /** Small eyebrow line above the headline. */
+  eyebrow: string;
+  /** The headline; internal line breaks are preserved. */
+  heading: string;
+  /** The lede paragraph; supports **bold**, *italic*, and `[x]{.class}`. */
+  lede: string;
+  /** The footnote; `{count}` is replaced with the live mode count. */
+  footnote: string;
 }
 
 /** Read a required section, or fail loudly naming the missing heading. */
@@ -71,6 +83,25 @@ export function parseOrigin(raw: string): OriginCopy {
   };
 }
 
+/**
+ * Parse the home page's closing call-to-action sections into
+ * {@link ClosingCopy}. The button labels stay in the component.
+ *
+ * @param raw - The closing Markdown file contents.
+ * @returns The section's eyebrow, heading, lede, and footnote.
+ * @throws {Error} If any required section is missing.
+ */
+export function parseClosing(raw: string): ClosingCopy {
+  const sections = parseSections(raw);
+  return {
+    eyebrow: section(sections, "eyebrow"),
+    heading: section(sections, "heading"),
+    lede: section(sections, "lede"),
+    footnote: section(sections, "footnote"),
+  };
+}
+
 export const HOME_HERO = parseHero(homeRaw);
 export const REFERENCE_HERO = parseHero(referenceRaw);
 export const ORIGIN = parseOrigin(originRaw);
+export const CLOSING = parseClosing(closingRaw);

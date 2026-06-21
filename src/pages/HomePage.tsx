@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FIELD, MODES, PHASE_BLURBS, type Phase } from "../data/modes";
-import { HOME_HERO, ORIGIN } from "../content/pages";
+import { HOME_HERO, ORIGIN, CLOSING } from "../content/pages";
 import { WaveForm } from "../components/WaveForm";
 import { useWaveReveal } from "../components/useWaveReveal";
 import { selectModes } from "../lib/modeSelection";
@@ -165,13 +165,12 @@ export function HomePage() {
 
         <footer className="cta-final">
           <div className="cta-inner">
-            <p className="kicker">Ride it on purpose</p>
-            <h2>Stop fighting your wave. Start reading it.</h2>
+            <p className="kicker">{CLOSING.eyebrow}</p>
+            <h2>
+              <Lines text={CLOSING.heading} />
+            </h2>
             <p className="lede">
-              When you know which phase you're in, self-care stops being
-              guesswork. The WavelengthWatch app and the Archetypal Wavelength
-              course turn this map into a daily practice — naming the moment
-              you're in and meeting it with the right move.
+              <RichText text={CLOSING.lede} />
             </p>
             <div className="hero-cta">
               <a
@@ -192,10 +191,9 @@ export function HomePage() {
               </a>
             </div>
             <p className="footnote">
-              Modes drawn from <em>The Archetypal Wavelength</em> — addiction,
-              dopamine, the seasons, the breath, the yugas, enshittification,
-              the rise and fall of civilizations, and the Krebs cycle. One
-              field, {MODES.length} faces.
+              <RichText
+                text={CLOSING.footnote.replace("{count}", String(MODES.length))}
+              />
             </p>
           </div>
         </footer>

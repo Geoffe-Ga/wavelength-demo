@@ -162,6 +162,38 @@ The `Lead` and `Caption` understand the same emphasis as the `Intro` above
 (`**bold**`, `*italic*`, `[x]{.med}`, `[x]{.tox}`). The labeled **diagram image**
 itself stays in the code — ask a developer to change the picture or its alt text.
 
+## The closing call-to-action
+
+The block at the very bottom of the home page lives in
+`content/pages/closing.md` — another set of `##` sections:
+
+```markdown
+## Eyebrow
+Ride it on purpose
+
+## Heading
+Stop fighting your wave. Start reading it.
+
+## Lede
+When you know which phase you're in, self-care stops being guesswork. …
+
+## Footnote
+Modes drawn from *The Archetypal Wavelength* — addiction, dopamine, … One field, {count} faces.
+```
+
+| Section | What it is |
+| --- | --- |
+| `Eyebrow` | The small line above the headline. |
+| `Heading` | The big headline. **Each line break here becomes a line break on the page.** |
+| `Lede` | The paragraph under the headline. |
+| `Footnote` | The faint line at the very bottom. |
+
+The `Lede` and `Footnote` understand the same emphasis as the `Intro`
+(`**bold**`, `*italic*`, `[x]{.med}`, `[x]{.tox}`). In the `Footnote`, the token
+`{count}` is replaced automatically with the current number of modes — leave it
+in place so the count stays correct. The two **buttons** ("Explore the Course",
+"Get WavelengthWatch") stay in the code, like the other call-to-action buttons.
+
 ## Rules of thumb
 
 - **Keep the table's six phase rows** — `Rising`, `Peaking`, `Withdrawal`,
