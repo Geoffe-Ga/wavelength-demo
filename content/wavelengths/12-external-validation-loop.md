@@ -1,10 +1,10 @@
 ---
 mode: External Validation Loop
-title: The Validation Wavelength
+title: The Validation Cycle
 quadrant: I
 ---
 
-Making something, basking in it, then refreshing for the next hit.
+Although we've already looked at addiction and dopamine, it's interesting to see the wave flow through making something, basking in it, then refreshing for the next hit of validation.
 
 | Phase | On this wavelength |
 | --- | --- |
