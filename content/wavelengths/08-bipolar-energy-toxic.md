@@ -5,7 +5,7 @@ quadrant: I
 mobile: true
 ---
 
-The same swing overdosed — grandiosity down to self-loathing. You needn't be diagnosed to feel it.
+The same swing as the previous slide, simply switched into an overdose of the same energies. These energies were my Bipolar default prior to self-work... but you don't need to be diagnosed to feel them.
 
 | Phase | On this wavelength |
 | --- | --- |
