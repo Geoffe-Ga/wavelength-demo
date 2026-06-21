@@ -1,10 +1,10 @@
 ---
 mode: Subcultural Movements
-title: The Subculture Wavelength
+title: Rise and Fall of Subcultures 
 quadrant: WE
 ---
 
-A scene forms, peaks, gets mainstreamed, fades — and seeds the next.
+A scene forms, peaks, gets mainstreamed, fades — and seeds the next. Why "selling out" is inevitable.
 
 | Phase | On this wavelength |
 | --- | --- |
