@@ -5,7 +5,7 @@ quadrant: I
 mobile: true
 ---
 
-Bipolar energy at its most life-giving — a rhythm anyone can ride, no diagnosis required.
+Speaking from the position of long years navel gazing in therapy, introspecting to my disorder, the following may be Bipolar energy at its most life-giving — a rhythm anyone can ride, no diagnosis required.
 
 | Phase | On this wavelength |
 | --- | --- |
