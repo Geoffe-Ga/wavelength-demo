@@ -1,11 +1,11 @@
 ---
 mode: Season
-title: The Wavelength of the Seasons
+title: Cycle of the Seasons
 quadrant: IT
 mobile: true
 ---
 
-The oldest wave we know: summer to winter and back to spring.
+The oldest and most intuitive wave we know: summer's peaks descending temporarily into winter's valleys... before a return trip.
 
 | Phase | On this wavelength |
 | --- | --- |
