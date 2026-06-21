@@ -1,11 +1,11 @@
 ---
 mode: Buddhist Realms
-title: The Wavelength of the Six Realms
+title: Buddhism's Six Realms
 quadrant: ITS
 mobile: true
 ---
 
-From the human to the gods to the hells — a turn of the wheel.
+The Realms don't necessarily proceed in this order, but their character matches the energy of the Phases perfectly.
 
 | Phase | On this wavelength |
 | --- | --- |
