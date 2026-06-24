@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FIELD, MODES, PHASE_BLURBS, type Phase } from "../data/modes";
-import { HOME_HERO } from "../content/pages";
+import { HOME_HERO, ORIGIN, CLOSING } from "../content/pages";
 import { WaveForm } from "../components/WaveForm";
 import { useWaveReveal } from "../components/useWaveReveal";
 import { selectModes } from "../lib/modeSelection";
@@ -118,15 +118,12 @@ export function HomePage() {
 
         <section className="origin">
           <div className="origin-inner">
-            <p className="kicker">Why "Archetypal"</p>
-            <h2>The pattern beneath every rhythm.</h2>
+            <p className="kicker">{ORIGIN.eyebrow}</p>
+            <h2>
+              <Lines text={ORIGIN.heading} />
+            </h2>
             <p className="origin-lead">
-              It's the <em>archetype</em> — the original pattern — for every
-              oscillating, cyclical, pendulous phenomenon there is. They all
-              move through the same six phases, the same swing of energy, each
-              one pulled into the next by the sheer inevitability of causality:
-              of accumulation and depletion, of attraction and aversion. Learn
-              to read the wave once, and you can read it everywhere.
+              <RichText text={ORIGIN.lead} />
             </p>
             <figure className="origin-figure">
               <img
@@ -135,11 +132,7 @@ export function HomePage() {
               />
             </figure>
             <figcaption className="origin-caption">
-              High energy up top, low energy below; attraction in the warm
-              cells, aversion in the cool ones. The wave rises, crests at the
-              peak, falls through the middle, bottoms out — and turns back up
-              toward the next peak. Every mode below is this same motion,
-              wearing a different face.
+              <RichText text={ORIGIN.caption} />
             </figcaption>
           </div>
         </section>
@@ -172,13 +165,12 @@ export function HomePage() {
 
         <footer className="cta-final">
           <div className="cta-inner">
-            <p className="kicker">Ride it on purpose</p>
-            <h2>Stop fighting your wave. Start reading it.</h2>
+            <p className="kicker">{CLOSING.eyebrow}</p>
+            <h2>
+              <Lines text={CLOSING.heading} />
+            </h2>
             <p className="lede">
-              When you know which phase you're in, self-care stops being
-              guesswork. The WavelengthWatch app and the Archetypal Wavelength
-              course turn this map into a daily practice — naming the moment
-              you're in and meeting it with the right move.
+              <RichText text={CLOSING.lede} />
             </p>
             <div className="hero-cta">
               <a
@@ -199,10 +191,9 @@ export function HomePage() {
               </a>
             </div>
             <p className="footnote">
-              Modes drawn from <em>The Archetypal Wavelength</em> — addiction,
-              dopamine, the seasons, the breath, the yugas, enshittification,
-              the rise and fall of civilizations, and the Krebs cycle. One
-              field, {MODES.length} faces.
+              <RichText
+                text={CLOSING.footnote.replace("{count}", String(MODES.length))}
+              />
             </p>
           </div>
         </footer>
