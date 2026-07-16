@@ -11,7 +11,7 @@ By managing the hinderances to concentration, we unlock the Rapture of getting A
 | Phase | Medicinal | Toxic |
 | --- | --- | --- |
 | Rising | Unification of Mind | Worldly Desire |
-| Peaking | Jhana | Bliss Addiction |
+| Peaking | Equanimity | Transmission Fixation |
 | Withdrawal | Metta and Meditative Joy | Agitation Due to Worry or Remorse |
 | Diminishing | Sustained Attention | Doubt |
 | Bottoming Out | Pleasure | Aversion |
