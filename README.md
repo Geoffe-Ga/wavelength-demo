@@ -89,3 +89,18 @@ serve on `$PORT`).
   (white crest → black trough), the valence-colored wave, the forward arrows,
   and the axis labels. The original reference images are kept in `src/assets/`
   and the palette is sampled from them.
+
+## Knowledge graph
+
+This repo maintains a [graphify](https://github.com/Graphify-Labs/graphify)
+knowledge graph in `graphify-out/` (committed) so the
+[adepthood](https://github.com/Geoffe-Ga/adepthood) hub can merge it into the
+ecosystem pan-graph. CI keeps it fresh on every push (AST-only, free) and
+refreshes the semantic layer weekly when an `ANTHROPIC_API_KEY` secret is
+configured — see `.github/workflows/graph-update.yml`.
+
+```bash
+pip install graphifyy==0.9.17
+graphify query "which modes map addiction onto the six phases"
+graphify update .   # after code changes; no API key needed
+```

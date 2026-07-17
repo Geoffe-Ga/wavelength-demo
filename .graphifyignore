@@ -1,0 +1,11 @@
+# Paths excluded from graphify knowledge-graph extraction.
+# Skill/agent scaffolding is process noise, not domain knowledge.
+.claude/
+.github/
+.husky/
+node_modules/
+dist/
+dist-ssr/
+coverage/
+graphify-out/
+*.log
