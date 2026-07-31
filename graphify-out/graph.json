@@ -1287,8 +1287,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app",
-      "community": 15,
-      "community_name": "Community 15",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "app.tsx"
     },
     {
@@ -1298,8 +1298,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_app_app",
-      "community": 15,
-      "community_name": "Community 15",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "app()"
     },
     {
@@ -1331,8 +1331,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_richtext",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "richtext.tsx"
     },
     {
@@ -1342,8 +1342,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_components_richtext_rendertoken",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "rendertoken()"
     },
     {
@@ -1353,8 +1353,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_components_richtext_richtext",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "richtext()"
     },
     {
@@ -1364,8 +1364,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_components_richtext_lines",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "lines()"
     },
     {
@@ -1463,8 +1463,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_content_inline_test",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "inline.test.ts"
     },
     {
@@ -1474,8 +1474,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_content_inline",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "inline.ts"
     },
     {
@@ -1485,8 +1485,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_content_inline_inlinetoken",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "inlinetoken"
     },
     {
@@ -1496,8 +1496,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_content_inline_tokenizeinline",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "tokenizeinline()"
     },
     {
@@ -1815,8 +1815,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_data_modes_test",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "modes.test.ts"
     },
     {
@@ -1826,8 +1826,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_data_modes_test_table",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "table"
     },
     {
@@ -1837,8 +1837,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_data_modes_test_doc",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "doc()"
     },
     {
@@ -1848,8 +1848,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_data_modes",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "modes.ts"
     },
     {
@@ -1859,8 +1859,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_data_modes_phases",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "phases"
     },
     {
@@ -1881,8 +1881,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_data_modes_phasemap",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "phasemap"
     },
     {
@@ -1892,8 +1892,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_data_modes_quadrantid",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "quadrantid"
     },
     {
@@ -1903,8 +1903,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "src_data_modes_quadrant",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "quadrant"
     },
     {
@@ -1914,8 +1914,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "src_data_modes_quadrants",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "quadrants"
     },
     {
@@ -1925,8 +1925,8 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "src_data_modes_mode",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "mode"
     },
     {
@@ -1936,8 +1936,8 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "src_data_modes_canonical",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "canonical"
     },
     {
@@ -1947,8 +1947,8 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "src_data_modes_phase_blurbs",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "phase_blurbs"
     },
     {
@@ -1958,8 +1958,8 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "src_data_modes_wavenode",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "wavenode"
     },
     {
@@ -1969,8 +1969,8 @@
       "source_location": "L122",
       "_origin": "ast",
       "id": "src_data_modes_wave_nodes",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "wave_nodes"
     },
     {
@@ -1980,8 +1980,8 @@
       "source_location": "L189",
       "_origin": "ast",
       "id": "src_data_modes_field",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "field"
     },
     {
@@ -1991,8 +1991,8 @@
       "source_location": "L200",
       "_origin": "ast",
       "id": "src_data_modes_wavelengthfiles",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "wavelengthfiles"
     },
     {
@@ -2013,8 +2013,8 @@
       "source_location": "L243",
       "_origin": "ast",
       "id": "src_data_modes_modes",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "modes"
     },
     {
@@ -2244,8 +2244,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_modeselection_test",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "modeselection.test.ts"
     },
     {
@@ -2255,8 +2255,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_modeselection",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "modeselection.ts"
     },
     {
@@ -2266,8 +2266,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_lib_modeselection_mobile_modes",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "mobile_modes"
     },
     {
@@ -2277,8 +2277,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_lib_modeselection_selectmodes",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "selectmodes()"
     },
     {
@@ -2288,8 +2288,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_route_test",
-      "community": 15,
-      "community_name": "Community 15",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "route.test.ts"
     },
     {
@@ -2299,8 +2299,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_route",
-      "community": 15,
-      "community_name": "Community 15",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "route.ts"
     },
     {
@@ -2310,8 +2310,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_route_route",
-      "community": 15,
-      "community_name": "Community 15",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "route"
     },
     {
@@ -2321,8 +2321,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_lib_route_parseroute",
-      "community": 15,
-      "community_name": "Community 15",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "parseroute()"
     },
     {
@@ -2442,8 +2442,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main",
-      "community": 15,
-      "community_name": "Community 15",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "main.tsx"
     },
     {
@@ -2453,8 +2453,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_homepage",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "homepage.tsx"
     },
     {
@@ -2464,8 +2464,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_pages_homepage_canonicalbody",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "canonicalbody()"
     },
     {
@@ -2475,8 +2475,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "src_pages_homepage_homepage",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "homepage()"
     },
     {
@@ -3336,6 +3336,17 @@
       "community": 8,
       "community_name": "Community 8",
       "norm_label": "`comprehensive-pr-review`"
+    },
+    {
+      "label": "Knowledge Graph (graphify) \u2014 query first",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": "L449",
+      "_origin": "ast",
+      "id": "claude_knowledge_graph_graphify_query_first",
+      "community": 8,
+      "community_name": "Community 8",
+      "norm_label": "knowledge graph (graphify) \u2014 query first"
     },
     {
       "label": "DEPLOY.md",
@@ -8944,6 +8955,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CLAUDE.md",
+      "source_location": "L449",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "claude_claude_code_project_context_wavelength_demo",
+      "target": "claude_knowledge_graph_graphify_query_first",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
       "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast",
@@ -9833,5 +9855,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0ec970786607ffa6bcf3b2078bf76a994f02ef6b"
+  "built_at_commit": "303ec11aa295cf996896d7e047a527d2842c97cb"
 }
