@@ -79,8 +79,12 @@ jobs:
           path: coverage/
           retention-days: 30
 
-      - name: Run npm audit
-        run: npm audit --audit-level=high
+      - name: Run npm audit (gated, scoped allowlist)
+        # Same strictness as `npm audit --audit-level=high`, minus a
+        # self-expiring allowlist for advisories with no non-breaking fix
+        # (each entry carries a reason, tracking issue, and expiry — see
+        # scripts/audit-gate.mjs). Anything else high/critical still fails.
+        run: node scripts/audit-gate.mjs
         continue-on-error: false
 
       - name: Run Snyk security scan
