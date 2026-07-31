@@ -446,3 +446,16 @@ Debug CI pipeline failures efficiently with log analysis and local reproduction.
 
 #### `comprehensive-pr-review`
 Thorough pull request review covering code
+## Knowledge Graph (graphify) — query first
+
+This repo commits its code graph at `graphify-out/graph.json` (part of the
+adepthood federation). For ANY question about this codebase — structure,
+relationships, impact — query the graph BEFORE grep/read sweeps:
+
+- `graphify query "<question>"` · `graphify path "A" "B"` ·
+  `graphify explain "X"` · `graphify affected "X"` (before changing X).
+- Quote each cited node's `source_location`; verify before trusting.
+- Install once per session if absent: `pip install graphifyy` (match the
+  pinned version in `.github/workflows/graph-update.yml`). Fail-soft: if the
+  CLI or graph is unavailable, proceed with normal file tools — never stall.
+- After code changes, `graphify update .` (AST-only, keyless, $0).
