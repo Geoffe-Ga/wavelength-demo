@@ -20,7 +20,7 @@
       "source_file": "package.json",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "package",
+      "id": "workspace_wavelength_demo_package_json",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "package.json"
@@ -31,7 +31,7 @@
       "source_file": "package.json",
       "source_location": "L2",
       "_origin": "ast",
-      "id": "package_name",
+      "id": "workspace_wavelength_demo_package_name",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "name"
@@ -42,7 +42,7 @@
       "source_file": "package.json",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "package_private",
+      "id": "workspace_wavelength_demo_package_private",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "private"
@@ -53,7 +53,7 @@
       "source_file": "package.json",
       "source_location": "L4",
       "_origin": "ast",
-      "id": "package_version",
+      "id": "workspace_wavelength_demo_package_version",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "version"
@@ -64,7 +64,7 @@
       "source_file": "package.json",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "package_type",
+      "id": "workspace_wavelength_demo_package_type",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "type"
@@ -75,7 +75,7 @@
       "source_file": "package.json",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "package_description",
+      "id": "workspace_wavelength_demo_package_description",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "description"
@@ -86,7 +86,7 @@
       "source_file": "package.json",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "package_engines",
+      "id": "workspace_wavelength_demo_package_engines",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "engines"
@@ -97,7 +97,7 @@
       "source_file": "package.json",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "package_engines_node",
+      "id": "workspace_wavelength_demo_package_engines_node",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "node"
@@ -108,7 +108,7 @@
       "source_file": "package.json",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "package_scripts",
+      "id": "workspace_wavelength_demo_package_scripts",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "scripts"
@@ -119,7 +119,7 @@
       "source_file": "package.json",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "package_scripts_dev",
+      "id": "workspace_wavelength_demo_package_scripts_dev",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "dev"
@@ -130,7 +130,7 @@
       "source_file": "package.json",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "package_scripts_build",
+      "id": "workspace_wavelength_demo_package_scripts_build",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "build"
@@ -141,7 +141,7 @@
       "source_file": "package.json",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "package_scripts_preview",
+      "id": "workspace_wavelength_demo_package_scripts_preview",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "preview"
@@ -152,7 +152,7 @@
       "source_file": "package.json",
       "source_location": "L14",
       "_origin": "ast",
-      "id": "package_scripts_start",
+      "id": "workspace_wavelength_demo_package_scripts_start",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "start"
@@ -163,7 +163,7 @@
       "source_file": "package.json",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "package_scripts_type_check",
+      "id": "workspace_wavelength_demo_package_scripts_type_check",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "type-check"
@@ -174,7 +174,7 @@
       "source_file": "package.json",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "package_scripts_typecheck",
+      "id": "workspace_wavelength_demo_package_scripts_typecheck",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "typecheck"
@@ -185,7 +185,7 @@
       "source_file": "package.json",
       "source_location": "L17",
       "_origin": "ast",
-      "id": "package_scripts_lint",
+      "id": "workspace_wavelength_demo_package_scripts_lint",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "lint"
@@ -196,7 +196,7 @@
       "source_file": "package.json",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "package_scripts_lint_fix",
+      "id": "workspace_wavelength_demo_package_scripts_lint_fix",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "lint:fix"
@@ -207,7 +207,7 @@
       "source_file": "package.json",
       "source_location": "L19",
       "_origin": "ast",
-      "id": "package_scripts_format",
+      "id": "workspace_wavelength_demo_package_scripts_format",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "format"
@@ -218,7 +218,7 @@
       "source_file": "package.json",
       "source_location": "L20",
       "_origin": "ast",
-      "id": "package_scripts_format_check",
+      "id": "workspace_wavelength_demo_package_scripts_format_check",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "format:check"
@@ -229,7 +229,7 @@
       "source_file": "package.json",
       "source_location": "L21",
       "_origin": "ast",
-      "id": "package_scripts_test",
+      "id": "workspace_wavelength_demo_package_scripts_test",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "test"
@@ -240,7 +240,7 @@
       "source_file": "package.json",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "package_scripts_test_coverage",
+      "id": "workspace_wavelength_demo_package_scripts_test_coverage",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "test:coverage"
@@ -251,7 +251,7 @@
       "source_file": "package.json",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "package_dependencies",
+      "id": "workspace_wavelength_demo_package_dependencies",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "dependencies"
@@ -262,7 +262,7 @@
       "source_file": "package.json",
       "source_location": "L25",
       "_origin": "ast",
-      "id": "package_dependencies_react",
+      "id": "workspace_wavelength_demo_package_dependencies_react",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "react"
@@ -284,7 +284,7 @@
       "source_file": "package.json",
       "source_location": "L26",
       "_origin": "ast",
-      "id": "package_dependencies_react_dom",
+      "id": "workspace_wavelength_demo_package_dependencies_react_dom",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "react-dom"
@@ -306,7 +306,7 @@
       "source_file": "package.json",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "package_dependencies_serve",
+      "id": "workspace_wavelength_demo_package_dependencies_serve",
       "community": 2,
       "community_name": "Community 2",
       "norm_label": "serve"
@@ -328,7 +328,7 @@
       "source_file": "package.json",
       "source_location": "L29",
       "_origin": "ast",
-      "id": "package_devdependencies",
+      "id": "workspace_wavelength_demo_package_devdependencies",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "devdependencies"
@@ -339,7 +339,7 @@
       "source_file": "package.json",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "package_devdependencies_types_react",
+      "id": "workspace_wavelength_demo_package_devdependencies_types_react",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "@types/react"
@@ -361,7 +361,7 @@
       "source_file": "package.json",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "package_devdependencies_types_react_dom",
+      "id": "workspace_wavelength_demo_package_devdependencies_types_react_dom",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "@types/react-dom"
@@ -383,7 +383,7 @@
       "source_file": "package.json",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "package_devdependencies_typescript_eslint_eslint_plugin",
+      "id": "workspace_wavelength_demo_package_devdependencies_typescript_eslint_eslint_plugin",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "@typescript-eslint/eslint-plugin"
@@ -405,7 +405,7 @@
       "source_file": "package.json",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "package_devdependencies_typescript_eslint_parser",
+      "id": "workspace_wavelength_demo_package_devdependencies_typescript_eslint_parser",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "@typescript-eslint/parser"
@@ -427,7 +427,7 @@
       "source_file": "package.json",
       "source_location": "L34",
       "_origin": "ast",
-      "id": "package_devdependencies_vitejs_plugin_react",
+      "id": "workspace_wavelength_demo_package_devdependencies_vitejs_plugin_react",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "@vitejs/plugin-react"
@@ -449,7 +449,7 @@
       "source_file": "package.json",
       "source_location": "L35",
       "_origin": "ast",
-      "id": "package_devdependencies_vitest_coverage_v8",
+      "id": "workspace_wavelength_demo_package_devdependencies_vitest_coverage_v8",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "@vitest/coverage-v8"
@@ -471,7 +471,7 @@
       "source_file": "package.json",
       "source_location": "L36",
       "_origin": "ast",
-      "id": "package_devdependencies_eslint",
+      "id": "workspace_wavelength_demo_package_devdependencies_eslint",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "eslint"
@@ -493,7 +493,7 @@
       "source_file": "package.json",
       "source_location": "L37",
       "_origin": "ast",
-      "id": "package_devdependencies_eslint_plugin_react",
+      "id": "workspace_wavelength_demo_package_devdependencies_eslint_plugin_react",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "eslint-plugin-react"
@@ -515,7 +515,7 @@
       "source_file": "package.json",
       "source_location": "L38",
       "_origin": "ast",
-      "id": "package_devdependencies_eslint_plugin_react_hooks",
+      "id": "workspace_wavelength_demo_package_devdependencies_eslint_plugin_react_hooks",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "eslint-plugin-react-hooks"
@@ -537,7 +537,7 @@
       "source_file": "package.json",
       "source_location": "L39",
       "_origin": "ast",
-      "id": "package_devdependencies_eslint_plugin_react_refresh",
+      "id": "workspace_wavelength_demo_package_devdependencies_eslint_plugin_react_refresh",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "eslint-plugin-react-refresh"
@@ -559,7 +559,7 @@
       "source_file": "package.json",
       "source_location": "L40",
       "_origin": "ast",
-      "id": "package_devdependencies_prettier",
+      "id": "workspace_wavelength_demo_package_devdependencies_prettier",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "prettier"
@@ -581,7 +581,7 @@
       "source_file": "package.json",
       "source_location": "L41",
       "_origin": "ast",
-      "id": "package_devdependencies_typescript",
+      "id": "workspace_wavelength_demo_package_devdependencies_typescript",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "typescript"
@@ -603,7 +603,7 @@
       "source_file": "package.json",
       "source_location": "L42",
       "_origin": "ast",
-      "id": "package_devdependencies_vite",
+      "id": "workspace_wavelength_demo_package_devdependencies_vite",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "vite"
@@ -625,7 +625,7 @@
       "source_file": "package.json",
       "source_location": "L43",
       "_origin": "ast",
-      "id": "package_devdependencies_vitest",
+      "id": "workspace_wavelength_demo_package_devdependencies_vitest",
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "vitest"
@@ -640,83 +640,6 @@
       "community": 1,
       "community_name": "Community 1",
       "norm_label": "vitest"
-    },
-    {
-      "label": "overrides",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L45",
-      "_origin": "ast",
-      "id": "package_overrides",
-      "community": 2,
-      "community_name": "Community 2",
-      "norm_label": "overrides"
-    },
-    {
-      "label": "brace-expansion@1",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L46",
-      "_origin": "ast",
-      "id": "package_overrides_brace_expansion_1",
-      "community": 2,
-      "community_name": "Community 2",
-      "norm_label": "brace-expansion@1"
-    },
-    {
-      "label": "brace-expansion@2",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L47",
-      "_origin": "ast",
-      "id": "package_overrides_brace_expansion_2",
-      "community": 2,
-      "community_name": "Community 2",
-      "norm_label": "brace-expansion@2"
-    },
-    {
-      "label": "brace-expansion@5",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L48",
-      "_origin": "ast",
-      "id": "package_overrides_brace_expansion_5",
-      "community": 2,
-      "community_name": "Community 2",
-      "norm_label": "brace-expansion@5"
-    },
-    {
-      "label": "fast-uri@3",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L49",
-      "_origin": "ast",
-      "id": "package_overrides_fast_uri_3",
-      "community": 2,
-      "community_name": "Community 2",
-      "norm_label": "fast-uri@3"
-    },
-    {
-      "label": "js-yaml@4",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L50",
-      "_origin": "ast",
-      "id": "package_overrides_js_yaml_4",
-      "community": 2,
-      "community_name": "Community 2",
-      "norm_label": "js-yaml@4"
-    },
-    {
-      "label": "postcss@8",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L51",
-      "_origin": "ast",
-      "id": "package_overrides_postcss_8",
-      "community": 2,
-      "community_name": "Community 2",
-      "norm_label": "postcss@8"
     },
     {
       "label": ".dependency-cruiser.js",
@@ -857,83 +780,6 @@
       "community": 12,
       "community_name": "Community 12",
       "norm_label": "restartpolicymaxretries"
-    },
-    {
-      "label": "audit-gate.mjs",
-      "file_type": "code",
-      "source_file": "scripts/audit-gate.mjs",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "scripts_audit_gate",
-      "community": 63,
-      "community_name": "audit-gate.mjs",
-      "norm_label": "audit-gate.mjs"
-    },
-    {
-      "label": "ALLOWLIST",
-      "file_type": "code",
-      "source_file": "scripts/audit-gate.mjs",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "scripts_audit_gate_allowlist",
-      "community": 63,
-      "community_name": "audit-gate.mjs",
-      "norm_label": "allowlist"
-    },
-    {
-      "label": "fail()",
-      "file_type": "code",
-      "source_file": "scripts/audit-gate.mjs",
-      "source_location": "L32",
-      "_origin": "ast",
-      "id": "scripts_audit_gate_fail",
-      "community": 63,
-      "community_name": "audit-gate.mjs",
-      "norm_label": "fail()"
-    },
-    {
-      "label": "today",
-      "file_type": "code",
-      "source_file": "scripts/audit-gate.mjs",
-      "source_location": "L57",
-      "_origin": "ast",
-      "id": "scripts_audit_gate_today",
-      "community": 63,
-      "community_name": "audit-gate.mjs",
-      "norm_label": "today"
-    },
-    {
-      "label": "active",
-      "file_type": "code",
-      "source_file": "scripts/audit-gate.mjs",
-      "source_location": "L58",
-      "_origin": "ast",
-      "id": "scripts_audit_gate_active",
-      "community": 63,
-      "community_name": "audit-gate.mjs",
-      "norm_label": "active"
-    },
-    {
-      "label": "expired",
-      "file_type": "code",
-      "source_file": "scripts/audit-gate.mjs",
-      "source_location": "L59",
-      "_origin": "ast",
-      "id": "scripts_audit_gate_expired",
-      "community": 63,
-      "community_name": "audit-gate.mjs",
-      "norm_label": "expired"
-    },
-    {
-      "label": "offenders",
-      "file_type": "code",
-      "source_file": "scripts/audit-gate.mjs",
-      "source_location": "L68",
-      "_origin": "ast",
-      "id": "scripts_audit_gate_offenders",
-      "community": 63,
-      "community_name": "audit-gate.mjs",
-      "norm_label": "offenders"
     },
     {
       "label": "check-all.sh",
@@ -1331,8 +1177,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_richtext",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "richtext.tsx"
     },
     {
@@ -1342,8 +1188,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_components_richtext_rendertoken",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "rendertoken()"
     },
     {
@@ -1353,8 +1199,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_components_richtext_richtext",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "richtext()"
     },
     {
@@ -1364,8 +1210,8 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_components_richtext_lines",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "lines()"
     },
     {
@@ -1419,8 +1265,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_usewavereveal",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 14,
+      "community_name": "Community 14",
       "norm_label": "usewavereveal.tsx"
     },
     {
@@ -1430,8 +1276,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_components_usewavereveal_revealpanel",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 14,
+      "community_name": "Community 14",
       "norm_label": "revealpanel"
     },
     {
@@ -1441,8 +1287,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_components_usewavereveal_wavereveal",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 14,
+      "community_name": "Community 14",
       "norm_label": "wavereveal"
     },
     {
@@ -1452,8 +1298,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "src_components_usewavereveal_usewavereveal",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 5,
+      "community_name": "Community 5",
       "norm_label": "usewavereveal()"
     },
     {
@@ -1463,8 +1309,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_content_inline_test",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "inline.test.ts"
     },
     {
@@ -1474,8 +1320,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_content_inline",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "inline.ts"
     },
     {
@@ -1485,8 +1331,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_content_inline_inlinetoken",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "inlinetoken"
     },
     {
@@ -1496,8 +1342,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_content_inline_tokenizeinline",
-      "community": 14,
-      "community_name": "Community 14",
+      "community": 4,
+      "community_name": "Community 4",
       "norm_label": "tokenizeinline()"
     },
     {
@@ -1859,8 +1705,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_data_modes_phases",
-      "community": 5,
-      "community_name": "Community 5",
+      "community": 0,
+      "community_name": "Community 0",
       "norm_label": "phases"
     },
     {
@@ -2332,8 +2178,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_scroll_test",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 14,
+      "community_name": "Community 14",
       "norm_label": "scroll.test.ts"
     },
     {
@@ -2343,8 +2189,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_scroll",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 14,
+      "community_name": "Community 14",
       "norm_label": "scroll.ts"
     },
     {
@@ -2354,8 +2200,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_lib_scroll_wavestate",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 14,
+      "community_name": "Community 14",
       "norm_label": "wavestate"
     },
     {
@@ -2365,8 +2211,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_lib_scroll_clamp01",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 14,
+      "community_name": "Community 14",
       "norm_label": "clamp01()"
     },
     {
@@ -2376,8 +2222,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_lib_scroll_computewavestate",
-      "community": 4,
-      "community_name": "Community 4",
+      "community": 14,
+      "community_name": "Community 14",
       "norm_label": "computewavestate()"
     },
     {
@@ -4369,8 +4215,8 @@
       "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_dependencies",
+      "source": "workspace_wavelength_demo_package_json",
+      "target": "workspace_wavelength_demo_package_dependencies",
       "confidence_score": 1.0
     },
     {
@@ -4380,8 +4226,8 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_description",
+      "source": "workspace_wavelength_demo_package_json",
+      "target": "workspace_wavelength_demo_package_description",
       "confidence_score": 1.0
     },
     {
@@ -4391,8 +4237,8 @@
       "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_devdependencies",
+      "source": "workspace_wavelength_demo_package_json",
+      "target": "workspace_wavelength_demo_package_devdependencies",
       "confidence_score": 1.0
     },
     {
@@ -4402,8 +4248,8 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_engines",
+      "source": "workspace_wavelength_demo_package_json",
+      "target": "workspace_wavelength_demo_package_engines",
       "confidence_score": 1.0
     },
     {
@@ -4413,19 +4259,8 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_name",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L45",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "package",
-      "target": "package_overrides",
+      "source": "workspace_wavelength_demo_package_json",
+      "target": "workspace_wavelength_demo_package_name",
       "confidence_score": 1.0
     },
     {
@@ -4435,8 +4270,8 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_private",
+      "source": "workspace_wavelength_demo_package_json",
+      "target": "workspace_wavelength_demo_package_private",
       "confidence_score": 1.0
     },
     {
@@ -4446,8 +4281,8 @@
       "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_scripts",
+      "source": "workspace_wavelength_demo_package_json",
+      "target": "workspace_wavelength_demo_package_scripts",
       "confidence_score": 1.0
     },
     {
@@ -4457,8 +4292,8 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_type",
+      "source": "workspace_wavelength_demo_package_json",
+      "target": "workspace_wavelength_demo_package_type",
       "confidence_score": 1.0
     },
     {
@@ -4468,8 +4303,8 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_version",
+      "source": "workspace_wavelength_demo_package_json",
+      "target": "workspace_wavelength_demo_package_version",
       "confidence_score": 1.0
     },
     {
@@ -4479,8 +4314,8 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_engines",
-      "target": "package_engines_node",
+      "source": "workspace_wavelength_demo_package_engines",
+      "target": "workspace_wavelength_demo_package_engines_node",
       "confidence_score": 1.0
     },
     {
@@ -4490,8 +4325,8 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_build",
+      "source": "workspace_wavelength_demo_package_scripts",
+      "target": "workspace_wavelength_demo_package_scripts_build",
       "confidence_score": 1.0
     },
     {
@@ -4501,8 +4336,8 @@
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_dev",
+      "source": "workspace_wavelength_demo_package_scripts",
+      "target": "workspace_wavelength_demo_package_scripts_dev",
       "confidence_score": 1.0
     },
     {
@@ -4512,8 +4347,8 @@
       "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_format",
+      "source": "workspace_wavelength_demo_package_scripts",
+      "target": "workspace_wavelength_demo_package_scripts_format",
       "confidence_score": 1.0
     },
     {
@@ -4523,8 +4358,8 @@
       "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_format_check",
+      "source": "workspace_wavelength_demo_package_scripts",
+      "target": "workspace_wavelength_demo_package_scripts_format_check",
       "confidence_score": 1.0
     },
     {
@@ -4534,8 +4369,8 @@
       "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_lint",
+      "source": "workspace_wavelength_demo_package_scripts",
+      "target": "workspace_wavelength_demo_package_scripts_lint",
       "confidence_score": 1.0
     },
     {
@@ -4545,8 +4380,8 @@
       "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_lint_fix",
+      "source": "workspace_wavelength_demo_package_scripts",
+      "target": "workspace_wavelength_demo_package_scripts_lint_fix",
       "confidence_score": 1.0
     },
     {
@@ -4556,8 +4391,8 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_preview",
+      "source": "workspace_wavelength_demo_package_scripts",
+      "target": "workspace_wavelength_demo_package_scripts_preview",
       "confidence_score": 1.0
     },
     {
@@ -4567,8 +4402,8 @@
       "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_start",
+      "source": "workspace_wavelength_demo_package_scripts",
+      "target": "workspace_wavelength_demo_package_scripts_start",
       "confidence_score": 1.0
     },
     {
@@ -4578,8 +4413,8 @@
       "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_test",
+      "source": "workspace_wavelength_demo_package_scripts",
+      "target": "workspace_wavelength_demo_package_scripts_test",
       "confidence_score": 1.0
     },
     {
@@ -4589,8 +4424,8 @@
       "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_test_coverage",
+      "source": "workspace_wavelength_demo_package_scripts",
+      "target": "workspace_wavelength_demo_package_scripts_test_coverage",
       "confidence_score": 1.0
     },
     {
@@ -4600,8 +4435,8 @@
       "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_type_check",
+      "source": "workspace_wavelength_demo_package_scripts",
+      "target": "workspace_wavelength_demo_package_scripts_type_check",
       "confidence_score": 1.0
     },
     {
@@ -4611,8 +4446,8 @@
       "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_typecheck",
+      "source": "workspace_wavelength_demo_package_scripts",
+      "target": "workspace_wavelength_demo_package_scripts_typecheck",
       "confidence_score": 1.0
     },
     {
@@ -4622,8 +4457,8 @@
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_dependencies",
-      "target": "package_dependencies_react",
+      "source": "workspace_wavelength_demo_package_dependencies",
+      "target": "workspace_wavelength_demo_package_dependencies_react",
       "confidence_score": 1.0
     },
     {
@@ -4633,8 +4468,8 @@
       "source_location": "L26",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_dependencies",
-      "target": "package_dependencies_react_dom",
+      "source": "workspace_wavelength_demo_package_dependencies",
+      "target": "workspace_wavelength_demo_package_dependencies_react_dom",
       "confidence_score": 1.0
     },
     {
@@ -4644,8 +4479,8 @@
       "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_dependencies",
-      "target": "package_dependencies_serve",
+      "source": "workspace_wavelength_demo_package_dependencies",
+      "target": "workspace_wavelength_demo_package_dependencies_serve",
       "confidence_score": 1.0
     },
     {
@@ -4656,7 +4491,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_dependencies_react",
+      "source": "workspace_wavelength_demo_package_dependencies_react",
       "target": "react",
       "confidence_score": 1.0
     },
@@ -4668,7 +4503,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_dependencies_react_dom",
+      "source": "workspace_wavelength_demo_package_dependencies_react_dom",
       "target": "react_dom",
       "confidence_score": 1.0
     },
@@ -4680,7 +4515,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_dependencies_serve",
+      "source": "workspace_wavelength_demo_package_dependencies_serve",
       "target": "serve",
       "confidence_score": 1.0
     },
@@ -4691,8 +4526,8 @@
       "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_eslint",
+      "source": "workspace_wavelength_demo_package_devdependencies",
+      "target": "workspace_wavelength_demo_package_devdependencies_eslint",
       "confidence_score": 1.0
     },
     {
@@ -4702,8 +4537,8 @@
       "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_eslint_plugin_react",
+      "source": "workspace_wavelength_demo_package_devdependencies",
+      "target": "workspace_wavelength_demo_package_devdependencies_eslint_plugin_react",
       "confidence_score": 1.0
     },
     {
@@ -4713,8 +4548,8 @@
       "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_eslint_plugin_react_hooks",
+      "source": "workspace_wavelength_demo_package_devdependencies",
+      "target": "workspace_wavelength_demo_package_devdependencies_eslint_plugin_react_hooks",
       "confidence_score": 1.0
     },
     {
@@ -4724,8 +4559,8 @@
       "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_eslint_plugin_react_refresh",
+      "source": "workspace_wavelength_demo_package_devdependencies",
+      "target": "workspace_wavelength_demo_package_devdependencies_eslint_plugin_react_refresh",
       "confidence_score": 1.0
     },
     {
@@ -4735,8 +4570,8 @@
       "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_prettier",
+      "source": "workspace_wavelength_demo_package_devdependencies",
+      "target": "workspace_wavelength_demo_package_devdependencies_prettier",
       "confidence_score": 1.0
     },
     {
@@ -4746,8 +4581,8 @@
       "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_types_react",
+      "source": "workspace_wavelength_demo_package_devdependencies",
+      "target": "workspace_wavelength_demo_package_devdependencies_types_react",
       "confidence_score": 1.0
     },
     {
@@ -4757,8 +4592,8 @@
       "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_types_react_dom",
+      "source": "workspace_wavelength_demo_package_devdependencies",
+      "target": "workspace_wavelength_demo_package_devdependencies_types_react_dom",
       "confidence_score": 1.0
     },
     {
@@ -4768,8 +4603,8 @@
       "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_typescript",
+      "source": "workspace_wavelength_demo_package_devdependencies",
+      "target": "workspace_wavelength_demo_package_devdependencies_typescript",
       "confidence_score": 1.0
     },
     {
@@ -4779,8 +4614,8 @@
       "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_typescript_eslint_eslint_plugin",
+      "source": "workspace_wavelength_demo_package_devdependencies",
+      "target": "workspace_wavelength_demo_package_devdependencies_typescript_eslint_eslint_plugin",
       "confidence_score": 1.0
     },
     {
@@ -4790,8 +4625,8 @@
       "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_typescript_eslint_parser",
+      "source": "workspace_wavelength_demo_package_devdependencies",
+      "target": "workspace_wavelength_demo_package_devdependencies_typescript_eslint_parser",
       "confidence_score": 1.0
     },
     {
@@ -4801,8 +4636,8 @@
       "source_location": "L42",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_vite",
+      "source": "workspace_wavelength_demo_package_devdependencies",
+      "target": "workspace_wavelength_demo_package_devdependencies_vite",
       "confidence_score": 1.0
     },
     {
@@ -4812,8 +4647,8 @@
       "source_location": "L34",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_vitejs_plugin_react",
+      "source": "workspace_wavelength_demo_package_devdependencies",
+      "target": "workspace_wavelength_demo_package_devdependencies_vitejs_plugin_react",
       "confidence_score": 1.0
     },
     {
@@ -4823,8 +4658,8 @@
       "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_vitest",
+      "source": "workspace_wavelength_demo_package_devdependencies",
+      "target": "workspace_wavelength_demo_package_devdependencies_vitest",
       "confidence_score": 1.0
     },
     {
@@ -4834,8 +4669,8 @@
       "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_vitest_coverage_v8",
+      "source": "workspace_wavelength_demo_package_devdependencies",
+      "target": "workspace_wavelength_demo_package_devdependencies_vitest_coverage_v8",
       "confidence_score": 1.0
     },
     {
@@ -4846,7 +4681,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_devdependencies_types_react",
+      "source": "workspace_wavelength_demo_package_devdependencies_types_react",
       "target": "types_react",
       "confidence_score": 1.0
     },
@@ -4858,7 +4693,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_devdependencies_types_react_dom",
+      "source": "workspace_wavelength_demo_package_devdependencies_types_react_dom",
       "target": "types_react_dom",
       "confidence_score": 1.0
     },
@@ -4870,7 +4705,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_devdependencies_typescript_eslint_eslint_plugin",
+      "source": "workspace_wavelength_demo_package_devdependencies_typescript_eslint_eslint_plugin",
       "target": "typescript_eslint_eslint_plugin",
       "confidence_score": 1.0
     },
@@ -4882,7 +4717,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_devdependencies_typescript_eslint_parser",
+      "source": "workspace_wavelength_demo_package_devdependencies_typescript_eslint_parser",
       "target": "typescript_eslint_parser",
       "confidence_score": 1.0
     },
@@ -4894,7 +4729,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_devdependencies_vitejs_plugin_react",
+      "source": "workspace_wavelength_demo_package_devdependencies_vitejs_plugin_react",
       "target": "vitejs_plugin_react",
       "confidence_score": 1.0
     },
@@ -4906,7 +4741,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_devdependencies_vitest_coverage_v8",
+      "source": "workspace_wavelength_demo_package_devdependencies_vitest_coverage_v8",
       "target": "vitest_coverage_v8",
       "confidence_score": 1.0
     },
@@ -4918,7 +4753,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_devdependencies_eslint",
+      "source": "workspace_wavelength_demo_package_devdependencies_eslint",
       "target": "eslint",
       "confidence_score": 1.0
     },
@@ -4930,7 +4765,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_devdependencies_eslint_plugin_react",
+      "source": "workspace_wavelength_demo_package_devdependencies_eslint_plugin_react",
       "target": "eslint_plugin_react",
       "confidence_score": 1.0
     },
@@ -4942,7 +4777,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_devdependencies_eslint_plugin_react_hooks",
+      "source": "workspace_wavelength_demo_package_devdependencies_eslint_plugin_react_hooks",
       "target": "eslint_plugin_react_hooks",
       "confidence_score": 1.0
     },
@@ -4954,7 +4789,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_devdependencies_eslint_plugin_react_refresh",
+      "source": "workspace_wavelength_demo_package_devdependencies_eslint_plugin_react_refresh",
       "target": "eslint_plugin_react_refresh",
       "confidence_score": 1.0
     },
@@ -4966,7 +4801,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_devdependencies_prettier",
+      "source": "workspace_wavelength_demo_package_devdependencies_prettier",
       "target": "prettier",
       "confidence_score": 1.0
     },
@@ -4978,7 +4813,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_devdependencies_typescript",
+      "source": "workspace_wavelength_demo_package_devdependencies_typescript",
       "target": "typescript",
       "confidence_score": 1.0
     },
@@ -4990,7 +4825,7 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_devdependencies_vite",
+      "source": "workspace_wavelength_demo_package_devdependencies_vite",
       "target": "vite",
       "confidence_score": 1.0
     },
@@ -5002,74 +4837,8 @@
       "weight": 1.0,
       "context": "import",
       "_origin": "ast",
-      "source": "package_devdependencies_vitest",
+      "source": "workspace_wavelength_demo_package_devdependencies_vitest",
       "target": "vitest",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L46",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "package_overrides",
-      "target": "package_overrides_brace_expansion_1",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L47",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "package_overrides",
-      "target": "package_overrides_brace_expansion_2",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L48",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "package_overrides",
-      "target": "package_overrides_brace_expansion_5",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L49",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "package_overrides",
-      "target": "package_overrides_fast_uri_3",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L50",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "package_overrides",
-      "target": "package_overrides_js_yaml_4",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
-      "source_location": "L51",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "package_overrides",
-      "target": "package_overrides_postcss_8",
       "confidence_score": 1.0
     },
     {
@@ -5169,72 +4938,6 @@
       "_origin": "ast",
       "source": "workspace_wavelength_demo_railway_deploy",
       "target": "workspace_wavelength_demo_railway_deploy_startcommand",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/audit-gate.mjs",
-      "source_location": "L58",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "scripts_audit_gate",
-      "target": "scripts_audit_gate_active",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/audit-gate.mjs",
-      "source_location": "L14",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "scripts_audit_gate",
-      "target": "scripts_audit_gate_allowlist",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/audit-gate.mjs",
-      "source_location": "L59",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "scripts_audit_gate",
-      "target": "scripts_audit_gate_expired",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/audit-gate.mjs",
-      "source_location": "L32",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "scripts_audit_gate",
-      "target": "scripts_audit_gate_fail",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/audit-gate.mjs",
-      "source_location": "L68",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "scripts_audit_gate",
-      "target": "scripts_audit_gate_offenders",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/audit-gate.mjs",
-      "source_location": "L57",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "scripts_audit_gate",
-      "target": "scripts_audit_gate_today",
       "confidence_score": 1.0
     },
     {
@@ -9833,5 +9536,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0ec970786607ffa6bcf3b2078bf76a994f02ef6b"
+  "built_at_commit": "f5a846e4ed44d9deb4b255fb6b67498ae3fd39a3"
 }
