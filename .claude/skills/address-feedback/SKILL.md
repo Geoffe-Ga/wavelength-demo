@@ -17,7 +17,7 @@ description: >-
   issue/branch/PR creation (use git-workflow).
 metadata:
   author: Geoff
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Address Feedback
@@ -114,7 +114,13 @@ For each item, after the fix lands locally:
 
 ### Step 5: Push Once and Watch CI
 
-Push the branch (single push, not one per fix). Optionally `mcp__github__subscribe_pr_activity` so review and CI events surface here. If CI fails, switch to `ci-debugging`; otherwise wait for the new Claude verdict comment.
+Push the branch (single push, not one per fix). Then wait for the next verdict in a platform-aware way — which mechanism depends on whether the webhook MCP tool exists in this session:
+
+- **Remote/mobile session** (`mcp__github__subscribe_pr_activity` available): subscribe so review comments and CI failures surface here as `<github-webhook-activity>` events, then end the turn — the bot's verdict comment wakes the session.
+- **Local terminal session** (tool absent — no webhook events ever arrive): arm **background** watchers with `run_in_background: true`; a background task's exit re-invokes the session. Launch `gh pr checks <N> --watch` (exits when all checks complete) plus a poll loop that checks every ~30s (`gh pr view <N> --comments` or `gh api repos/<owner>/<repo>/issues/<N>/comments`) and exits the moment a top-level comment ending in a `Verdict:` line posted after the current HEAD appears. These `gh` calls are the wake mechanism only — parsing still goes through the MCP tools per Step 1.
+- **Never** foreground `sleep`, and never run `--watch` in the foreground — both wedge the session until a long fallback timer instead of waking on the state change.
+
+Either wake path lands in the same place: re-run Step 1 against the fresh comment. If CI fails, switch to `ci-debugging`; otherwise proceed on the new Claude verdict comment.
 
 ### Step 6: Merge Gate — All Must Hold
 
